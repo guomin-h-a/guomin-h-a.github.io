@@ -6,22 +6,42 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>艰辛的hexo之路：gitalk评论插件踩过的坑 | 龙猫芭蕉的博客</title>
+  <title>sql简单语句整理 | 龙猫芭蕉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="喜大普奔普天同庆热泪盈眶！在成功的那一瞬间我简直就要哭出来了，对于一个小白来说，这一切都太不容易了，真的真的太不容易了。之前还试过捣鼓来必力，也是一步步按照网上的流程来的，但是就是不行。真的感慨hexo就是一门玄学，没有知识的加持，运气什么的是不存在的……">
+  <meta name="description" content="登录mysql：net start mysqlmysql -u root -pEnter password: ****">
 <meta property="og:type" content="article">
-<meta property="og:title" content="艰辛的hexo之路：gitalk评论插件踩过的坑">
-<meta property="og:url" content="http://yoursite.com/2019/12/11/gitalk/index.html">
+<meta property="og:title" content="sql简单语句整理">
+<meta property="og:url" content="http://yoursite.com/2020/02/12/sql/index.html">
 <meta property="og:site_name" content="龙猫芭蕉的博客">
-<meta property="og:description" content="喜大普奔普天同庆热泪盈眶！在成功的那一瞬间我简直就要哭出来了，对于一个小白来说，这一切都太不容易了，真的真的太不容易了。之前还试过捣鼓来必力，也是一步步按照网上的流程来的，但是就是不行。真的感慨hexo就是一门玄学，没有知识的加持，运气什么的是不存在的……">
-<meta property="og:image" content="http://yoursite.com/2019/12/11/gitalk/p1.jpg">
-<meta property="article:published_time" content="2019-12-11T08:04:18.000Z">
-<meta property="article:modified_time" content="2020-02-28T11:24:29.962Z">
+<meta property="og:description" content="登录mysql：net start mysqlmysql -u root -pEnter password: ****">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p1.png?40">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p2.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p3.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p4.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p5.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p6.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p7.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p8.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p9.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p10.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p11.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p12.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p13.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p14.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p15.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p16.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p17.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p18.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p19.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p20.png?50">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/sql/p21.png?50">
+<meta property="article:published_time" content="2020-02-12T02:50:29.000Z">
+<meta property="article:modified_time" content="2020-02-29T05:12:11.021Z">
 <meta property="article:author" content="龙猫芭蕉">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="SQL">
+<meta property="article:tag" content="数据分析">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2019/12/11/gitalk/p1.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/12/sql/p1.png?40">
   
     <link rel="alternative" href="/atom.xml" title="龙猫芭蕉的博客" type="application/atom+xml">
   
@@ -166,20 +186,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-gitalk" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-sql" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      艰辛的hexo之路：gitalk评论插件踩过的坑
+      sql简单语句整理
     </h1>
   
 
         
-        <a href="/2019/12/11/gitalk/" class="archive-article-date">
-  	<time datetime="2019-12-11T08:04:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-11</time>
+        <a href="/2020/02/12/sql/" class="archive-article-date">
+  	<time datetime="2020-02-12T02:50:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
 </a>
         
           <div style="margin-top:10px;">
@@ -187,7 +207,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">621字</span>
+        <span class="post-count">1.9k字</span>
       </span>
     </span>
 
@@ -196,7 +216,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">8分</span>
       </span>
     </span>
 </div>
@@ -206,17 +226,55 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>喜大普奔普天同庆热泪盈眶！<br>在成功的那一瞬间我简直就要哭出来了，对于一个小白来说，这一切都太不容易了，真的真的太不容易了。之前还试过捣鼓来必力，也是一步步按照网上的流程来的，但是就是不行。真的感慨hexo就是一门玄学，没有知识的加持，运气什么的是不存在的……</p>
+        <p>登录mysql：<br>net start mysql<br>mysql -u root -p<br>Enter password: <strong>****</strong></p>
 <a id="more"></a>
-<p>好了言归正传，下面简单描述一下gitalk评论插件的配置过程，其实主要是参考<a href="https://segmentfault.com/a/1190000020260103?utm_source=tag-newest" target="_blank" rel="noopener">这位大佬</a>的方法：</p>
-<blockquote>
-<p>首先是OAuth application注册，得到Client ID和Client Secret，然后就是配置文件，包括：<br>yilia主题下的_config.yml文件，<br>yilia主题下的layout–&gt;_partial–&gt;post目录下新增gitalk.ejs文件，<br>修改yilia主题下source-src–&gt;css目录下comment.scss文件<br>在layout–&gt;_partial目录下的article.ejs`文件内新增gitalk相关的配置代码</p>
-</blockquote>
-<p>这样按照流程走下来基本没错的，但是这里有个bug，就是【使用GitHub登录】跳转页面找不到，404了（这里没有截图反正就是404了）。<br><img src="/2019/12/11/gitalk/p1.jpg" alt></p>
-<p>后来找了很多的办法帖子，不但没有解决，还引申出另外一个问题——Error：not found。这个问题怎么解决我至今没弄明白，网上的方法都试过了，什么新建仓库啊巴拉巴拉，都不行。可能别人真的可以，但我真的不行也不知道是什么原因。</p>
-<p>后来看到<a href="https://zhwangart.github.io/2018/12/06/Gitalk/" target="_blank" rel="noopener">另一位大佬</a>有说404页面是“就很有可能是 Client ID 与 Client Secret 的参数没传过来”，要检查 ClientID（注意 Client 首字母大小写） 与 ClientSecret 这两个字段是否与 config.yml 中的一致。</p>
-<p>我想着既然第一个方法只是404找不到页面，何不按照第一个方法做下来，再把404 的问题改过来就行？而且我一看我原来的主题配置文件_config.yml下面是client_id和client_secret的写法。于是我按照第一个方法做下来，把它们改为ClientID和ClientSecret后，真的就可以了！</p>
-<p>总之的总之，捣鼓hexo就是我的血泪之路，对电脑程序没学过又真的没有天分，但是遇到bug不解决又茶饭不思夜不能寐（似乎有点理解程序员们的秃头烦恼了…），幸好最后解决了，现在我终于可以安心下来好好复习准备期末考了=.=</p>
+<p>本笔记基于Ben Forta的《SQL必知必会》</p>
+<p>SQL不区分大小写哦！</p>
+<h2 id="1-数据库准备"><a href="#1-数据库准备" class="headerlink" title="1 数据库准备"></a>1 数据库准备</h2><p>创建数据库：<strong>create database example;</strong><br>显示数据库中的数据表：<strong>use example;</strong><br>查看数据库中的表：<strong>show tables；</strong><br>其实最开始是Empty set (0.10 sec)的，因为什么都没有。<br>然后把Ben Forta的提供得例子，直接复制黏贴就得到下面5个表格了：<br><img src="/2020/02/12/sql/p1.png?40" alt></p>
+<p>查看表结构：<strong>desc table_name;</strong><br><img src="/2020/02/12/sql/p2.png?50" alt></p>
+<h2 id="2-检索数据"><a href="#2-检索数据" class="headerlink" title="2 检索数据"></a>2 检索数据</h2><p><strong>SELECT语句</strong><br>检索单个列：<code>SELECT prod_name FROM Products;</code><br><img src="/2020/02/12/sql/p3.png?50" alt></p>
+<p>检索多个列：<code>SELECT prod_id, prod_name, prod_price FROM Products;</code><br><img src="/2020/02/12/sql/p4.png?50" alt></p>
+<p>检索所有列：SELECT * FROM Products;</p>
+<p>检索某一列中不同的（唯一的）值：<strong>DISTINCT关键字</strong><br>如：<code>SELECT DISTINCT vend_id FROM Products;</code><br><img src="/2020/02/12/sql/p5.png?50" alt></p>
+<p>如果只选择检索部分的行（注意：这里的语句和其他数据库不一样）:<br>如返回prod_name列的前5行数据：<code>SELECT prod_name FROM Products LIMIT 5;</code><br>返回prod_name列的从第4行起的5行数据：<code>SELECT prod_name FROM Products LIMIT 5 OFFSET 4;</code><br>注：第一个被检索的是第0行，所以这里的第4行是实际的第5行。</p>
+<h2 id="3-排序检索数据"><a href="#3-排序检索数据" class="headerlink" title="3 排序检索数据"></a>3 排序检索数据</h2><p>排序：<strong>ORDER BY 子句</strong>（要确保是SELECT语句的最后一个子句）<br>如：<code>SELECT prod_name FROM Products ORDER BY prod_name;</code><br>降序排序用<strong>DESC关键字</strong>。<br>如：<code>SELECT prod_id, prod_price, prod_name FROM Products ORDER BY prod_price DESC;</code><br>如果想对多个列进行降序排序，就需要对每一列指定关键字DESC。</p>
+<h2 id="4-过滤数据"><a href="#4-过滤数据" class="headerlink" title="4 过滤数据"></a>4 过滤数据</h2><p><strong>WHERE 子句</strong><br>如：<code>SELECT prod_name, prod_price FROM Products WHERE prod_price = 3.49;</code><br><img src="/2020/02/12/sql/p6.png?50" alt><br>检查某个范围的值：<strong>BETWEEN 操作符</strong>，指定两个值，范围的低端值和高端值，用<strong>关键字AND</strong>分隔。<br>如：<code>SELECT prod_name, prod_price FROM Products WHERE prod_price BETWEEN 5 AND 10;</code><br>空值检查：<strong>IS NULL 子句</strong>，<br>如：<code>SELECT prod_name FROM Products WHERE prod_price IS NULL;</code></p>
+<h2 id="5-高级数据过滤"><a href="#5-高级数据过滤" class="headerlink" title="5 高级数据过滤"></a>5 高级数据过滤</h2><p><strong>组合WHERE子句：AND或OR操作符</strong><br>OR只匹配任一条件即可<br>AND 在求值过程中优先级更高<br>可使用圆括号对操作符进行明确的分组，圆括号具有更高的求值顺序。</p>
+<p><strong>IN 操作符</strong>：取一组由逗号分隔、括在圆括号中的合法值。<br>如：<code>SELECT prod_name, prod_price FROM Products WHERE vend_id IN ( &#39;DLL01&#39;, &#39;BRS01&#39; ) ORDER BY prod_name;</code></p>
+<p><strong>NOT 操作符</strong>：否定其后跟的任何条件</p>
+<h2 id="6-用通配符进行过滤"><a href="#6-用通配符进行过滤" class="headerlink" title="6 用通配符进行过滤"></a>6 用通配符进行过滤</h2><p><strong>LIKE 操作符</strong>：指示后面的搜索模式利用通配符匹配而不是简单的相等匹配。<br><strong>1）百分号（%）通配符</strong><br>如：<code>SELECT prod_id, prod_name FROM Products WHERE prod_name LIKE &#39;Fish%&#39;;</code><br>检索任意以Fish开头的词，%指接受Fish后的任意字符。（此处区分大小写）<br><img src="/2020/02/12/sql/p7.png?50" alt><br>还可以’%bean bag%’，’F%y’。</p>
+<p><strong>2）下划线（_）通配符：</strong>只匹配单个字符<br>如：<code>SELECT prod_id, prod_name FROM Products WHERE prod_name LIKE &#39;__ inch teddy bear&#39;;</code></p>
+<p><strong>3）方括号（[]）通配符：</strong>指定一个字符集，必须匹配指定位置的一个字符。</p>
+<h2 id="7-创建计算字段"><a href="#7-创建计算字段" class="headerlink" title="7 创建计算字段"></a>7 创建计算字段</h2><p>字段：与列的意思相同<br>拼接字段：各个数据库上的命令不同，MySQL中要用到具体的函数，<br>如：<code>SELECT Concat(vend_name, &#39; (&#39;, vend_country, &#39;)&#39;) AS vend_title FROM Vendors ORDER BY vend_name;</code><br><img src="/2020/02/12/sql/p8.png?50" alt></p>
+<p>使用别名：别名（有时也叫导出列）是一个字段或值的替换名。如上面的as vend_title<br>执行算数计算：<br>如：<code>SELECT prod_id,quantity,item_price,quantity*item_price AS expanded_price FROM OrderItems WHERE order_num = 20008;</code></p>
+<h2 id="8-使用数据处理函数"><a href="#8-使用数据处理函数" class="headerlink" title="8 使用数据处理函数"></a>8 使用数据处理函数</h2><p><strong>UPPER()函数：</strong>将文本转换为大写<br>如：<code>SELECT vend_name, UPPER(vend_name) AS vend_name_upcase FROM Vendors
+ORDER BY vend_name;</code><br><img src="/2020/02/12/sql/p9.png?50" alt><br><img src="/2020/02/12/sql/p10.png?50" alt><br><strong>SOUNDEX()</strong>对字符串进行发音比较，<br>如：<code>SELECT cust_name, cust_contact FROM Customers WHERE SOUNDEX(cust_contact) = SOUNDEX(&#39;Michael Green&#39;);</code><br>日期处理函数：各个数据库的命令不同，MySQL中YEAR()函数提取年份，<br>如：<code>SELECT order_num FROM Orders WHERE YEAR(order_date) = 2012;</code></p>
+<h2 id="9-汇总数据"><a href="#9-汇总数据" class="headerlink" title="9 汇总数据"></a>9 汇总数据</h2><p><img src="/2020/02/12/sql/p11.png?50" alt><br><strong>COUNT()函数：</strong>如果指定列名，会忽略指定列的值为空的行；如果不指定列，用（*），则不忽略。</p>
+<h2 id="10-分组数据"><a href="#10-分组数据" class="headerlink" title="10 分组数据"></a>10 分组数据</h2><p><strong>创建分组：GROUP BY()</strong>，<br>如：<code>SELECT vend_id, COUNT(*) AS num_prods FROM Products GROUP BY vend_id;</code><br><img src="/2020/02/12/sql/p12.png?50" alt></p>
+<p>GROUP BY 子句必须出现在WHERE 子句之后， ORDER BY 子句之前。</p>
+<p><strong>过滤分组：HAVING 子句</strong>（与WHERE相似，但WHERE过滤行，HAVING 过滤分组；WHERE在数据分组之前进行过滤，HAVING在数据分组之后过滤）</p>
+<p>使用HAVING 子句应该结合GROUP BY 子句。<br>如：<code>SELECT cust_id, COUNT(*) AS orders FROM Orders GROUP BY cust_id HAVING COUNT(*) &gt;= 2;</code>（过滤了两个订单以上的分组）<br>如：<code>SELECT vend_id, COUNT(*) AS num_prods FROM Products WHERE prod_price &gt;= 4 GROUP BY vend_id HAVING COUNT(*) &gt;= 2;</code>（列出具有2个以上订单产品且价格大于等于4的供应商）<br><img src="/2020/02/12/sql/p13.png?50" alt></p>
+<h2 id="11-联结表"><a href="#11-联结表" class="headerlink" title="11 联结表"></a>11 联结表</h2><p><strong>联结：要保证所有联结都有WHERE子句。</strong><br>如建立联结:<code>SELECT vend_name, prod_name, prod_price FROM Vendors, Products WHERE Vendors.vend_id = Products.vend_id;</code></p>
+<p>等值联结，也叫内联结<br>上面的语句也可以表示为：<code>SELECT vend_name, prod_name, prod_price FROM Vendors INNER JOIN Products ON Vendors.vend_id = Products.vend_id;</code></p>
+<p>联结多个表：<br><img src="/2020/02/12/sql/p14.png?50" alt></p>
+<h2 id="12-创建高级联结"><a href="#12-创建高级联结" class="headerlink" title="12 创建高级联结"></a>12 创建高级联结</h2><p><strong>自联结：用同一个表进行两次检索（自己总结的）</strong><br><img src="/2020/02/12/sql/p15.png?50" alt></p>
+<p><strong>外联结：如检索包括没有订单顾客在内的所有顾客</strong><br>如：<code>SELECT Customers.cust_id, Orders.order_num FROM Customers LEFT OUTER JOIN Orders ON Customers.cust_id = Orders.cust_id;</code><br>RIGHT或LEFT关键字指定其包括所有行的表（此处是CUSTOMERS表）</p>
+<p>与内联结的区别：<br><img src="/2020/02/12/sql/p16.png?50" alt></p>
+<h2 id="13-组合查询"><a href="#13-组合查询" class="headerlink" title="13 组合查询"></a>13 组合查询</h2><p><strong>UNION 操作符：组合数条SQL查询</strong><br><img src="/2020/02/12/sql/p17.png?50" alt></p>
+<p>此处相当于将两条SELECT语句的结果组合为一个查询结果集。<br>其结果与下面语句的结果一样：<code>SELECT cust_name, cust_contact, cust_email FROM Customers WHERE cust_state IN (&#39;IL&#39;,&#39;IN&#39;,&#39;MI&#39;) OR cust_name = &#39;Fun4All&#39;;</code><br>注意：UNION中的每个查询必须包含相同的列、表达式或聚集函数</p>
+<p><strong>UNION ALL返回所有匹配的行（不删掉重复的行）</strong><br>进行排序时只能使用一次ORDER BY子句。位于最后一个SELECT子句的后面<br><img src="/2020/02/12/sql/p18.png?50" alt></p>
+<h2 id="14-插入数据"><a href="#14-插入数据" class="headerlink" title="14 插入数据"></a>14 插入数据</h2><p><strong>INSERT语句：INSERT INTO 表格名（列名）+ VALUES（）</strong><br><img src="/2020/02/12/sql/p19.png?50" alt></p>
+<p>按照给出的列名的次序进行填充，而不管原先表格的次序如何。<br>还可以省略列，即只给某些列提供值。<br>注意：不要使用没有明确给出列的INSERT语句。</p>
+<p><strong>INSERT SELECT 语句：从一个表检索出相应的列插入到另一个表中（导出数据）</strong><br><strong>SELECT INTO语句：复制表格（导入数据）（MySQL的语句不同）</strong><br>如：<code>CREATE TABLE CustCopy AS SELECT * FROM Customers;</code></p>
+<h2 id="15-更新和删除数据"><a href="#15-更新和删除数据" class="headerlink" title="15 更新和删除数据"></a>15 更新和删除数据</h2><p><strong>更新数据：UPDATE</strong>（总是以更新的表名开始）<br>如：<code>UPDATE Customers SETECT cust_contact = &#39;Sam Roberts&#39;, cust_email = &#39;sam@toyland.com&#39; WHERE cust_id = &#39;1000000006&#39;;</code><br>（不要忘了WHERE子句，避免更新所有行）</p>
+<p>删除某个列的值：<br>如：<code>UPDATE Customers SETECT cust_email = NULL WHERE cust_id = &#39;1000000005&#39;;</code><br>删除行：DELETE<br>如：<code>DELETE FROM Customers WHERE cust_id = &#39;1000000006&#39;;</code><br>删除所有行：TRUNCATE TABLE</p>
+<h2 id="16-创建和操纵表"><a href="#16-创建和操纵表" class="headerlink" title="16 创建和操纵表"></a>16 创建和操纵表</h2><p><strong>创建表：CREATE TABLE</strong><br><img src="/2020/02/12/sql/p20.png?50" alt></p>
+<p>NOT NULL 是定义必须需要的内容<br><strong>指定默认值：DEFAULT关键字</strong>，默认值经常用于日期或时间戳列。<br><img src="/2020/02/12/sql/p21.png?50" alt><br><strong>更新表（列）：ALTER TABLE</strong><br>如：<code>ALTER TABLE Vendors ADD vend_phone CHAR(20);</code><br>如：<code>ALTER TABLE Vendors DROP COLUMN vend_phone;</code><br><strong>删除表：DROP TABLE + 表名</strong></p>
+<h2 id="17-使用视图"><a href="#17-使用视图" class="headerlink" title="17 使用视图"></a>17 使用视图</h2><p>视图是虚拟的表，包含的不是数据而是根据需要检索数据的查询。它提供了一种封装SELECT语句的层次，可用来简化数据处理，重新格式化和保护基础数据。<br><strong>创建视图：CREATE VIEW</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE VIEW ProductCustomers AS</span><br><span class="line">SELECT cust_name, cust_contact, prod_id</span><br><span class="line">FROM Customers, Orders, OrderItems</span><br><span class="line">WHERE Customers.cust_id &#x3D; Orders.cust_id</span><br><span class="line">AND OrderItems.order_num &#x3D; Orders.order_num;</span><br></pre></td></tr></table></figure>
+<h2 id="18-管理事务"><a href="#18-管理事务" class="headerlink" title="18 管理事务"></a>18 管理事务</h2><p>事务：指一组SQL语句<br>控制事务处理：START TRANSACTION</p>
+<h2 id="19-使用游标"><a href="#19-使用游标" class="headerlink" title="19 使用游标"></a>19 使用游标</h2><p>游标：是一个存储在DBMS服务器上的数据库查询，不是一条SELECT语句，而是被该语句检索出来的结果集。<br><strong>创建游标：DECLARE语句</strong>，<br>如：<code>DECLARE CustCursor CURSOR FOR SELECT * FROM Customers WHERE cust_email IS NULL</code><br>打开游标：OPEN CURSOR<br>访问游标数据：FETCH<br>关闭游标：</p>
+<h2 id="20-高级SQL特性"><a href="#20-高级SQL特性" class="headerlink" title="20 高级SQL特性"></a>20 高级SQL特性</h2><p>主键：PRIMARY KEY关键字<br>外键：REFERENCES关键字<br>创建索引：CREATE INDEX，<br>如：<code>CREATE INDEX prod_name_ind ON Products (prod_name);</code></p>
 
       
 
@@ -256,11 +314,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据分析</a>
         		</li>
       		
 		</ul>
@@ -316,7 +374,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/11/gitalk/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/12/sql/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -330,15 +388,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/12/20/light/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          光影碎片
-        
-      </div>
-    </a>
   
+    <a href="/2020/02/08/want-to-see-you/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">想见你</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 

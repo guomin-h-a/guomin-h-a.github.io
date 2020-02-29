@@ -6,22 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>艰辛的hexo之路：gitalk评论插件踩过的坑 | 龙猫芭蕉的博客</title>
+  <title>Tag: SQL | 龙猫芭蕉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="喜大普奔普天同庆热泪盈眶！在成功的那一瞬间我简直就要哭出来了，对于一个小白来说，这一切都太不容易了，真的真的太不容易了。之前还试过捣鼓来必力，也是一步步按照网上的流程来的，但是就是不行。真的感慨hexo就是一门玄学，没有知识的加持，运气什么的是不存在的……">
-<meta property="og:type" content="article">
-<meta property="og:title" content="艰辛的hexo之路：gitalk评论插件踩过的坑">
-<meta property="og:url" content="http://yoursite.com/2019/12/11/gitalk/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="龙猫芭蕉的博客">
+<meta property="og:url" content="http://yoursite.com/tags/SQL/index.html">
 <meta property="og:site_name" content="龙猫芭蕉的博客">
-<meta property="og:description" content="喜大普奔普天同庆热泪盈眶！在成功的那一瞬间我简直就要哭出来了，对于一个小白来说，这一切都太不容易了，真的真的太不容易了。之前还试过捣鼓来必力，也是一步步按照网上的流程来的，但是就是不行。真的感慨hexo就是一门玄学，没有知识的加持，运气什么的是不存在的……">
-<meta property="og:image" content="http://yoursite.com/2019/12/11/gitalk/p1.jpg">
-<meta property="article:published_time" content="2019-12-11T08:04:18.000Z">
-<meta property="article:modified_time" content="2020-02-28T11:24:29.962Z">
 <meta property="article:author" content="龙猫芭蕉">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="随笔">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2019/12/11/gitalk/p1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="龙猫芭蕉的博客" type="application/atom+xml">
   
@@ -166,232 +158,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-gitalk" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      艰辛的hexo之路：gitalk评论插件踩过的坑
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/02/12/sql/" class="archive-article-date">
+  	<time datetime="2020-02-12T02:50:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/02/12/sql/">sql简单语句整理</a>
     </h1>
   
 
-        
-        <a href="/2019/12/11/gitalk/" class="archive-article-date">
-  	<time datetime="2019-12-11T08:04:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-11</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">621字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
-      </span>
-    </span>
-</div>
+        <div class="article-info info-on-right">
           
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>喜大普奔普天同庆热泪盈眶！<br>在成功的那一瞬间我简直就要哭出来了，对于一个小白来说，这一切都太不容易了，真的真的太不容易了。之前还试过捣鼓来必力，也是一步步按照网上的流程来的，但是就是不行。真的感慨hexo就是一门玄学，没有知识的加持，运气什么的是不存在的……</p>
-<a id="more"></a>
-<p>好了言归正传，下面简单描述一下gitalk评论插件的配置过程，其实主要是参考<a href="https://segmentfault.com/a/1190000020260103?utm_source=tag-newest" target="_blank" rel="noopener">这位大佬</a>的方法：</p>
-<blockquote>
-<p>首先是OAuth application注册，得到Client ID和Client Secret，然后就是配置文件，包括：<br>yilia主题下的_config.yml文件，<br>yilia主题下的layout–&gt;_partial–&gt;post目录下新增gitalk.ejs文件，<br>修改yilia主题下source-src–&gt;css目录下comment.scss文件<br>在layout–&gt;_partial目录下的article.ejs`文件内新增gitalk相关的配置代码</p>
-</blockquote>
-<p>这样按照流程走下来基本没错的，但是这里有个bug，就是【使用GitHub登录】跳转页面找不到，404了（这里没有截图反正就是404了）。<br><img src="/2019/12/11/gitalk/p1.jpg" alt></p>
-<p>后来找了很多的办法帖子，不但没有解决，还引申出另外一个问题——Error：not found。这个问题怎么解决我至今没弄明白，网上的方法都试过了，什么新建仓库啊巴拉巴拉，都不行。可能别人真的可以，但我真的不行也不知道是什么原因。</p>
-<p>后来看到<a href="https://zhwangart.github.io/2018/12/06/Gitalk/" target="_blank" rel="noopener">另一位大佬</a>有说404页面是“就很有可能是 Client ID 与 Client Secret 的参数没传过来”，要检查 ClientID（注意 Client 首字母大小写） 与 ClientSecret 这两个字段是否与 config.yml 中的一致。</p>
-<p>我想着既然第一个方法只是404找不到页面，何不按照第一个方法做下来，再把404 的问题改过来就行？而且我一看我原来的主题配置文件_config.yml下面是client_id和client_secret的写法。于是我按照第一个方法做下来，把它们改为ClientID和ClientSecret后，真的就可以了！</p>
-<p>总之的总之，捣鼓hexo就是我的血泪之路，对电脑程序没学过又真的没有天分，但是遇到bug不解决又茶饭不思夜不能寐（似乎有点理解程序员们的秃头烦恼了…），幸好最后解决了，现在我终于可以安心下来好好复习准备期末考了=.=</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/weixin.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据分析</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/11/gitalk/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/12/20/light/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          光影碎片
-        
-      </div>
-    </a>
   
   
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-       <div id="gitalk-container"></div>
-       <div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
-
-<script>
-var gitalk = new Gitalk({
-  clientID: '32f8aebec08d23898444',
-  clientSecret: '9e49adc1f1d65e2e665e39cc84c6bbec32227d67',
-  repo: 'guomin-h-a.github.io',
-  owner: 'guomin-h-a',
-  admin: ['guomin-h-a'],
-  id: md5(window.location.pathname),
-  distractionFreeMode: true
-})
-
-gitalk.render('gitalk-container')
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -414,9 +238,9 @@ gitalk.render('gitalk-container')
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
