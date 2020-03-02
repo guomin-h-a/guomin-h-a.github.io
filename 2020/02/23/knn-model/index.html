@@ -6,14 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>龙猫芭蕉的博客</title>
+  <title>KNN模型 | 龙猫芭蕉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="龙猫芭蕉的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="KNN，也叫K最近邻算法，它属于“惰性”学习算法，即不会预先生成一个分类或预测模型用于新样本的预测，而是将模型的构建与未知数据的预测同时进行，其核心思想是比较已知y值的样本与未知y值样本的相似度，然后寻找最相似的k个样本用作未知样本的预测。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KNN模型">
+<meta property="og:url" content="http://yoursite.com/2020/02/23/knn-model/index.html">
 <meta property="og:site_name" content="龙猫芭蕉的博客">
+<meta property="og:description" content="KNN，也叫K最近邻算法，它属于“惰性”学习算法，即不会预先生成一个分类或预测模型用于新样本的预测，而是将模型的构建与未知数据的预测同时进行，其核心思想是比较已知y值的样本与未知y值样本的相似度，然后寻找最相似的k个样本用作未知样本的预测。">
+<meta property="og:image" content="http://yoursite.com/2020/02/23/knn-model/p1.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/23/knn-model/p2.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/23/knn-model/p3.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/23/knn-model/p4.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/23/knn-model/p5.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/23/knn-model/p6.png">
+<meta property="article:published_time" content="2020-02-22T23:57:01.000Z">
+<meta property="article:modified_time" content="2020-03-02T05:08:49.423Z">
 <meta property="article:author" content="龙猫芭蕉">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="数据分析与挖掘">
+<meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/23/knn-model/p1.png">
   
     <link rel="alternative" href="/atom.xml" title="龙猫芭蕉的博客" type="application/atom+xml">
   
@@ -157,16 +171,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-knn-model" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-knn-model" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/23/knn-model/">KNN模型</a>
+    <h1 class="article-title" itemprop="name">
+      KNN模型
     </h1>
   
 
@@ -199,12 +211,69 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>KNN，也叫K最近邻算法，它属于“惰性”学习算法，即不会预先生成一个分类或预测模型用于新样本的预测，而是将模型的构建与未知数据的预测同时进行，其核心思想是比较已知y值的样本与未知y值样本的相似度，然后寻找最相似的k个样本用作未知样本的预测。<br></p>
-        
-          <a class="article-more-a" href="/2020/02/23/knn-model/#more">more >></a>
-        
+        <p>KNN，也叫K最近邻算法，它属于“惰性”学习算法，即不会预先生成一个分类或预测模型用于新样本的预测，而是将模型的构建与未知数据的预测同时进行，其核心思想是比较已知y值的样本与未知y值样本的相似度，然后寻找最相似的k个样本用作未知样本的预测。<br><a id="more"></a></p>
+<p>KNN既可以针对离散因变量做分类，又可以对连续因变量做预测。对离散型的因变量来说，是从k个最近的已知类别样本中挑选出<strong>频率最高的类别</strong>用于未知样本的判断；对于连续型的因变量来说，则是将k个最近的<strong>已知样本均值</strong>用作未知样本的预测。如分类算法的具体步骤为：</p>
+<ul>
+<li>确定未知样本近邻的个数k值；</li>
+<li>根据某种度量样本间相似度的指标（如欧氏距离）将每一个未知类别样本的最近k个已知样本搜寻出来，形成一个个簇；</li>
+<li>对搜寻出来的已知样本进行投票，将各簇下类别最多的分类作用于未知样本点的预测。</li>
+</ul>
+<p>最佳k值的选择：</p>
+<ul>
+<li>设置k近邻样本的投票权重，通常可将权重设置为距离的倒数</li>
+<li>采用多重交叉验证，该方案目前比较流行</li>
+</ul>
+<p>相似度的度量方法：</p>
+<ul>
+<li>欧氏距离</li>
+<li>曼哈顿距离</li>
+<li>余弦相似度</li>
+<li>杰卡德相似系数</li>
+</ul>
+<p>近邻样本的搜寻方法：</p>
+<ul>
+<li>暴力搜寻法</li>
+<li>KD树搜寻法</li>
+<li>球树搜寻法</li>
+</ul>
+<p>分类问题和预测问题可分别从sklearn子模块neighbors中调用<strong>KNeighborsClassifier类</strong>和<strong>KNeighborsRegressor类</strong>。</p>
+<h2 id="1-分类问题的解决"><a href="#1-分类问题的解决" class="headerlink" title="1 分类问题的解决"></a>1 分类问题的解决</h2><p>首先导入常用的程序库和读取数据集：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">Knowledge = pd.read_excel(<span class="string">r'C:\Users\Q\Desktop\Knowledge.xlsx'</span>)</span><br><span class="line">Knowledge.head()</span><br></pre></td></tr></table></figure><br><img src="/2020/02/23/knn-model/p1.png" alt></p>
+<p>前5列分别为学生在目标学科上的学习时长（STG）、重复次数（SCG）、相关科目的学习时长（STR）、相关科目的考试成绩（LPR）和目标科目的考试成绩（PEG），5个指标均已做标准化处理；最后一列是学生对知识掌握程度的高低分类（UNS），有四种不同的值。<br>接下来拆分数据集和构造KNN分类模型：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> neighbors</span><br><span class="line"></span><br><span class="line">predictors = Knowledge.columns[:<span class="number">-1</span>]</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(Knowledge[predictors],</span><br><span class="line">                                                   Knowledge.UNS,</span><br><span class="line">                                                   test_size = <span class="number">0.25</span>,</span><br><span class="line">                                                   random_state = <span class="number">1234</span>)</span><br><span class="line"><span class="comment">#设置待测试的不同k值</span></span><br><span class="line">K = np.arange(<span class="number">1</span>, int(np.ceil(np.log2(Knowledge.shape[<span class="number">0</span>]))))</span><br><span class="line"><span class="comment">#构建空列表存储平均准确率</span></span><br><span class="line">accuracy = []</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> K:</span><br><span class="line">    <span class="comment">#使用10重交叉验证，比较每一个k值下KNN模型的预测准确率</span></span><br><span class="line">    cv_result = cross_val_score(neighbors.KNeighborsClassifier</span><br><span class="line">                                (n_neighbors = k, weights = <span class="string">'distance'</span>), </span><br><span class="line">                                X_train, y_train, cv = <span class="number">10</span>, </span><br><span class="line">                                scoring = <span class="string">'accuracy'</span>)</span><br><span class="line">    accuracy.append(cv_result.mean())</span><br><span class="line"><span class="comment">#从k个平均准确率中挑选出最大值对应的下标 </span></span><br><span class="line">arg_max = np.array(accuracy).argmax()</span><br><span class="line">plt.scatter(K, accuracy)</span><br><span class="line">plt.plot(K, accuracy)</span><br><span class="line">plt.text(K[arg_max], accuracy[arg_max], <span class="string">'the best k is %s'</span> %int(K[arg_max]))</span><br></pre></td></tr></table></figure><br><img src="/2020/02/23/knn-model/p2.png" alt></p>
+<p>经过10重交叉验证，确定最佳的近邻个数为6个。<br>接下来利用这个最佳K值对训练集进行建模并绘制热力图：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">knn_class = neighbors.KNeighborsClassifier(n_neighbors = <span class="number">6</span>, weights = <span class="string">'distance'</span>)</span><br><span class="line">knn_class.fit(X_train, y_train)</span><br><span class="line">pred = knn_class.predict(X_test)</span><br><span class="line">cm = pd.crosstab(pred, y_test)</span><br><span class="line"><span class="comment">#绘制热力图</span></span><br><span class="line">sns.heatmap(cm, annot = <span class="literal">True</span>, cmap = <span class="string">'GnBu'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'Real Label'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Predict Label'</span>)</span><br></pre></td></tr></table></figure><br><img src="/2020/02/23/knn-model/p3.png" alt><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line">print(<span class="string">'模型整体的预测准确率：'</span>, metrics.scorer.accuracy_score(y_test, pred))</span><br><span class="line">print(<span class="string">'分类模型的评估报告：\n'</span>, metrics.classification_report(y_test, pred))</span><br><span class="line"></span><br><span class="line">**out:**</span><br><span class="line">模型整体的预测准确率： <span class="number">0.9108910891089109</span></span><br><span class="line">分类模型的评估报告：</span><br><span class="line">               precision    recall  f1-score   support</span><br><span class="line"></span><br><span class="line">        High       <span class="number">1.00</span>      <span class="number">0.97</span>      <span class="number">0.98</span>        <span class="number">30</span></span><br><span class="line">         Low       <span class="number">0.81</span>      <span class="number">1.00</span>      <span class="number">0.89</span>        <span class="number">34</span></span><br><span class="line">      Middle       <span class="number">0.96</span>      <span class="number">0.88</span>      <span class="number">0.92</span>        <span class="number">26</span></span><br><span class="line">    Very Low       <span class="number">1.00</span>      <span class="number">0.55</span>      <span class="number">0.71</span>        <span class="number">11</span></span><br><span class="line"></span><br><span class="line">   micro avg       <span class="number">0.91</span>      <span class="number">0.91</span>      <span class="number">0.91</span>       <span class="number">101</span></span><br><span class="line">   macro avg       <span class="number">0.94</span>      <span class="number">0.85</span>      <span class="number">0.88</span>       <span class="number">101</span></span><br><span class="line">weighted avg       <span class="number">0.93</span>      <span class="number">0.91</span>      <span class="number">0.91</span>       <span class="number">101</span></span><br></pre></td></tr></table></figure><br>评估报告中，第一列precision表示模型的预测精度，计算公式为“预测正确的类别个数/该类别预测的所有个数”，第二列recall表示预测覆盖率，计算公式为“预测正确的类别个数/该类别实际的所有个数”，第三列f1-score是对precision和recall的加权结果，第四列为类别实际的样本个数。</p>
+<h2 id="2-预测问题的解决"><a href="#2-预测问题的解决" class="headerlink" title="2 预测问题的解决"></a>2 预测问题的解决</h2><p>读取数据集：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ccpp = pd.read_excel(<span class="string">r'C:\Users\Q\Desktop\CCPP.xlsx'</span>)</span><br><span class="line">ccpp.head()</span><br></pre></td></tr></table></figure><br><img src="/2020/02/23/knn-model/p4.png" alt></p>
+<p>前4列为自变量，最后一列为连续型的因变量。<br>由于4个自变量的量纲不一致，要做标准化处理。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> minmax_scale</span><br><span class="line">predictors = ccpp.columns[:<span class="number">-1</span>]</span><br><span class="line"><span class="comment">#对自变量数据做标准化处理</span></span><br><span class="line">X = minmax_scale(ccpp[predictors])</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, ccpp.PE, </span><br><span class="line">                                                    test_size = <span class="number">0.25</span>, </span><br><span class="line">                                                    random_state = <span class="number">1234</span>)</span><br><span class="line"><span class="comment">#设置待测试的不同k值</span></span><br><span class="line">K = np.arange(<span class="number">1</span>, int(np.ceil(np.log2(ccpp.shape[<span class="number">0</span>]))))</span><br><span class="line"><span class="comment">#构建空列表存储MSE</span></span><br><span class="line">mse = []</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> K:</span><br><span class="line">    cv_result = cross_val_score(neighbors.KNeighborsRegressor</span><br><span class="line">                                (n_neighbors = k, weights = <span class="string">'distance'</span>),</span><br><span class="line">                                X_train, y_train, cv = <span class="number">10</span>, </span><br><span class="line">                                scoring = <span class="string">'neg_mean_squared_error'</span>)</span><br><span class="line">    mse.append((<span class="number">-1</span> * cv_result).mean())</span><br><span class="line">    </span><br><span class="line">arg_min = np.array(mse).argmin()</span><br><span class="line">plt.scatter(K, mse)</span><br><span class="line">plt.plot(K, mse)</span><br><span class="line">plt.text(K[arg_min], mse[arg_min] + <span class="number">0.5</span>, <span class="string">'the best k is %s'</span> %int(K[arg_min]))</span><br></pre></td></tr></table></figure><br><img src="/2020/02/23/knn-model/p5.png" alt></p>
+<p>这里需要注意的是，衡量模型好坏的指标不再是准确率，而是MSE（均方误差）。<br>经过10重交叉验证，得到最佳的近邻个数为7，接下来利用这个最佳K值对训练集进行建模：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">knn_reg = neighbors.KNeighborsRegressor(n_neighbors = <span class="number">7</span>, weights = <span class="string">'distance'</span>)</span><br><span class="line">knn_reg.fit(X_train,y_train)</span><br><span class="line">pred = knn_reg.predict(X_test)</span><br><span class="line"><span class="comment">#计算MSE值</span></span><br><span class="line">metrics.mean_squared_error(y_test, pred)</span><br><span class="line"></span><br><span class="line">**out:**</span><br><span class="line"><span class="number">12.814094947334912</span></span><br></pre></td></tr></table></figure><br>对连续型因变量的预测问题来说，通常使用MSE或RMSE（均方误差根）评估模型好坏，该值越小，说明预测值与真实值越接近，模型拟合越好。这里可以对比一下测试集中的真实数据和预测数据，看看两者之间的差异：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pd.DataFrame(&#123;<span class="string">'Real'</span>: y_test, <span class="string">'Predict'</span>: pred&#125;, </span><br><span class="line">             columns = [<span class="string">'Real'</span>, <span class="string">'Predict'</span>]).head()</span><br></pre></td></tr></table></figure><br><img src="/2020/02/23/knn-model/p6.png" alt></p>
+<p>可以看到，KNN模型在测试集上的预测值和实际值非常接近，可以认为模型的拟合效果很理想。</p>
+<h2 id="3-决策树模型的对比"><a href="#3-决策树模型的对比" class="headerlink" title="3 决策树模型的对比"></a>3 决策树模型的对比</h2><p>KNN算法和决策树非常类似，在建模时都对数据没有什么特殊要求，所以这里对比一下两个模型在CCPP数据集上的表现：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br><span class="line"></span><br><span class="line">max_depth = [<span class="number">19</span>, <span class="number">21</span>, <span class="number">23</span>, <span class="number">25</span>, <span class="number">27</span>]</span><br><span class="line">min_samples_split = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>]</span><br><span class="line">min_samples_leaf = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">12</span>]</span><br><span class="line">parameters = &#123;<span class="string">'max_depth'</span>:max_depth, </span><br><span class="line">              <span class="string">'min_samples_split'</span>:min_samples_split, </span><br><span class="line">              <span class="string">'min_samples_leaf'</span>:min_samples_leaf&#125;</span><br><span class="line">grid_dtreg = GridSearchCV(estimator=tree.DecisionTreeRegressor(), </span><br><span class="line">                          param_grid=parameters, cv = <span class="number">10</span>)</span><br><span class="line">grid_dtreg.fit(X_train, y_train)</span><br><span class="line">grid_dtreg.best_params_</span><br><span class="line"></span><br><span class="line">**out:**</span><br><span class="line">&#123;<span class="string">'max_depth'</span>: <span class="number">19</span>, <span class="string">'min_samples_leaf'</span>: <span class="number">10</span>, <span class="string">'min_samples_split'</span>: <span class="number">2</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#利用网格搜索法得到的最佳参数组合构造回归决策树</span></span><br><span class="line">CART_Reg = tree.DecisionTreeRegressor(max_depth = <span class="number">19</span>, </span><br><span class="line">                                      min_samples_leaf = <span class="number">10</span>, </span><br><span class="line">                                      min_samples_split = <span class="number">2</span>)</span><br><span class="line">CART_Reg.fit(X_train,y_train)</span><br><span class="line">predict = CART_Reg.predict(X_test)</span><br><span class="line"><span class="comment">#计算MSE值</span></span><br><span class="line">metrics.mean_squared_error(y_test, predict)</span><br><span class="line"></span><br><span class="line">**out:**</span><br><span class="line"><span class="number">16.17598770280405</span></span><br></pre></td></tr></table></figure><br>结果显示，利用预测回归树对CCPP数据集进行建模，在测试集上得到的MSE值要比KNN模型的MSE值12.81大，说明决策树模型在CCPP数据集上的拟合效果没有KNN模型理想。</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -232,225 +301,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/23/knn-model/">展开全文 >></a>
-        </p>
-      
 
       
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-decision-tree-and-random-forest" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/21/decision-tree-and-random-forest/">决策树与随机森林</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/21/decision-tree-and-random-forest/" class="archive-article-date">
-  	<time datetime="2020-02-21T08:54:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.9k字</span>
-      </span>
+      </div>
     </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">8分</span>
-      </span>
-    </span>
+  </div>
 </div>
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>决策树属于经典的十大数据挖掘算法之一，是一种类似于流程图的树结构，可用于数值型因变量的预测和离散型因变量的分类。通常情况下。将决策树用于分类器会有很好的预测准确率。sklearn模块选择了一种较优的决策树算法，即CART算法，它既可以处理离散型的分类问题（分类决策树），也可以解决连续型的预测问题（回归决策树），分别对应的是<strong>子模块tree</strong>的<strong>DecisionTreeClassifier类</strong>和<strong>DecisionTreeRegressor类</strong>。</p>
-<p>随机森林属于集成算法，即随机生成构成多棵决策树的数据，生成过程中采用的是Bootstrap算法。sklearn的<strong>子模块ensemble</strong>提供了产生随机森林的<strong>RandomForestClassifier类</strong>和<strong>RandomForestRegressor类</strong>。<br></p>
-        
-          <a class="article-more-a" href="/2020/02/21/decision-tree-and-random-forest/#more">more >></a>
-        
-      
 
-      
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/23/knn-model/" alt="微信分享二维码">
     </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/21/decision-tree-and-random-forest/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-logistic" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/19/logistic/">Logistic回归分类模型</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/19/logistic/" class="archive-article-date">
-  	<time datetime="2020-02-19T05:49:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.2k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">5分</span>
-      </span>
-    </span>
 </div>
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在实际应用中，当因变量为连续型时，可以用线性回归模型、岭回归模型和LASSO回归模型解决预测问题，当因变量为离散型时， 则需要Logistic回归模型来解决二分类的离散问题。<br></p>
-        
-          <a class="article-more-a" href="/2020/02/19/logistic/#more">more >></a>
-        
-      
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/19/logistic/">展开全文 >></a>
-        </p>
-      
-
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/21/decision-tree-and-random-forest/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">决策树与随机森林</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -470,713 +389,36 @@
 
 
 
-
   
-    <article id="post-ridge-and-lasso" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/17/ridge-and-lasso/">岭回归与LASSO回归模型</a>
-    </h1>
   
 
-        
-        <a href="/2020/02/17/ridge-and-lasso/" class="archive-article-date">
-  	<time datetime="2020-02-17T02:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.5k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">6分</span>
-      </span>
-    </span>
-</div>
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>线性回归模型在实际应用中，可能会出现自变量个数多于样本量或者自变量间存在多重共线性的情况，此时无法估计回归系数。而岭回归和LASSO回归则可以解决这类问题。<br></p>
-        
-          <a class="article-more-a" href="/2020/02/17/ridge-and-lasso/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/17/ridge-and-lasso/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-linear-regression" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/15/linear-regression/">线性回归预测模型</a>
-    </h1>
   
 
-        
-        <a href="/2020/02/15/linear-regression/" class="archive-article-date">
-  	<time datetime="2020-02-15T07:21:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-15</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.4k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">10分</span>
-      </span>
-    </span>
-</div>
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>线性回归模型属于一种有监督的学习算法，建模过程中必须同时具备自变量x和因变量y。<br></p>
-        
-          <a class="article-more-a" href="/2020/02/15/linear-regression/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/15/linear-regression/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-sql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/12/sql/">sql简单语句整理</a>
-    </h1>
+       <div id="gitalk-container"></div>
+       <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+
+<script>
+var gitalk = new Gitalk({
+  clientID: '32f8aebec08d23898444',
+  clientSecret: '9e49adc1f1d65e2e665e39cc84c6bbec32227d67',
+  repo: 'guomin-h-a.github.io',
+  owner: 'guomin-h-a',
+  admin: ['guomin-h-a'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: true
+})
+
+gitalk.render('gitalk-container')
+</script>
   
 
-        
-        <a href="/2020/02/12/sql/" class="archive-article-date">
-  	<time datetime="2020-02-12T02:50:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.9k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">8分</span>
-      </span>
-    </span>
-</div>
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>登录mysql：<br>net start mysql<br>mysql -u root -p<br>Enter password: <strong><em>**</em></strong><br></p>
-        
-          <a class="article-more-a" href="/2020/02/12/sql/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据分析</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/12/sql/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-want-to-see-you" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/08/want-to-see-you/">想见你</a>
-    </h1>
   
 
-        
-        <a href="/2020/02/08/want-to-see-you/" class="archive-article-date">
-  	<time datetime="2020-02-08T14:56:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">787字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
-      </span>
-    </span>
-</div>
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>如果能够找到一个托付孤独的人，人生是长是短，都有了意义。<br>——电视剧《庆余年》<br></p></blockquote>
-        
-          <a class="article-more-a" href="/2020/02/08/want-to-see-you/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/08/want-to-see-you/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2019" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/31/2019/">告别2019</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/31/2019/" class="archive-article-date">
-  	<time datetime="2019-12-31T11:42:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-31</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">552字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>时间好像一个疯狗追赶着你，你需要不停地回头，给它扔肉包子。<br>——刘瑜《余欢》</p>
-</blockquote>
-<p>这一年好短好短，记忆却好长好长……<br></p>
-        
-          <a class="article-more-a" href="/2019/12/31/2019/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/31/2019/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-light" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/20/light/">光影碎片</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/20/light/" class="archive-article-date">
-  	<time datetime="2019-12-20T11:32:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">335字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/2019/12/20/light/p1.png" alt></p>
-<p>宿舍楼下拍的一只单眼异瞳的猫。<br></p>
-        
-          <a class="article-more-a" href="/2019/12/20/light/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/20/light/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-gitalk" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/11/gitalk/">艰辛的hexo之路：gitalk评论插件踩过的坑</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/11/gitalk/" class="archive-article-date">
-  	<time datetime="2019-12-11T08:04:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-11</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">621字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
-      </span>
-    </span>
-</div>
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>喜大普奔普天同庆热泪盈眶！<br>在成功的那一瞬间我简直就要哭出来了，对于一个小白来说，这一切都太不容易了，真的真的太不容易了。之前还试过捣鼓来必力，也是一步步按照网上的流程来的，但是就是不行。真的感慨hexo就是一门玄学，没有知识的加持，运气什么的是不存在的……<br></p>
-        
-          <a class="article-more-a" href="/2019/12/11/gitalk/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/11/gitalk/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -1199,8 +441,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
