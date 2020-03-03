@@ -6,14 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | 龙猫芭蕉的博客</title>
+  <title>Kmeans聚类分析 | 龙猫芭蕉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="龙猫芭蕉的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="线性回归模型、岭回归和LASSO回归模型、Logistic回归分类模型、决策树与随机森林、KNN模型、朴素贝叶斯模型等模型，在建模过程中都有一个共同特点，即数据集中包含了已知的因变量y值。但在有些场景中，并没有给定的y值，对于这类数据的建模，一般称为无监督的数据挖掘算法，最为典型的是聚类算法。 聚类算法的目的是依据已知的数据，将相似度高的样本聚集到各自的簇中。Kmeans聚类算法利用距离远近的思想">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kmeans聚类分析">
+<meta property="og:url" content="http://yoursite.com/2020/02/27/kmeans/index.html">
 <meta property="og:site_name" content="龙猫芭蕉的博客">
+<meta property="og:description" content="线性回归模型、岭回归和LASSO回归模型、Logistic回归分类模型、决策树与随机森林、KNN模型、朴素贝叶斯模型等模型，在建模过程中都有一个共同特点，即数据集中包含了已知的因变量y值。但在有些场景中，并没有给定的y值，对于这类数据的建模，一般称为无监督的数据挖掘算法，最为典型的是聚类算法。 聚类算法的目的是依据已知的数据，将相似度高的样本聚集到各自的簇中。Kmeans聚类算法利用距离远近的思想">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/kmeans/p1.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/kmeans/p2.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/kmeans/p3.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/kmeans/p4.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/kmeans/p5.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/kmeans/p6.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/kmeans/p7.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/kmeans/p8.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/kmeans/p9.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/kmeans/p10.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/kmeans/p11.png">
+<meta property="article:published_time" content="2020-02-27T04:21:29.000Z">
+<meta property="article:modified_time" content="2020-03-03T06:05:33.171Z">
 <meta property="article:author" content="龙猫芭蕉">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="数据分析与挖掘">
+<meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/27/kmeans/p1.png">
   
     <link rel="alternative" href="/atom.xml" title="龙猫芭蕉的博客" type="application/atom+xml">
   
@@ -157,36 +176,97 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-kmeans" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Kmeans聚类分析
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/27/kmeans/" class="archive-article-date">
+
+        
+        <a href="/2020/02/27/kmeans/" class="archive-article-date">
   	<time datetime="2020-02-27T04:21:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-27</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/27/kmeans/">Kmeans聚类分析</a>
-    </h1>
-  
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">2k字</span>
+      </span>
+    </span>
 
-        <div class="article-info info-on-right">
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">8分</span>
+      </span>
+    </span>
+</div>
           
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>线性回归模型、岭回归和LASSO回归模型、Logistic回归分类模型、决策树与随机森林、KNN模型、朴素贝叶斯模型等模型，在建模过程中都有一个共同特点，即数据集中包含了已知的因变量y值。但在有些场景中，并没有给定的y值，对于这类数据的建模，一般称为<strong>无监督</strong>的数据挖掘算法，最为典型的是聚类算法。</p>
+<p>聚类算法的目的是依据已知的数据，将相似度高的样本聚集到各自的簇中。Kmeans聚类算法利用距离远近的思想将目标数据聚为指定的K个簇，簇内样本越相似，表明聚类效果越好。具体步骤如下：<br>-从数据中随机挑选k个样本点作为原始的簇中心；<br>-计算剩余样本与簇中心的距离，并把各样本标记为离k个簇中心最近的类别；<br>-重新计算各簇中样本点的均值，并把均值作为新的K个簇中心；<br>-不断重复上两步，直到簇中心的变化趋于稳定，形成最终的k个簇。</p>
+<p>实现该算法可以调用sklearn<strong>子模块cluster中的Kmeans类</strong>。</p>
+<h2 id="1-最佳k值的确定"><a href="#1-最佳k值的确定" class="headerlink" title="1 最佳k值的确定"></a>1 最佳k值的确定</h2><p>对于Kmeans算法来说，确定簇数k值是一个至关重要的问题。如果聚类之前不知道该聚类为几类时， 如何根据数据本身确定合理的K值呢？有三种探索的方法：簇内离差平方和拐点法、轮廓系数法和间隔统计量法（这个有点点复杂，这里就不实现了=.=）。</p>
+<h3 id="1-1-簇内离差平方和拐点法"><a href="#1-1-簇内离差平方和拐点法" class="headerlink" title="1.1 簇内离差平方和拐点法"></a>1.1 簇内离差平方和拐点法</h3><p>拐点法的思想是在不同的k值下计算簇内离差平方和，然后通过可视化的方法找到“拐点”所对应的k值。如果某个簇内的样本很相似，那么簇内离差平方和会非常小（即方差会很小）。当簇的数量增加，簇中的样本量会越来越少，通过可视化方法，重点关注斜率的变化，当斜率由大突然变小，并且之后的斜率变化缓慢，则认为突然变化的点就是寻找的目标点。<br>下面通过虚拟散点来实现一下这个过程：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</span><br><span class="line"></span><br><span class="line"><span class="comment">#随机生成三组二元正态分布随机数</span></span><br><span class="line">np.random.seed(<span class="number">1234</span>)</span><br><span class="line">mean1 = [<span class="number">0.5</span>, <span class="number">0.5</span>]</span><br><span class="line">cov1 = [[<span class="number">0.3</span>, <span class="number">0</span>],[<span class="number">0</span>, <span class="number">0.3</span>]]</span><br><span class="line">x1, y1 = np.random.multivariate_normal(mean1, cov1, <span class="number">1000</span>).T</span><br><span class="line"></span><br><span class="line">mean2 = [<span class="number">0</span>, <span class="number">8</span>]</span><br><span class="line">cov2 = [[<span class="number">1.5</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>]]</span><br><span class="line">x2, y2 = np.random.multivariate_normal(mean2, cov2, <span class="number">1000</span>).T</span><br><span class="line"></span><br><span class="line">mean3 = [<span class="number">8</span>, <span class="number">4</span>]</span><br><span class="line">cov3 = [[<span class="number">1.5</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>]]</span><br><span class="line">x3, y3 = np.random.multivariate_normal(mean3, cov3, <span class="number">1000</span>).T</span><br><span class="line"></span><br><span class="line">plt.scatter(x1, y1)</span><br><span class="line">plt.scatter(x2, y2)</span><br><span class="line">plt.scatter(x3, y3)</span><br></pre></td></tr></table></figure><br><img src="/2020/02/27/kmeans/p1.png" alt><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#构造自定义函数，用于绘制不同k值和对应总的簇内离差平方和的折线图</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">k_SSE</span><span class="params">(X, clusters)</span>:</span></span><br><span class="line">    <span class="comment">#选择连续的k种不同的值</span></span><br><span class="line">    K = range(<span class="number">1</span>, clusters + <span class="number">1</span>)</span><br><span class="line">    <span class="comment">#构造空列表存储总的簇内离差平方和</span></span><br><span class="line">    TSSE = []</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> K:</span><br><span class="line">        <span class="comment">#存储各个簇内离差平方和</span></span><br><span class="line">        SSE = []</span><br><span class="line">        kmeans = KMeans(n_clusters=k)</span><br><span class="line">        kmeans.fit(X)</span><br><span class="line">        <span class="comment">#返回簇标签</span></span><br><span class="line">        labels = kmeans.labels_</span><br><span class="line">        <span class="comment">#返回簇中心</span></span><br><span class="line">        centers = kmeans.cluster_centers_</span><br><span class="line">        <span class="comment">#计算各个簇样本的离差平方和，并保存到列表中</span></span><br><span class="line">        <span class="keyword">for</span> label <span class="keyword">in</span> set(labels):</span><br><span class="line">            SSE.append(np.sum((X.loc[labels == label,] - centers[label,:])**<span class="number">2</span>))</span><br><span class="line">        <span class="comment">#计算总的簇内离差平方和</span></span><br><span class="line">        TSSE.append(np.sum(SSE))</span><br><span class="line">        </span><br><span class="line">    plt.style.use(<span class="string">'ggplot'</span>)</span><br><span class="line">    plt.plot(K, TSSE, <span class="string">'b*-'</span>)</span><br><span class="line">    plt.xlabel(<span class="string">'Number of clusters'</span>)</span><br><span class="line">    plt.ylabel(<span class="string">'Sum of squares of deviations in a cluster'</span>)</span><br><span class="line">    plt.show()</span><br><span class="line"> </span><br><span class="line"><span class="comment">#将三组数据汇总到数据框中   </span></span><br><span class="line">X = pd.DataFrame(np.concatenate([np.array([x1, y1]), </span><br><span class="line">                                 np.array([x2, y2]), </span><br><span class="line">                                 np.array([x3, y3])], </span><br><span class="line">                                axis = <span class="number">1</span>).T)</span><br><span class="line"><span class="comment">#调用函数</span></span><br><span class="line">k_SSE(X, <span class="number">15</span>)</span><br></pre></td></tr></table></figure><br><img src="/2020/02/27/kmeans/p2.png" alt></p>
+<p>如图所示，当簇的个数为3时形成了一个明显的“拐点”，所以合理的K值为3。</p>
+<h3 id="1-2-轮廓系数法"><a href="#1-2-轮廓系数法" class="headerlink" title="1.2 轮廓系数法"></a>1.2 轮廓系数法</h3><p>有关轮廓系数的计算，可以直接调用sklearn子模块metrics中的silhouette_score函数。下面基于该函数重新定义一个函数，用于绘制不同K值下对应轮廓系数的折线图：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> metrics</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">k_silhouette</span><span class="params">(X, clusters)</span>:</span></span><br><span class="line">    K = range(<span class="number">2</span>, clusters + <span class="number">1</span>)</span><br><span class="line">    S = []</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> K:</span><br><span class="line">        kmeans = KMeans(n_clusters=k)</span><br><span class="line">        kmeans.fit(X)</span><br><span class="line">        labels = kmeans.labels_</span><br><span class="line">        S.append(metrics.silhouette_score(X, labels, metric = <span class="string">'euclidean'</span>))</span><br><span class="line">        </span><br><span class="line">    plt.style.use(<span class="string">'ggplot'</span>)</span><br><span class="line">    plt.plot(K, S, <span class="string">'b*-'</span>)</span><br><span class="line">    plt.xlabel(<span class="string">'Number of clusters'</span>)</span><br><span class="line">    plt.ylabel(<span class="string">'Contour coefficient'</span>)</span><br><span class="line">    plt.show()</span><br><span class="line">    </span><br><span class="line">k_silhouette(X, <span class="number">15</span>)</span><br></pre></td></tr></table></figure><br><img src="/2020/02/27/kmeans/p3.png" alt></p>
+<p>如图，利用之前的虚拟数据，当k等于3时，轮廓系数最大，说明把虚拟数据聚为3类比较合理，且与原始的3个簇是吻合的。</p>
+<h2 id="2-Kmeans聚类的应用"><a href="#2-Kmeans聚类的应用" class="headerlink" title="2 Kmeans聚类的应用"></a>2 Kmeans聚类的应用</h2><p>在做Kmeans聚类有三点需要注意：<br>-一是聚类前必须指定具体的簇数K值，如果k值未知，可用上面两（三）种方法求得；<br>-二是对原始数据集做必要的标准化处理，可以借助sklearn子模块preprocessing中的minmax_scale或scale函数实现；<br>-如果数据集中含有离散型的字符变量，需要对该变量做预处理，如设置为哑变量或转换为数值化的因子。</p>
+<h3 id="2-1-iris数据集的聚类"><a href="#2-1-iris数据集的聚类" class="headerlink" title="2.1 iris数据集的聚类"></a>2.1 iris数据集的聚类</h3><p>读入数据：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iris = pd.read_csv(<span class="string">r'C:\Users\Q\Desktop\iris.csv'</span>)</span><br><span class="line">iris.head()</span><br></pre></td></tr></table></figure><br><img src="/2020/02/27/kmeans/p4.png" alt></p>
+<p>数据集中的前四个变量分别是花萼的长度、宽度及花瓣的长度、宽度，它们之间没有量纲的差异，所以不必做标准化处理；最后一个变量为鸢尾花的种类。将其聚类为3类：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#提取用于建模的数据集</span></span><br><span class="line">X = iris.drop(labels = <span class="string">'Species'</span>, axis = <span class="number">1</span>)</span><br><span class="line">kmeans= KMeans(n_clusters=<span class="number">3</span>)</span><br><span class="line">kmeans.fit(X)</span><br><span class="line"><span class="comment">#将聚类结果标签</span></span><br><span class="line">X[<span class="string">'clusters'</span>] = kmeans.labels_</span><br><span class="line">X.clusters.value_counts()</span><br><span class="line"></span><br><span class="line">**out:**</span><br><span class="line"><span class="number">0</span>    <span class="number">62</span></span><br><span class="line"><span class="number">1</span>    <span class="number">50</span></span><br><span class="line"><span class="number">2</span>    <span class="number">38</span></span><br><span class="line">Name: clusters, dtype: int64</span><br></pre></td></tr></table></figure><br>下面将聚类后的三类和原始数据进行可视化：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#三个簇的中心</span></span><br><span class="line">centers = kmeans.cluster_centers_</span><br><span class="line"><span class="comment">#绘制聚类效果的散点图</span></span><br><span class="line">sns.lmplot(x = <span class="string">'Petal_Length'</span>, y = <span class="string">'Petal_Width'</span>, hue = <span class="string">'clusters'</span>, </span><br><span class="line">           markers = [<span class="string">'^'</span>, <span class="string">'s'</span>, <span class="string">'o'</span>],data = X, fit_reg = <span class="literal">False</span>, </span><br><span class="line">           scatter_kws = &#123;<span class="string">'alpha'</span>: <span class="number">0.8</span>&#125;, legend_out = <span class="literal">False</span>)</span><br><span class="line">plt.scatter(centers[:, <span class="number">2</span>], centers[:, <span class="number">3</span>], marker=<span class="string">'*'</span>, color=<span class="string">'black'</span>, s=<span class="number">130</span>)</span><br><span class="line">plt.xlabel(<span class="string">'Petal_Length'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Petal_Width'</span>)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"><span class="comment">#添加一个辅助列，将不同的花种映射到0，1，2三个值，方便图形对比</span></span><br><span class="line">iris[<span class="string">'Species_map'</span>] = iris.Species.map(&#123;<span class="string">'versicolor'</span>: <span class="number">0</span>, </span><br><span class="line">                                        <span class="string">'setosa'</span>: <span class="number">1</span>, </span><br><span class="line">                                        <span class="string">'virginica'</span>: <span class="number">2</span>&#125;)</span><br><span class="line">sns.lmplot(x = <span class="string">'Petal_Length'</span>, y = <span class="string">'Petal_Width'</span>, hue = <span class="string">'Species_map'</span>, </span><br><span class="line">           data = iris, markers = [<span class="string">'^'</span>, <span class="string">'s'</span>, <span class="string">'o'</span>], fit_reg = <span class="literal">False</span>, </span><br><span class="line">           scatter_kws = &#123;<span class="string">'alpha'</span>: <span class="number">0.8</span>&#125;, legend_out = <span class="literal">False</span>)</span><br><span class="line">plt.xlabel(<span class="string">'Petal_Length'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Petal_Width'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure><br><img src="/2020/02/27/kmeans/p5.png" alt><img src="/2020/02/27/kmeans/p6.png" alt></p>
+<p>左图为聚类效果图，右图为原始分类图，由图中可以看出，聚类算法存在一些错误分割，但绝大部分样本的聚类还是与原始数据保持一致。</p>
+<h3 id="2-1-NBA球员数据集的聚类"><a href="#2-1-NBA球员数据集的聚类" class="headerlink" title="2.1 NBA球员数据集的聚类"></a>2.1 NBA球员数据集的聚类</h3><p>读取数据：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">players = pd.read_csv(<span class="string">r'C:\Users\Q\Desktop\players.csv'</span>)</span><br><span class="line">players.head()</span><br></pre></td></tr></table></figure><br><img src="/2020/02/27/kmeans/p7.png" alt></p>
+<p>数据变量的量纲不一致，需要做标准化处理。<br>这里挑选得分、命中率、三分命中率和罚球命中率4个维度作为球员聚类的依据。<br>首先绘制球员得分与命中率之间的散点图，便于后面对比聚类后的效果：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sns.lmplot(x = <span class="string">'得分'</span>, y = <span class="string">'命中率'</span>, data = players, fit_reg = <span class="literal">False</span>, </span><br><span class="line">           scatter_kws = &#123;<span class="string">'alpha'</span>: <span class="number">0.8</span>, <span class="string">'color'</span>: <span class="string">'steelblue'</span>&#125;)</span><br></pre></td></tr></table></figure><br><img src="/2020/02/27/kmeans/p8.png" alt></p>
+<p>对数据集做标准化处理，再找出合理的k值：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> minmax_scale</span><br><span class="line">X = minmax_scale(players[[<span class="string">'得分'</span>, <span class="string">'罚球命中率'</span>, <span class="string">'命中率'</span>, <span class="string">'三分命中率'</span>]])</span><br><span class="line">X = pd.DataFrame(X, columns = [<span class="string">'得分'</span>, <span class="string">'罚球命中率'</span>, <span class="string">'命中率'</span>, <span class="string">'三分命中率'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#拐点法找出最佳的k值</span></span><br><span class="line">k_SSE(X, <span class="number">15</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#轮廓系数法找出最佳的k值</span></span><br><span class="line">k_silhouette(X, <span class="number">15</span>)</span><br></pre></td></tr></table></figure><br><img src="/2020/02/27/kmeans/p9.png" alt><img src="/2020/02/27/kmeans/p10.png" alt></p>
+<p>综合两图，最终确定最佳的k值为3.下面基于这个k值对数据集聚类：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">kmeans = KMeans(n_clusters=<span class="number">3</span>)</span><br><span class="line">kmeans.fit(X)</span><br><span class="line">players[<span class="string">'cluster'</span>] = kmeans.labels_</span><br><span class="line">centers = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> players.cluster.unique():</span><br><span class="line">    centers.append(players.ix[players.cluster == i, </span><br><span class="line">                              [<span class="string">'得分'</span>, <span class="string">'罚球命中率'</span>, <span class="string">'命中率'</span>, <span class="string">'三分命中率'</span>]]</span><br><span class="line">                   .mean())</span><br><span class="line">centers = np.array(centers)</span><br><span class="line"></span><br><span class="line">sns.lmplot(x = <span class="string">'得分'</span>, y = <span class="string">'命中率'</span>, hue = <span class="string">'cluster'</span>, data = players, </span><br><span class="line">           markers = [<span class="string">'^'</span>, <span class="string">'s'</span>, <span class="string">'o'</span>],fit_reg = <span class="literal">False</span>, </span><br><span class="line">           scatter_kws = &#123;<span class="string">'alpha'</span>: <span class="number">0.8</span>&#125;, legend = <span class="literal">False</span>)</span><br><span class="line">plt.scatter(centers[:, <span class="number">0</span>], centers[:, <span class="number">2</span>], c = <span class="string">'k'</span>, marker = <span class="string">'*'</span>, s = <span class="number">180</span>)</span><br><span class="line">plt.xlabel(<span class="string">'score'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'hit rate'</span>)</span><br></pre></td></tr></table></figure><br><img src="/2020/02/27/kmeans/p11.png" alt><br>需要注意的是，由于对原始数据做了标准化处理，因此图中的簇中心不能直接使用cluster_centers_方法获得，因为它返回的是原始数据标准化的中心，所以用for循环重新找到原始数据下的簇中心，并将其以五角星的标记添加到散点图中。</p>
+<p>具体怎么解释这幅图我就不写了，写不动了=.=</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -206,379 +286,128 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/27/kmeans/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/25/naive-bayesian-model/" class="archive-article-date">
-  	<time datetime="2020-02-25T12:16:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/25/naive-bayesian-model/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">朴素贝叶斯模型</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/25/naive-bayesian-model/">朴素贝叶斯模型</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/23/knn-model/" class="archive-article-date">
-  	<time datetime="2020-02-22T23:57:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/23/knn-model/">KNN模型</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/21/decision-tree-and-random-forest/" class="archive-article-date">
-  	<time datetime="2020-02-21T08:54:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/21/decision-tree-and-random-forest/">决策树与随机森林</a>
-    </h1>
+       <div id="gitalk-container"></div>
+       <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+
+<script>
+var gitalk = new Gitalk({
+  clientID: '32f8aebec08d23898444',
+  clientSecret: '9e49adc1f1d65e2e665e39cc84c6bbec32227d67',
+  repo: 'guomin-h-a.github.io',
+  owner: 'guomin-h-a',
+  admin: ['guomin-h-a'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: true
+})
+
+gitalk.render('gitalk-container')
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/19/logistic/" class="archive-article-date">
-  	<time datetime="2020-02-19T05:49:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/19/logistic/">Logistic回归分类模型</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/17/ridge-and-lasso/" class="archive-article-date">
-  	<time datetime="2020-02-17T02:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/17/ridge-and-lasso/">岭回归与LASSO回归模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/15/linear-regression/" class="archive-article-date">
-  	<time datetime="2020-02-15T07:21:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/15/linear-regression/">线性回归预测模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/12/sql/" class="archive-article-date">
-  	<time datetime="2020-02-12T02:50:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/12/sql/">sql简单语句整理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据分析</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/08/want-to-see-you/" class="archive-article-date">
-  	<time datetime="2020-02-08T14:56:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/08/want-to-see-you/">想见你</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -601,8 +430,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
