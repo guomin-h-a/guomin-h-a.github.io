@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/02/27/kmeans/p10.png">
 <meta property="og:image" content="http://yoursite.com/2020/02/27/kmeans/p11.png">
 <meta property="article:published_time" content="2020-02-27T04:21:29.000Z">
-<meta property="article:modified_time" content="2020-03-03T06:19:08.421Z">
+<meta property="article:modified_time" content="2020-03-03T10:03:01.683Z">
 <meta property="article:author" content="龙猫芭蕉">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="数据分析与挖掘">
@@ -233,6 +233,9 @@
 <p>对数据集做标准化处理，再找出合理的k值：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> minmax_scale</span><br><span class="line">X = minmax_scale(players[[<span class="string">'得分'</span>, <span class="string">'罚球命中率'</span>, <span class="string">'命中率'</span>, <span class="string">'三分命中率'</span>]])</span><br><span class="line">X = pd.DataFrame(X, columns = [<span class="string">'得分'</span>, <span class="string">'罚球命中率'</span>, <span class="string">'命中率'</span>, <span class="string">'三分命中率'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#拐点法找出最佳的k值</span></span><br><span class="line">k_SSE(X, <span class="number">15</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#轮廓系数法找出最佳的k值</span></span><br><span class="line">k_silhouette(X, <span class="number">15</span>)</span><br></pre></td></tr></table></figure><br><img src="/2020/02/27/kmeans/p9.png" alt><img src="/2020/02/27/kmeans/p10.png" alt></p>
 <p>综合两图，最终确定最佳的k值为3。下面基于这个k值对数据集聚类：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">kmeans = KMeans(n_clusters=<span class="number">3</span>)</span><br><span class="line">kmeans.fit(X)</span><br><span class="line">players[<span class="string">'cluster'</span>] = kmeans.labels_</span><br><span class="line">centers = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> players.cluster.unique():</span><br><span class="line">    centers.append(players.ix[players.cluster == i, </span><br><span class="line">                              [<span class="string">'得分'</span>, <span class="string">'罚球命中率'</span>, <span class="string">'命中率'</span>, <span class="string">'三分命中率'</span>]].mean())</span><br><span class="line">centers = np.array(centers)</span><br><span class="line"></span><br><span class="line">sns.lmplot(x = <span class="string">'得分'</span>, y = <span class="string">'命中率'</span>, hue = <span class="string">'cluster'</span>, data = players, </span><br><span class="line">           markers = [<span class="string">'^'</span>, <span class="string">'s'</span>, <span class="string">'o'</span>],fit_reg = <span class="literal">False</span>, </span><br><span class="line">           scatter_kws = &#123;<span class="string">'alpha'</span>: <span class="number">0.8</span>&#125;, legend = <span class="literal">False</span>)</span><br><span class="line">plt.scatter(centers[:, <span class="number">0</span>], centers[:, <span class="number">2</span>], c = <span class="string">'k'</span>, marker = <span class="string">'*'</span>, s = <span class="number">180</span>)</span><br><span class="line">plt.xlabel(<span class="string">'score'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'hit rate'</span>)</span><br></pre></td></tr></table></figure><br><img src="/2020/02/27/kmeans/p11.png" alt><br>需要注意的是，由于对原始数据做了标准化处理，因此图中的簇中心不能直接使用cluster_centers_方法获得，因为它返回的是原始数据标准化的中心，所以用for循环重新找到原始数据下的簇中心，并将其以五角星的标记添加到散点图中。</p>
 <p>具体怎么解释这幅图我就不写了，写不动了=.=</p>
+<ul>
+<li>本笔记基于刘顺祥的《从零开始学Python数据分析与挖掘》整理</li>
+</ul>
 
       
 
@@ -349,6 +352,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/02/29/dbscan/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          DBSCAN与层次聚类
+        
+      </div>
+    </a>
   
   
     <a href="/2020/02/25/naive-bayesian-model/" id="article-nav-older" class="article-nav-link-wrap">
