@@ -6,14 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 笔记 | 龙猫芭蕉的博客</title>
+  <title>R语言数据挖掘——判别分析 | 龙猫芭蕉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="龙猫芭蕉的博客">
-<meta property="og:url" content="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/index.html">
+  <meta name="description" content="判别分析就是根据已掌握的每个类别若干样本的数据信息，总结出客观事物分类的规律性，建立判别公式和判别准则，在遇到新的样本点时，再根据已总结出的判别公式和判别准则，来判断该样本点所属的类别。我个人觉得这应该属于监督学习的分类器算法。 本笔记记录基于R语言的三大主流判别分析算法：-费尔希判别：包括线性判别分析和二次判别分析-贝叶斯判别：主要是朴素贝叶斯分类算法-距离判别：包括K最近邻(kNN)和有权重的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R语言数据挖掘——判别分析">
+<meta property="og:url" content="http://yoursite.com/2020/03/19/discriminant-analysis/index.html">
 <meta property="og:site_name" content="龙猫芭蕉的博客">
+<meta property="og:description" content="判别分析就是根据已掌握的每个类别若干样本的数据信息，总结出客观事物分类的规律性，建立判别公式和判别准则，在遇到新的样本点时，再根据已总结出的判别公式和判别准则，来判断该样本点所属的类别。我个人觉得这应该属于监督学习的分类器算法。 本笔记记录基于R语言的三大主流判别分析算法：-费尔希判别：包括线性判别分析和二次判别分析-贝叶斯判别：主要是朴素贝叶斯分类算法-距离判别：包括K最近邻(kNN)和有权重的">
+<meta property="og:image" content="http://yoursite.com/2020/03/19/discriminant-analysis/p0.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/19/discriminant-analysis/p1.png">
+<meta property="article:published_time" content="2020-03-19T02:15:14.000Z">
+<meta property="article:modified_time" content="2020-03-19T13:17:01.665Z">
 <meta property="article:author" content="龙猫芭蕉">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="数据分析与挖掘">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="R语言">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/19/discriminant-analysis/p0.png">
   
     <link rel="alternative" href="/atom.xml" title="龙猫芭蕉的博客" type="application/atom+xml">
   
@@ -157,36 +168,102 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-discriminant-analysis" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      R语言数据挖掘——判别分析
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/19/discriminant-analysis/" class="archive-article-date">
+
+        
+        <a href="/2020/03/19/discriminant-analysis/" class="archive-article-date">
   	<time datetime="2020-03-19T02:15:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/19/discriminant-analysis/">R语言数据挖掘——判别分析</a>
-    </h1>
-  
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">2.8k字</span>
+      </span>
+    </span>
 
-        <div class="article-info info-on-right">
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">12分</span>
+      </span>
+    </span>
+</div>
           
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>判别分析就是根据已掌握的每个类别若干样本的数据信息，总结出客观事物分类的规律性，建立判别公式和判别准则，在遇到新的样本点时，再根据已总结出的判别公式和判别准则，来判断该样本点所属的类别。我个人觉得这应该属于监督学习的分类器算法。</p>
+<p>本笔记记录基于R语言的三大主流判别分析算法：<br>-<strong>费尔希判别</strong>：包括线性判别分析和二次判别分析<br>-<strong>贝叶斯判别</strong>：主要是朴素贝叶斯分类算法<br>-<strong>距离判别</strong>：包括K最近邻(kNN)和有权重的K最近邻算法</p>
+<a id="more"></a>
+<p>在R中的实现方式如下图所示：<br><img src="/2020/03/19/discriminant-analysis/p0.png" alt></p>
+<h2 id="1-数据准备"><a href="#1-数据准备" class="headerlink" title="1 数据准备"></a>1 数据准备</h2><p>选用kknn包的miete数据集，该数据集记录了1994年慕尼黑的住房租金标准中的一些有趣变量，比如房子的面积、是否有浴室、是否有中央供暖、是否供应热水等，这些都影响井决定着租金的高低。<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">library</span>(kknn)</span><br><span class="line">&gt; data(<span class="string">"miete"</span>)</span><br><span class="line">&gt; head(miete)</span><br><span class="line">       nm wfl     bj bad0 zh ww0 badkach fenster kueche mvdauer bjkat</span><br><span class="line"><span class="number">1</span>  <span class="number">693.29</span>  <span class="number">50</span> <span class="number">1971.5</span>    <span class="number">0</span>  <span class="number">1</span>   <span class="number">0</span>       <span class="number">0</span>       <span class="number">0</span>      <span class="number">0</span>       <span class="number">2</span>     <span class="number">4</span></span><br><span class="line"><span class="number">2</span>  <span class="number">736.60</span>  <span class="number">70</span> <span class="number">1971.5</span>    <span class="number">0</span>  <span class="number">1</span>   <span class="number">0</span>       <span class="number">0</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">26</span>     <span class="number">4</span></span><br><span class="line"><span class="number">3</span>  <span class="number">732.23</span>  <span class="number">50</span> <span class="number">1971.5</span>    <span class="number">0</span>  <span class="number">1</span>   <span class="number">0</span>       <span class="number">0</span>       <span class="number">0</span>      <span class="number">0</span>       <span class="number">1</span>     <span class="number">4</span></span><br><span class="line"><span class="number">4</span> <span class="number">1295.14</span>  <span class="number">55</span> <span class="number">1893.0</span>    <span class="number">0</span>  <span class="number">1</span>   <span class="number">0</span>       <span class="number">0</span>       <span class="number">0</span>      <span class="number">0</span>       <span class="number">0</span>     <span class="number">1</span></span><br><span class="line"><span class="number">5</span>  <span class="number">394.97</span>  <span class="number">46</span> <span class="number">1957.0</span>    <span class="number">0</span>  <span class="number">0</span>   <span class="number">1</span>       <span class="number">0</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">27</span>     <span class="number">3</span></span><br><span class="line"><span class="number">6</span> <span class="number">1285.64</span>  <span class="number">94</span> <span class="number">1971.5</span>    <span class="number">0</span>  <span class="number">1</span>   <span class="number">0</span>       <span class="number">1</span>       <span class="number">0</span>      <span class="number">0</span>       <span class="number">2</span>     <span class="number">4</span></span><br><span class="line">  wflkat      nmqm rooms nmkat adr wohn</span><br><span class="line"><span class="number">1</span>      <span class="number">1</span> <span class="number">13.865800</span>     <span class="number">1</span>     <span class="number">3</span>   <span class="number">2</span>    <span class="number">2</span></span><br><span class="line"><span class="number">2</span>      <span class="number">2</span> <span class="number">10.522857</span>     <span class="number">3</span>     <span class="number">3</span>   <span class="number">2</span>    <span class="number">2</span></span><br><span class="line"><span class="number">3</span>      <span class="number">1</span> <span class="number">14.644600</span>     <span class="number">1</span>     <span class="number">3</span>   <span class="number">2</span>    <span class="number">2</span></span><br><span class="line"><span class="number">4</span>      <span class="number">2</span> <span class="number">23.548000</span>     <span class="number">3</span>     <span class="number">5</span>   <span class="number">2</span>    <span class="number">2</span></span><br><span class="line"><span class="number">5</span>      <span class="number">1</span>  <span class="number">8.586304</span>     <span class="number">3</span>     <span class="number">1</span>   <span class="number">2</span>    <span class="number">2</span></span><br><span class="line"><span class="number">6</span>      <span class="number">3</span> <span class="number">13.677021</span>     <span class="number">4</span>     <span class="number">5</span>   <span class="number">2</span>    <span class="number">2</span></span><br><span class="line">&gt; dim(miete)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1082</span>   <span class="number">17</span></span><br><span class="line">&gt; summary(miete)</span><br><span class="line">       nm              wfl               bj       bad0     zh      ww0     </span><br><span class="line"> Min.   : <span class="number">127.1</span>   Min.   : <span class="number">20.00</span>   Min.   :<span class="number">1800</span>   <span class="number">0</span>:<span class="number">1051</span>   <span class="number">0</span>:<span class="number">202</span>   <span class="number">0</span>:<span class="number">1022</span>  </span><br><span class="line"> 1st Qu.: <span class="number">543.6</span>   1st Qu.: <span class="number">50.25</span>   1st Qu.:<span class="number">1934</span>   <span class="number">1</span>:  <span class="number">31</span>   <span class="number">1</span>:<span class="number">880</span>   <span class="number">1</span>:  <span class="number">60</span>  </span><br><span class="line"> Median : <span class="number">746.0</span>   Median : <span class="number">67.00</span>   Median :<span class="number">1957</span>                            </span><br><span class="line"> Mean   : <span class="number">830.3</span>   Mean   : <span class="number">69.13</span>   Mean   :<span class="number">1947</span>                            </span><br><span class="line"> 3rd Qu.:<span class="number">1030.0</span>   3rd Qu.: <span class="number">84.00</span>   3rd Qu.:<span class="number">1972</span>                            </span><br><span class="line"> Max.   :<span class="number">3130.0</span>   Max.   :<span class="number">250.00</span>   Max.   :<span class="number">1992</span>                            </span><br><span class="line"> badkach fenster  kueche     mvdauer      bjkat   wflkat       nmqm       </span><br><span class="line"> <span class="number">0</span>:<span class="number">446</span>   <span class="number">0</span>:<span class="number">1024</span>   <span class="number">0</span>:<span class="number">980</span>   Min.   : <span class="number">0.00</span>   <span class="number">1</span>:<span class="number">218</span>   <span class="number">1</span>:<span class="number">271</span>   Min.   : <span class="number">1.573</span>  </span><br><span class="line"> <span class="number">1</span>:<span class="number">636</span>   <span class="number">1</span>:  <span class="number">58</span>   <span class="number">1</span>:<span class="number">102</span>   1st Qu.: <span class="number">2.00</span>   <span class="number">2</span>:<span class="number">154</span>   <span class="number">2</span>:<span class="number">513</span>   1st Qu.: <span class="number">8.864</span>  </span><br><span class="line">                          Median : <span class="number">6.00</span>   <span class="number">3</span>:<span class="number">341</span>   <span class="number">3</span>:<span class="number">298</span>   Median :<span class="number">12.041</span>  </span><br><span class="line">                          Mean   :<span class="number">10.63</span>   <span class="number">4</span>:<span class="number">226</span>           Mean   :<span class="number">12.647</span>  </span><br><span class="line">                          3rd Qu.:<span class="number">17.00</span>   <span class="number">5</span>: <span class="number">79</span>           3rd Qu.:<span class="number">16.135</span>  </span><br><span class="line">                          Max.   :<span class="number">82.00</span>   <span class="number">6</span>: <span class="number">64</span>           Max.   :<span class="number">35.245</span>  </span><br><span class="line">     rooms       nmkat   adr      wohn   </span><br><span class="line"> Min.   :<span class="number">1.000</span>   <span class="number">1</span>:<span class="number">219</span>   <span class="number">1</span>:  <span class="number">25</span>   <span class="number">1</span>: <span class="number">90</span>  </span><br><span class="line"> 1st Qu.:<span class="number">2.000</span>   <span class="number">2</span>:<span class="number">230</span>   <span class="number">2</span>:<span class="number">1035</span>   <span class="number">2</span>:<span class="number">673</span>  </span><br><span class="line"> Median :<span class="number">3.000</span>   <span class="number">3</span>:<span class="number">210</span>   <span class="number">3</span>:  <span class="number">22</span>   <span class="number">3</span>:<span class="number">319</span>  </span><br><span class="line"> Mean   :<span class="number">2.635</span>   <span class="number">4</span>:<span class="number">208</span>                   </span><br><span class="line"> 3rd Qu.:<span class="number">3.000</span>   <span class="number">5</span>:<span class="number">215</span>                   </span><br><span class="line"> Max.   :<span class="number">9.000</span></span><br></pre></td></tr></table></figure><br>去除nm、bj和wflkat这三个变量，并且选择<strong>nmkat</strong>这个变量（按区间划分的净租金）作为待判别变量，因为该变量在含义上受其他变量的影响，且由输出结果可知，该变量共有5个类等级别，且每一类的样本量都为200多个，分布较为均匀。<br>该净租金nmkat变量的5个等级的含义依次为: 1表示租金少于500马克，2表示租金介于500和675马克之间，3表示租金介于675和850马克之间，4表示租金介于850和1150马克之间，5表示租金不低1150马克。</p>
+<p>接下来对该数据集进行训练集和测试集的划分。为提高判别效果，且nmkat的样本取值在5个等级中分布均匀，因此采用分层抽样对这5个等级抽取等量样本。<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">library</span>(sampling)</span><br><span class="line"><span class="comment">#按照训练集占数据总量2/3的比例，计算每一等级中应抽取的样本量</span></span><br><span class="line">&gt; n = round(<span class="number">2</span>/<span class="number">3</span> * nrow(miete) / <span class="number">5</span>)</span><br><span class="line">&gt; n</span><br><span class="line">[<span class="number">1</span>] <span class="number">144</span></span><br><span class="line"><span class="comment">#以nmkat变量的5个等级划分层次，进行分层抽样</span></span><br><span class="line">&gt; sub_train = strata(miete, stratanames = <span class="string">'nmkat'</span>, size = rep(n, <span class="number">5</span>), method = <span class="string">'srswor'</span>)</span><br><span class="line"><span class="comment">#显示训练集抽取情况，包括nmkat变量取值、该样本在数据集中的序号、被抽取到的概率，以及所在层次</span></span><br><span class="line">&gt; head(sub_train)</span><br><span class="line">   nmkat ID_unit      Prob Stratum</span><br><span class="line"><span class="number">1</span>      <span class="number">3</span>       <span class="number">1</span> <span class="number">0.6857143</span>       <span class="number">1</span></span><br><span class="line"><span class="number">3</span>      <span class="number">3</span>       <span class="number">3</span> <span class="number">0.6857143</span>       <span class="number">1</span></span><br><span class="line"><span class="number">8</span>      <span class="number">3</span>       <span class="number">8</span> <span class="number">0.6857143</span>       <span class="number">1</span></span><br><span class="line"><span class="number">16</span>     <span class="number">3</span>      <span class="number">16</span> <span class="number">0.6857143</span>       <span class="number">1</span></span><br><span class="line"><span class="number">20</span>     <span class="number">3</span>      <span class="number">20</span> <span class="number">0.6857143</span>       <span class="number">1</span></span><br><span class="line"><span class="number">22</span>     <span class="number">3</span>      <span class="number">22</span> <span class="number">0.6857143</span>       <span class="number">1</span></span><br><span class="line"><span class="comment">#获取如上ID_unit所对应的样本构成训练集，并剔除变量1 、3 、12</span></span><br><span class="line">&gt; data_train = miete[sub_train$ID_unit, c(-<span class="number">1</span>, -<span class="number">3</span>, -<span class="number">12</span>)]</span><br><span class="line"><span class="comment">#获取除ID_unit所对应样本之外的数据构成测试集，并剔除变量1 、3 、12</span></span><br><span class="line">&gt; data_test = miete[-sub_train$ID_unit, c(-<span class="number">1</span>, -<span class="number">3</span>, -<span class="number">12</span>)]</span><br><span class="line">&gt; dim(data_train); dim(data_test)</span><br><span class="line">[<span class="number">1</span>] <span class="number">720</span>  <span class="number">14</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">362</span>  <span class="number">14</span></span><br><span class="line">&gt; head(data_test)</span><br><span class="line">   wfl bad0 zh ww0 badkach fenster kueche mvdauer bjkat     nmqm rooms</span><br><span class="line"><span class="number">2</span>   <span class="number">70</span>    <span class="number">0</span>  <span class="number">1</span>   <span class="number">0</span>       <span class="number">0</span>       <span class="number">0</span>      <span class="number">0</span>      <span class="number">26</span>     <span class="number">4</span> <span class="number">10.52286</span>     <span class="number">3</span></span><br><span class="line"><span class="number">4</span>   <span class="number">55</span>    <span class="number">0</span>  <span class="number">1</span>   <span class="number">0</span>       <span class="number">0</span>       <span class="number">0</span>      <span class="number">0</span>       <span class="number">0</span>     <span class="number">1</span> <span class="number">23.54800</span>     <span class="number">3</span></span><br><span class="line"><span class="number">7</span>   <span class="number">28</span>    <span class="number">0</span>  <span class="number">1</span>   <span class="number">0</span>       <span class="number">0</span>       <span class="number">1</span>      <span class="number">1</span>       <span class="number">9</span>     <span class="number">4</span> <span class="number">17.01107</span>     <span class="number">1</span></span><br><span class="line"><span class="number">11</span>  <span class="number">75</span>    <span class="number">0</span>  <span class="number">1</span>   <span class="number">0</span>       <span class="number">1</span>       <span class="number">0</span>      <span class="number">1</span>       <span class="number">3</span>     <span class="number">6</span> <span class="number">16.50453</span>     <span class="number">3</span></span><br><span class="line"><span class="number">12</span>  <span class="number">83</span>    <span class="number">0</span>  <span class="number">1</span>   <span class="number">0</span>       <span class="number">1</span>       <span class="number">0</span>      <span class="number">1</span>       <span class="number">1</span>     <span class="number">6</span> <span class="number">14.60277</span>     <span class="number">3</span></span><br><span class="line"><span class="number">13</span>  <span class="number">50</span>    <span class="number">0</span>  <span class="number">1</span>   <span class="number">0</span>       <span class="number">1</span>       <span class="number">0</span>      <span class="number">0</span>       <span class="number">4</span>     <span class="number">3</span> <span class="number">10.55080</span>     <span class="number">2</span></span><br><span class="line">   nmkat adr wohn</span><br><span class="line"><span class="number">2</span>      <span class="number">3</span>   <span class="number">2</span>    <span class="number">2</span></span><br><span class="line"><span class="number">4</span>      <span class="number">5</span>   <span class="number">2</span>    <span class="number">2</span></span><br><span class="line"><span class="number">7</span>      <span class="number">1</span>   <span class="number">2</span>    <span class="number">2</span></span><br><span class="line"><span class="number">11</span>     <span class="number">5</span>   <span class="number">2</span>    <span class="number">2</span></span><br><span class="line"><span class="number">12</span>     <span class="number">5</span>   <span class="number">2</span>    <span class="number">2</span></span><br><span class="line"><span class="number">13</span>     <span class="number">2</span>   <span class="number">2</span>    <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="2-费尔希判别"><a href="#2-费尔希判别" class="headerlink" title="2 费尔希判别"></a>2 费尔希判别</h2><p>该判别的基本思想是“投影”，即将高维空间的点向低维空间投影，最重要的是选择出适当的投影轴：保证投影后，使每一类之内的投影值所形成的类内离差尽可能小，而不同类之间的投影值所形成的类间离差尽可能大，即在该空间中有最佳的可分离性。</p>
+<p>具体的，对于线性判别，可以先将样本点投影到一维空间，即直线上，若效果不明显，则可以考虑增加一个维度，投影到二维空间中，以此类推；而二次判别与线性判别的区别在于投影面的形状不同，二次判别使用若干二次曲面，而非直线或平面来将样本划分至相应的类别中。因此，二次判别的适用面比线性判别要广。</p>
+<h3 id="2-1-线性判别分析"><a href="#2-1-线性判别分析" class="headerlink" title="2.1 线性判别分析"></a>2.1 线性判别分析</h3><p><strong>MASS包的lda()函数</strong>，根据使用对象，该函数有三种主要格式：<br>-公式形式：<code>lda(formula, data, ..., subset, na.action)</code><br>-数据框形式：<code>lda(x, grouping, prior = proportions, tol, method, CV = FALSE, ...)</code><br>-矩阵形式：<code>lda(x, grouping, . .., subset, na.action)</code></p>
+<h4 id="2-1-1-公式formula格式"><a href="#2-1-1-公式formula格式" class="headerlink" title="2.1.1 公式formula格式"></a>2.1.1 公式formula格式</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">library</span>(MASS)</span><br><span class="line">&gt; fit_lda1 = lda(nmkat ~., data_train)</span><br><span class="line">&gt; names(fit_lda1)</span><br><span class="line"> [<span class="number">1</span>] <span class="string">"prior"</span>   <span class="string">"counts"</span>  <span class="string">"means"</span>   <span class="string">"scaling"</span> <span class="string">"lev"</span>     <span class="string">"svd"</span>     <span class="string">"N"</span>      </span><br><span class="line"> [<span class="number">8</span>] <span class="string">"call"</span>    <span class="string">"terms"</span>   <span class="string">"xlevels"</span></span><br><span class="line">&gt; print(fit_lda1)</span><br><span class="line">Call:</span><br><span class="line">lda(nmkat ~ ., data = data_train)</span><br><span class="line"></span><br><span class="line">Prior probabilities of groups:</span><br><span class="line">  <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span>   <span class="number">5</span> </span><br><span class="line"><span class="number">0.2</span> <span class="number">0.2</span> <span class="number">0.2</span> <span class="number">0.2</span> <span class="number">0.2</span> </span><br><span class="line"></span><br><span class="line">Group means:</span><br><span class="line">       wfl       bad01       zh1       ww01  badkach1   fenster1    kueche1</span><br><span class="line"><span class="number">1</span> <span class="number">55.56944</span> <span class="number">0.090277778</span> <span class="number">0.5347222</span> <span class="number">0.15277778</span> <span class="number">0.3750000</span> <span class="number">0.09027778</span> <span class="number">0.02083333</span></span><br><span class="line"><span class="number">2</span> <span class="number">59.16667</span> <span class="number">0.013888889</span> <span class="number">0.7986111</span> <span class="number">0.03472222</span> <span class="number">0.5138889</span> <span class="number">0.07638889</span> <span class="number">0.07638889</span></span><br><span class="line"><span class="number">3</span> <span class="number">66.89583</span> <span class="number">0.020833333</span> <span class="number">0.8402778</span> <span class="number">0.04861111</span> <span class="number">0.5416667</span> <span class="number">0.05555556</span> <span class="number">0.06250000</span></span><br><span class="line"><span class="number">4</span> <span class="number">73.51389</span> <span class="number">0.006944444</span> <span class="number">0.8750000</span> <span class="number">0.03472222</span> <span class="number">0.6666667</span> <span class="number">0.04166667</span> <span class="number">0.11111111</span></span><br><span class="line"><span class="number">5</span> <span class="number">92.45833</span> <span class="number">0.006944444</span> <span class="number">0.9444444</span> <span class="number">0.01388889</span> <span class="number">0.7708333</span> <span class="number">0.03472222</span> <span class="number">0.16666667</span></span><br><span class="line">……</span><br><span class="line"></span><br><span class="line">Coefficients of linear discriminants:</span><br><span class="line">                  LD1         LD2          LD3          LD4</span><br><span class="line">wfl       <span class="number">0.055087619</span>  <span class="number">0.02256561</span> -<span class="number">0.006790681</span>  <span class="number">0.036033041</span></span><br><span class="line">……</span><br><span class="line">wohn.Q   -<span class="number">0.038666056</span>  <span class="number">0.41991263</span> -<span class="number">0.003150138</span>  <span class="number">0.039236666</span></span><br><span class="line"></span><br><span class="line">Proportion of trace:</span><br><span class="line">   LD1    LD2    LD3    LD4 </span><br><span class="line"><span class="number">0.9709</span> <span class="number">0.0218</span> <span class="number">0.0044</span> <span class="number">0.0028</span></span><br></pre></td></tr></table></figure>
+<p>结果可得执行过程中所使用的先验概率prior、各变量在每一类别中的均值等，也可具体查看其它结果项。</p>
+<h4 id="2-1-2-数据框data-frame及矩阵matrix格式"><a href="#2-1-2-数据框data-frame及矩阵matrix格式" class="headerlink" title="2.1.2 数据框data.frame及矩阵matrix格式"></a>2.1.2 数据框data.frame及矩阵matrix格式</h4><p>两种函数格式的主体参数都为x与grouping，因此只运行一种：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&gt; fit_lda2 = lda(data_train[, -<span class="number">12</span>], data_train[, <span class="number">12</span>])</span><br><span class="line">&gt; fit_lda2</span><br><span class="line">Call:</span><br><span class="line">lda(data_train[, -<span class="number">12</span>], data_train[, <span class="number">12</span>])</span><br><span class="line"></span><br><span class="line">Prior probabilities of groups:</span><br><span class="line">  <span class="number">1</span>   <span class="number">2</span>   <span class="number">3</span>   <span class="number">4</span>   <span class="number">5</span> </span><br><span class="line"><span class="number">0.2</span> <span class="number">0.2</span> <span class="number">0.2</span> <span class="number">0.2</span> <span class="number">0.2</span> </span><br><span class="line"></span><br><span class="line">Group means:</span><br><span class="line">       wfl     bad0       zh      ww0  badkach  fenster   kueche   mvdauer</span><br><span class="line"><span class="number">1</span> <span class="number">55.56944</span> <span class="number">1.090278</span> <span class="number">1.534722</span> <span class="number">1.152778</span> <span class="number">1.375000</span> <span class="number">1.090278</span> <span class="number">1.020833</span> <span class="number">12.361111</span></span><br><span class="line"><span class="number">2</span> <span class="number">59.16667</span> <span class="number">1.013889</span> <span class="number">1.798611</span> <span class="number">1.034722</span> <span class="number">1.513889</span> <span class="number">1.076389</span> <span class="number">1.076389</span> <span class="number">11.222222</span></span><br><span class="line"><span class="number">3</span> <span class="number">66.89583</span> <span class="number">1.020833</span> <span class="number">1.840278</span> <span class="number">1.048611</span> <span class="number">1.541667</span> <span class="number">1.055556</span> <span class="number">1.062500</span> <span class="number">12.701389</span></span><br><span class="line"><span class="number">4</span> <span class="number">73.51389</span> <span class="number">1.006944</span> <span class="number">1.875000</span> <span class="number">1.034722</span> <span class="number">1.666667</span> <span class="number">1.041667</span> <span class="number">1.111111</span> <span class="number">10.180556</span></span><br><span class="line"><span class="number">5</span> <span class="number">92.45833</span> <span class="number">1.006944</span> <span class="number">1.944444</span> <span class="number">1.013889</span> <span class="number">1.770833</span> <span class="number">1.034722</span> <span class="number">1.166667</span>  <span class="number">5.166667</span></span><br><span class="line">……</span><br><span class="line"></span><br><span class="line">Proportion of trace:</span><br><span class="line">   LD1    LD2    LD3    LD4 </span><br><span class="line"><span class="number">0.9771</span> <span class="number">0.0183</span> <span class="number">0.0029</span> <span class="number">0.0016</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="2-1-3-判别规则可视化"><a href="#2-1-3-判别规则可视化" class="headerlink" title="2.1.3 判别规则可视化"></a>2.1.3 判别规则可视化</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; plot(fit_lda1)</span><br><span class="line"><span class="comment">#分别输出1个和2个判别式的图形，图略</span></span><br><span class="line">&gt; plot(fit_lda1, dimen = <span class="number">1</span>)</span><br><span class="line">&gt; plot(fit_lda1, dimen = <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/03/19/discriminant-analysis/p1.png" alt></p>
+<p>图中可以看到在所有的4个判别式下1至5这5个类别的分布情况，不同类别样本已用相应数字标出。</p>
+<h4 id="2-1-4-对测试集待判别变量取值进行预测"><a href="#2-1-4-对测试集待判别变量取值进行预测" class="headerlink" title="2.1.4 对测试集待判别变量取值进行预测"></a>2.1.4 对测试集待判别变量取值进行预测</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&gt; pre_lda1 = predict(fit_lda1, data_test)</span><br><span class="line"><span class="comment">#输出data_test中各样本的预测结果</span></span><br><span class="line">&gt; pre_lda1$class</span><br><span class="line">  [<span class="number">1</span>] <span class="number">3</span> <span class="number">5</span> <span class="number">2</span> <span class="number">4</span> <span class="number">4</span> <span class="number">2</span> <span class="number">4</span> <span class="number">1</span> <span class="number">3</span> <span class="number">1</span> <span class="number">2</span> <span class="number">4</span> <span class="number">4</span> <span class="number">4</span> <span class="number">2</span> <span class="number">2</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">2</span> <span class="number">5</span> <span class="number">5</span> <span class="number">3</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">2</span> <span class="number">2</span></span><br><span class="line">……</span><br><span class="line">[<span class="number">353</span>] <span class="number">4</span> <span class="number">2</span> <span class="number">4</span> <span class="number">5</span> <span class="number">2</span> <span class="number">4</span> <span class="number">5</span> <span class="number">5</span> <span class="number">4</span> <span class="number">1</span></span><br><span class="line">Levels: <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br><span class="line"><span class="comment">#生成预测结果与实际类别的混淆矩阵</span></span><br><span class="line">&gt; table(data_test$nmkat, pre_lda1$class)</span><br><span class="line">   </span><br><span class="line">     <span class="number">1</span>  <span class="number">2</span>  <span class="number">3</span>  <span class="number">4</span>  <span class="number">5</span></span><br><span class="line">  <span class="number">1</span> <span class="number">47</span> <span class="number">24</span>  <span class="number">3</span>  <span class="number">1</span>  <span class="number">0</span></span><br><span class="line">  <span class="number">2</span>  <span class="number">9</span> <span class="number">53</span> <span class="number">20</span>  <span class="number">4</span>  <span class="number">0</span></span><br><span class="line">  <span class="number">3</span>  <span class="number">1</span> <span class="number">19</span> <span class="number">37</span>  <span class="number">8</span>  <span class="number">1</span></span><br><span class="line">  <span class="number">4</span>  <span class="number">0</span>  <span class="number">0</span> <span class="number">20</span> <span class="number">41</span>  <span class="number">3</span></span><br><span class="line">  <span class="number">5</span>  <span class="number">0</span>  <span class="number">0</span>  <span class="number">0</span> <span class="number">14</span> <span class="number">57</span></span><br><span class="line"><span class="comment">#计算错误率</span></span><br><span class="line">&gt; error_lda1 = sum(as.numeric(as.numeric(pre_lda1$class) != as.numeric(data_test$nmkat))) / nrow(data_test)</span><br><span class="line">&gt; error_lda1</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.3508287</span></span><br></pre></td></tr></table></figure>
+<p>混淆矩阵中，行表示实际的类别，列表示预测判定的类别。在362个测试样本中，实际属于第1类的有75个，而判定为第1类的有47个，24个错判为第2类，3个错判为第3类，1个错判为第4类。其中，第3类的样本被错判的个数最多，共有29个被错误分类，这有可能是类别3与类别2、4的样本之间相似度太高导致的。</p>
+<h3 id="2-2-二次判别分析"><a href="#2-2-二次判别分析" class="headerlink" title="2.2 二次判别分析"></a>2.2 二次判别分析</h3><p><strong>MASS包的qda()函数</strong>，根据使用对象，该函数也有三种主要格式：<br>-数据框形式：<code>qda(x, grouping, prior = proportions, method, CV = FALSE, nu, .. .)</code><br>-公式形式：<code>qda(formula, data, ..., subset, na.action)</code><br>-矩阵形式：<code>qda(x, grouping, ..., subset, na.action)</code></p>
+<h2 id="3-贝叶斯判别"><a href="#3-贝叶斯判别" class="headerlink" title="3 贝叶斯判别"></a>3 贝叶斯判别</h2><p>利用贝叶斯公式，对给出的待分类样本，求出此样本出现条件下各个类别出现的概率，哪个最大，就认为词样本属于哪个类别。其优势在于不怕噪音和无关变量，不足之处是它假设各特征之间是无关的，而现实中各个特征属性间往往并非独立。<br><strong>klaR包的NaiveBayes()函数</strong>，该函数有两种格式：<br>-默认情况：<code>NaiveBayes(x, grouping, prior, usekernel = FALSE, fL = 0, ...)</code><br>-公式形式：<code>NaiveBayes(formula, data, ..., subset, na.action = na.pass)</code></p>
+<h2 id="4-距离判别"><a href="#4-距离判别" class="headerlink" title="4 距离判别"></a>4 距离判别</h2><p>基本思想是根据待判别样本与已知类别样本之间的距离远近做出判别。具体的，即根据已知类别样本信息建立距离判别函数式，再将各待判定样本的属性数据逐一代入式中计算，得到距离值，再据此将样本判入距离值最小的来别的样本簇。</p>
+<h3 id="4-1-K最近邻算法"><a href="#4-1-K最近邻算法" class="headerlink" title="4.1 K最近邻算法"></a>4.1 K最近邻算法</h3><p>K最近邻算法在进行判别时，由于其主要依靠周围有限近邻样本的信息，而不是靠判别类域的方法来确定所属类别，因此适合类域的交叉或重叠较多的待分样本集。可参考Python部分笔记。<br><strong>class包的knn()函数</strong>：<code>knn(train, test, cl, k = 1, 1 = 0, prob = FALSE, use.all = TRUE)</code><br>该函数默认选择欧氏距离来寻找所需的k的最近样本。 </p>
+<h3 id="4-2-有权重的k最近邻算法"><a href="#4-2-有权重的k最近邻算法" class="headerlink" title="4.2 有权重的k最近邻算法"></a>4.2 有权重的k最近邻算法</h3><p>有权重的K最近邻算法在kNN基础上，对各已知类别样本点根据其距离未知样本点的远近，赋予了不同的权重，即距离越近的权重越大。一般来说，加入权重后的kNN算法判别效果更优。<br><strong>kknn包的kknn()函数</strong>：<code>kknn(formu1a = formu1a(train), train, test, na.action = na.omit(), k = 7, distance = 2, kerne1 = &quot;optima1&quot;, ykerne1 = NULL, sca1e=TRUE, contrasts = c(&#39;unordered&#39; = &quot;contr.dummy&quot;, ordered = &quot;contr.ordina1&quot;))</code><br>其中参数distance取2为欧氏距离，取l时为曼哈顿距离。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -210,472 +287,127 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/19/discriminant-analysis/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/15/R-cluster/" class="archive-article-date">
-  	<time datetime="2020-03-15T08:19:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/15/R-cluster/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">R语言数据挖掘——聚类分析</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/15/R-cluster/">R语言数据挖掘——聚类分析</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">R语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/14/R-association-analysis/" class="archive-article-date">
-  	<time datetime="2020-03-14T08:28:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/14/R-association-analysis/">R语言数据挖掘——关联分析</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">R语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/29/dbscan/" class="archive-article-date">
-  	<time datetime="2020-02-29T08:25:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/29/dbscan/">DBSCAN与层次聚类</a>
-    </h1>
+       <div id="gitalk-container"></div>
+       <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+
+<script>
+var gitalk = new Gitalk({
+  clientID: '32f8aebec08d23898444',
+  clientSecret: '9e49adc1f1d65e2e665e39cc84c6bbec32227d67',
+  repo: 'guomin-h-a.github.io',
+  owner: 'guomin-h-a',
+  admin: ['guomin-h-a'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: true
+})
+
+gitalk.render('gitalk-container')
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/27/kmeans/" class="archive-article-date">
-  	<time datetime="2020-02-27T04:21:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/27/kmeans/">Kmeans聚类分析</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/25/naive-bayesian-model/" class="archive-article-date">
-  	<time datetime="2020-02-25T12:16:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/25/naive-bayesian-model/">朴素贝叶斯模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/23/knn-model/" class="archive-article-date">
-  	<time datetime="2020-02-22T23:57:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/23/knn-model/">KNN模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/21/decision-tree-and-random-forest/" class="archive-article-date">
-  	<time datetime="2020-02-21T08:54:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/21/decision-tree-and-random-forest/">决策树与随机森林</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/19/logistic/" class="archive-article-date">
-  	<time datetime="2020-02-19T05:49:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/19/logistic/">Logistic回归分类模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/17/ridge-and-lasso/" class="archive-article-date">
-  	<time datetime="2020-02-17T02:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/17/ridge-and-lasso/">岭回归与LASSO回归模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/%E7%AC%94%E8%AE%B0/page/2/">2</a><a class="extend next" rel="next" href="/tags/%E7%AC%94%E8%AE%B0/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -699,9 +431,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
