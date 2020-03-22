@@ -6,14 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 数据分析与挖掘 | 龙猫芭蕉的博客</title>
+  <title>R语言数据挖掘——决策树 | 龙猫芭蕉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="龙猫芭蕉的博客">
-<meta property="og:url" content="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E6%8C%96%E6%8E%98/page/2/index.html">
+  <meta name="description" content="决策树分为两个主要类型：分类树和回归树。分类树是针对目标为离散型的情况，即最终目标是预测各样本的所属类别；回归树适用于目标变量为连续型。 决策树的常用算法：CART(Classification and Regression Trees)和C4.5(successor of ID3)。分类回归树CART是既可以建立分类树，也可以构造回归树的算法，是许多集成分类算法的基分类器。C4.5是ID3(It">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R语言数据挖掘——决策树">
+<meta property="og:url" content="http://yoursite.com/2020/03/21/R-decision-tree/index.html">
 <meta property="og:site_name" content="龙猫芭蕉的博客">
+<meta property="og:description" content="决策树分为两个主要类型：分类树和回归树。分类树是针对目标为离散型的情况，即最终目标是预测各样本的所属类别；回归树适用于目标变量为连续型。 决策树的常用算法：CART(Classification and Regression Trees)和C4.5(successor of ID3)。分类回归树CART是既可以建立分类树，也可以构造回归树的算法，是许多集成分类算法的基分类器。C4.5是ID3(It">
+<meta property="og:image" content="http://yoursite.com/2020/03/21/R-decision-tree/p0.png">
+<meta property="article:published_time" content="2020-03-21T06:51:58.000Z">
+<meta property="article:modified_time" content="2020-03-22T08:03:51.250Z">
 <meta property="article:author" content="龙猫芭蕉">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="数据分析与挖掘">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="R语言">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/21/R-decision-tree/p0.png">
   
     <link rel="alternative" href="/atom.xml" title="龙猫芭蕉的博客" type="application/atom+xml">
   
@@ -157,36 +167,86 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-R-decision-tree" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      R语言数据挖掘——决策树
+    </h1>
+  
+
+        
+        <a href="/2020/03/21/R-decision-tree/" class="archive-article-date">
+  	<time datetime="2020-03-21T06:51:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
+</a>
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">287字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+          
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>决策树分为两个主要类型：<strong>分类树</strong>和<strong>回归树</strong>。分类树是针对目标为离散型的情况，即最终目标是预测各样本的所属类别；回归树适用于目标变量为连续型。</p>
+<p>决策树的常用算法：<code>CART</code>(Classification and Regression Trees)和<code>C4.5</code>(successor of ID3)。<br>分类回归树<strong>CART</strong>是既可以建立分类树，也可以构造回归树的算法，是许多集成分类算法的基分类器。<br><strong>C4.5</strong>是ID3(Iterative Dichotomiser 3)的改进算法，两者都以熵（Entropy）理论和信息增益理论为基础。由于ID3只能用于离散变量，且确定判定变量时偏向于选择取值较多的变量，C4.5是为了解决ID3的这两项缺陷而提出的。 </p>
+<a id="more"></a>
+<p>在R中的实现方式如下图所示：<br><img src="/2020/03/21/R-decision-tree/p0.png" alt></p>
+<p><strong>rpart()函数</strong>：<code>rpart(formula, data, weights, subset, na.action = na.rpart, method, model = FALSE, x = FALSE，SE，Y = TRUE, parms, control, cost, ...)</code><br><strong>J48()函数</strong>：<code>J48(formu1a, data, subset, na.action, control = Weka_control(), options = NULL)</code></p>
+<p>额……因为mvpart包已经不适用于新版的Rstudio，所以下载不了数据集，决策树的笔记就记录不了了[手动狗头]……</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/19/logistic/" class="archive-article-date">
-  	<time datetime="2020-02-19T05:49:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/19/logistic/">Logistic回归分类模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -204,128 +264,142 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">R语言</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/21/R-decision-tree/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/17/ridge-and-lasso/" class="archive-article-date">
-  	<time datetime="2020-02-17T02:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/03/22/R-ensemble-learning/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          R语言数据挖掘——集成学习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/19/discriminant-analysis/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">R语言数据挖掘——判别分析</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/17/ridge-and-lasso/">岭回归与LASSO回归模型</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/15/linear-regression/" class="archive-article-date">
-  	<time datetime="2020-02-15T07:21:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/15/linear-regression/">线性回归预测模型</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
+       <div id="gitalk-container"></div>
+       <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+
+<script>
+var gitalk = new Gitalk({
+  clientID: '32f8aebec08d23898444',
+  clientSecret: '9e49adc1f1d65e2e665e39cc84c6bbec32227d67',
+  repo: 'guomin-h-a.github.io',
+  owner: 'guomin-h-a',
+  admin: ['guomin-h-a'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: true
+})
+
+gitalk.render('gitalk-container')
+</script>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E6%8C%96%E6%8E%98/">&amp;laquo; Prev</a><a class="page-number" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E6%8C%96%E6%8E%98/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
   
 
 
@@ -349,9 +423,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
