@@ -16,7 +16,7 @@
 <meta property="og:description" content="以民主选举过程来比拟分类器的运作过程，选举中的每位选民的一次投票就相当于一个基分类器的分类结果，而一大批选民的一次投票则可以认为是一个集成分类算法的分类结果。如果有n个基分类器，每个基分类器的预测正确率都为0.5，当用n个基分类器进行共同预测时，预测结果正确的概率则等于“1 — n个基分类器全部预测错误的概率”，即P&#x3D;1—(1-0.5)^n，即预测正确率渐趋于1。所以将基分类器进行集成的目的是使分">
 <meta property="og:image" content="http://yoursite.com/2020/03/22/R-ensemble-learning/p1.png">
 <meta property="article:published_time" content="2020-03-22T06:03:51.000Z">
-<meta property="article:modified_time" content="2020-03-22T12:13:37.808Z">
+<meta property="article:modified_time" content="2020-03-23T04:13:03.339Z">
 <meta property="article:author" content="龙猫芭蕉">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="数据分析与挖掘">
@@ -222,6 +222,9 @@
 <p>下面计算测试集总体的预测错误率，以及“yes”类和“no”类各自的错误率：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt; sub_minor = which(data_test$y == <span class="string">'yes'</span>)</span><br><span class="line">&gt; sub_major= which(data_test$y == <span class="string">'no'</span>)</span><br><span class="line">&gt; length(sub_minor); length(sub_major)</span><br><span class="line">[<span class="number">1</span>] <span class="number">125</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">1005</span></span><br><span class="line"><span class="comment">#计算总体错误率</span></span><br><span class="line">&gt; err_bag = sum(pre_bag$class != data_test$y) / nrow(data_test)</span><br><span class="line"><span class="comment">#计算少数类"yes"的错误率</span></span><br><span class="line">&gt; err_minor_bag = sum(pre_bag$class[sub_minor] != data_test$y[sub_minor]) / length(sub_minor)</span><br><span class="line"><span class="comment">#计算多数类"no"的错误率</span></span><br><span class="line">&gt; err_major_bag = sum(pre_bag$class[sub_major] != data_test$y[sub_major]) / length(sub_major)</span><br><span class="line">&gt; err_bag; err_major_bag; err_minor_bag</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.09380531</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.0278607</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.624</span></span><br></pre></td></tr></table></figure><br>可以看到总体错误率约为0.0938，多数类“no”的错误率比少数类“yes”的错误率要低，仅为0.0278，这正是由于数据的不平衡性造成的。而AdaBoost算法在处理不平衡数据集具有一定优势。</p>
 <h3 id="4-2-AdaBoost算法"><a href="#4-2-AdaBoost算法" class="headerlink" title="4.2 AdaBoost算法"></a>4.2 AdaBoost算法</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; boo = boosting(y~., data_train, mfinal = <span class="number">5</span>)</span><br><span class="line">&gt; pre_boo = predict(boo, data_test)</span><br><span class="line"><span class="comment">#计算三类错误率</span></span><br><span class="line">&gt; err_boo = sum(pre_boo$class != data_test$y) / nrow(data_test)</span><br><span class="line">&gt; err_minor_boo = sum(pre_boo$class[sub_minor] != data_test$y[sub_minor]) / length(sub_minor)</span><br><span class="line">&gt; err_major_boo = sum(pre_boo$class[sub_major] != data_test$y[sub_major]) / length(sub_major)</span><br><span class="line">&gt; err_boo; err_major_boo; err_minor_boo</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.1106195</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.04776119</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.616</span></span><br></pre></td></tr></table></figure>
 <p>AdaBoost算法对比Bagging算法在修正数据集的不平衡问题上有一点点成效，但效果差别不大。仅一次结果可能很难看出两者的差异，且具有偶然性，可以在今后的学习中多积累经验。</p>
+<ul>
+<li>本笔记基于黄文和王正林编著的《数据挖掘：R语言实战》整理</li>
+</ul>
 
       
 
@@ -342,6 +345,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/03/23/R-randomforest/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          R语言数据挖掘——随机森林
+        
+      </div>
+    </a>
   
   
     <a href="/2020/03/21/R-decision-tree/" id="article-nav-older" class="article-nav-link-wrap">
