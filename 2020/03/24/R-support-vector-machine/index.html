@@ -6,14 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 龙猫芭蕉的博客</title>
+  <title>R语言数据挖掘——支持向量机 | 龙猫芭蕉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="龙猫芭蕉的博客">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="支持向量机是借助最优化方法来解决机器学习问题的新工具，建立在统计学理论的VC维理论和结构风险最小原理基础之上，根据有限样本在模型的复杂性和学习能力之间寻求最佳折中。它在解决小样本、非线性及高维度模式识别中表现出许多优势，并能推广应用到函数拟合等其他机器学习问题中。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R语言数据挖掘——支持向量机">
+<meta property="og:url" content="http://yoursite.com/2020/03/24/R-support-vector-machine/index.html">
 <meta property="og:site_name" content="龙猫芭蕉的博客">
+<meta property="og:description" content="支持向量机是借助最优化方法来解决机器学习问题的新工具，建立在统计学理论的VC维理论和结构风险最小原理基础之上，根据有限样本在模型的复杂性和学习能力之间寻求最佳折中。它在解决小样本、非线性及高维度模式识别中表现出许多优势，并能推广应用到函数拟合等其他机器学习问题中。">
+<meta property="og:image" content="http://yoursite.com/2020/03/24/R-support-vector-machine/p1.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/24/R-support-vector-machine/p2.png">
+<meta property="article:published_time" content="2020-03-24T05:38:15.000Z">
+<meta property="article:modified_time" content="2020-03-24T08:05:22.769Z">
 <meta property="article:author" content="龙猫芭蕉">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="数据分析与挖掘">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="R语言">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/24/R-support-vector-machine/p1.png">
   
     <link rel="alternative" href="/atom.xml" title="龙猫芭蕉的博客" type="application/atom+xml">
   
@@ -157,36 +168,99 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-R-support-vector-machine" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      R语言数据挖掘——支持向量机
+    </h1>
+  
+
+        
+        <a href="/2020/03/24/R-support-vector-machine/" class="archive-article-date">
+  	<time datetime="2020-03-24T05:38:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
+</a>
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">2.4k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">9分</span>
+      </span>
+    </span>
+</div>
+          
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>支持向量机是借助最优化方法来解决机器学习问题的新工具，建立在统计学理论的<strong>VC维理论</strong>和<strong>结构风险最小原理</strong>基础之上，根据有限样本在模型的复杂性和学习能力之间寻求最佳折中。它在解决<span style="border-bottom:2px dashed red;">小样本、非线性及高维度模式识别</span>中表现出许多优势，并能推广应用到函数拟合等其他机器学习问题中。</p>
+<a id="more"></a>
+<h2 id="1-算法简述"><a href="#1-算法简述" class="headerlink" title="1 算法简述"></a>1 算法简述</h2><p>该算法相对于其他算法具有更好的预测准确率，主要是因为它可以将低维线性不可分的空间转换为高维的线性可分空间。思想是利用某些支持向量所构成的“<strong>超平面</strong>”，将不同类别（如线性可分、近似线性可分和非线性可分）的样本点进行划分。如果样本点是非线性可分，就借助<strong>核函数</strong>技术，实现样本在核空间下完成线性可分的操作。关于“超平面”该如何构造是一个非常复杂的问题，本学渣表示还需要继续深入学习=.=。</p>
+<p>支持向量机是一种努力使得<strong>结构风险最小化</strong>的算法。在机器学习领域中，所谓<strong>风险</strong>指的是近似模型与真实模型之间的误差。最直观的想法是使用分类器在样本数据上的分类结果与真实结果之间的差值来表示，这个差值统计上称之为<strong>经验风险</strong>。另外还有一个<strong>置信风险</strong>，代表了我们再多大程度上可以信任分类器在未知样本上的分类结果。而<strong>结构风险最小化</strong>，就是寻求经验风险和置信风险之和最小化。</p>
+<p>支持向量机的其他概念还有<strong>函数间隔</strong>、<strong>几何间隔</strong>，其中涉及大量的统计知识这里就不写出来了（学渣落泪T_T）。</p>
+<h2 id="2-在R中的实现"><a href="#2-在R中的实现" class="headerlink" title="2 在R中的实现"></a>2 在R中的实现</h2><p>软件包<strong>e1071</strong> 主要用于支持向量机的模型构建，核心函数为<strong>svm()</strong>基本使用格式有两种：<br><code>svm(formula, data = NULL, ..., subset, na.action =na.omit, scale = TRUE)</code> 或<br><code>svm(x, y = NULL, scale = TRUE, type = NULL, kernel =&quot;radial&quot;, degree = 3, gamma = if (is.vector(x)) 1 else 1 / ncol(x) , ..., class.weights = NULL, ...)</code></p>
+<p>根据结果变量的类型，支持向量机模型可以分为分类模型、回归模型或异常检测模型：<br>如果结果变量为<strong>定性变量</strong>，则生成<strong>分类模型</strong>，有<strong>C-classification、nu-classification、one-classification</strong>三种；<br>如果结果变量为<strong>连续变量</strong>，则生成<strong>回归模型</strong>，有<strong>eps-regression、nu-regression</strong>两种。</p>
+<p>kernel参数有4个可选核函数：<strong>线性核函数（linear）</strong>、<strong>多项式核函数（polynomial）</strong>、<strong>径向基核函数/高斯核函数（radial basis）</strong>以及<strong>神经网络核函数（sigmoid）</strong>。其中，识别率最高、性能最好的是高斯核函数，其次是多项式核函数，最差的是神经网络核函数。</p>
+<h2 id="3-数据集"><a href="#3-数据集" class="headerlink" title="3 数据集"></a>3 数据集</h2><p>用的是熟悉的iris数据集：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">library</span>(e1071)</span><br><span class="line">&gt; data(<span class="string">"iris"</span>)</span><br><span class="line">&gt; summary(iris)</span><br><span class="line">  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width          Species  </span><br><span class="line"> Min.   :<span class="number">4.300</span>   Min.   :<span class="number">2.000</span>   Min.   :<span class="number">1.000</span>   Min.   :<span class="number">0.100</span>   setosa    :<span class="number">50</span>  </span><br><span class="line"> 1st Qu.:<span class="number">5.100</span>   1st Qu.:<span class="number">2.800</span>   1st Qu.:<span class="number">1.600</span>   1st Qu.:<span class="number">0.300</span>   versicolor:<span class="number">50</span>  </span><br><span class="line"> Median :<span class="number">5.800</span>   Median :<span class="number">3.000</span>   Median :<span class="number">4.350</span>   Median :<span class="number">1.300</span>   virginica :<span class="number">50</span>  </span><br><span class="line"> Mean   :<span class="number">5.843</span>   Mean   :<span class="number">3.057</span>   Mean   :<span class="number">3.758</span>   Mean   :<span class="number">1.199</span>                  </span><br><span class="line"> 3rd Qu.:<span class="number">6.400</span>   3rd Qu.:<span class="number">3.300</span>   3rd Qu.:<span class="number">5.100</span>   3rd Qu.:<span class="number">1.800</span>                  </span><br><span class="line"> Max.   :<span class="number">7.900</span>   Max.   :<span class="number">4.400</span>   Max.   :<span class="number">6.900</span>   Max.   :<span class="number">2.500</span></span><br></pre></td></tr></table></figure><br>结果标签setosa、versicolor、virgiuica 是莺尾花属的三种花的类别。本数据采集了这三种花的四项基本特征，分别为：花萼的长度、花萼的宽度、花瓣的长度以及花瓣的宽度。</p>
+<h2 id="4-案例应用"><a href="#4-案例应用" class="headerlink" title="4 案例应用"></a>4 案例应用</h2><h3 id="4-1-建立模型"><a href="#4-1-建立模型" class="headerlink" title="4.1 建立模型"></a>4.1 建立模型</h3><p>下面分别使用两种方法构建模型以及输出结果：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#根据既定公式建立模型</span></span><br><span class="line">&gt; model = svm(Species~., data = iris)</span><br><span class="line"></span><br><span class="line"><span class="comment">#根据所给的数据集建立模型</span></span><br><span class="line">&gt; x = iris[, -<span class="number">5</span>]</span><br><span class="line">&gt; y = iris[, <span class="number">5</span>]</span><br><span class="line">&gt; model = svm(x, y, kernel = <span class="string">'radial'</span>, gamma = <span class="keyword">if</span> (is.vector(x)) <span class="number">1</span> <span class="keyword">else</span> <span class="number">1</span> / ncol(x))</span><br><span class="line">&gt; summary(model)</span><br><span class="line"></span><br><span class="line">Call:</span><br><span class="line">svm.default(x = x, y = y, kernel = <span class="string">"radial"</span>, gamma = <span class="keyword">if</span> (is.vector(x)) <span class="number">1</span> <span class="keyword">else</span> <span class="number">1</span>/ncol(x))</span><br><span class="line"></span><br><span class="line">Parameters:</span><br><span class="line">   SVM-Type:  C-classification </span><br><span class="line"> SVM-Kernel:  radial </span><br><span class="line">       cost:  <span class="number">1</span> </span><br><span class="line"></span><br><span class="line">Number of Support Vectors:  <span class="number">51</span></span><br><span class="line"></span><br><span class="line"> ( <span class="number">8</span> <span class="number">22</span> <span class="number">21</span> )</span><br><span class="line"></span><br><span class="line">Number of Classes:  <span class="number">3</span> </span><br><span class="line"></span><br><span class="line">Levels: </span><br><span class="line"> setosa versicolor virginica</span><br></pre></td></tr></table></figure><br>结果说明该模型的类别为C分类模型，使用的是高斯核函数，cost项目说明本模型确定的约束违反成本为1，且对于该数据，模型找到了51个支持向量，三个类别分别有8、22、21个支持向量。</p>
+<h3 id="4-2-预测判别"><a href="#4-2-预测判别" class="headerlink" title="4.2 预测判别"></a>4.2 预测判别</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#确认需要进行预测的样本特征矩阵</span></span><br><span class="line">&gt; x = iris[, <span class="number">1</span>:<span class="number">4</span>]</span><br><span class="line">&gt; pred = predict(model, x)</span><br><span class="line">&gt; pred[sample(<span class="number">1</span>:<span class="number">150</span>, <span class="number">8</span>)]</span><br><span class="line">      <span class="number">39</span>        <span class="number">143</span>        <span class="number">105</span>         <span class="number">57</span>        <span class="number">3</span>       <span class="number">28</span>       <span class="number">46</span>       <span class="number">32</span></span><br><span class="line">  setosa  virginica  virginica versicolor   setosa   setosa   setosa   setosa </span><br><span class="line">Levels: setosa versicolor virginica</span><br><span class="line">&gt; table(pred, y)</span><br><span class="line">            y</span><br><span class="line">pred         setosa versicolor virginica</span><br><span class="line">  setosa         <span class="number">50</span>          <span class="number">0</span>         <span class="number">0</span></span><br><span class="line">  versicolor      <span class="number">0</span>         <span class="number">48</span>         <span class="number">2</span></span><br><span class="line">  virginica       <span class="number">0</span>          <span class="number">2</span>        <span class="number">48</span></span><br></pre></td></tr></table></figure>
+<p>从混淆矩阵可以看出只有4个样本没有预测正确。</p>
+<h3 id="4-3-综合建模"><a href="#4-3-综合建模" class="headerlink" title="4.3 综合建模"></a>4.3 综合建模</h3><p>接下来根据3种支持向量分类机和4种核函数，找出最优的参数组合，建立判别结果最优的模型：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">attach</span>(iris)</span><br><span class="line">&gt; x = subset(iris, select = -Species)</span><br><span class="line">&gt; y = Species</span><br><span class="line"><span class="comment">#确定将要使用的分类方式</span></span><br><span class="line">&gt; type = c(<span class="string">'C-classification'</span>, <span class="string">'nu-classification'</span>, <span class="string">'one-classification'</span>)</span><br><span class="line"><span class="comment">#确定将要使用的核函数</span></span><br><span class="line">&gt; kernel = c(<span class="string">'linear'</span>, <span class="string">'polynomial'</span>, <span class="string">'radial'</span>, <span class="string">'sigmoid'</span>)</span><br><span class="line"><span class="comment">#初始化预测结果矩阵</span></span><br><span class="line">&gt; pred = array(<span class="number">0</span>, dim = c(<span class="number">150</span>, <span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line"><span class="comment">#初始化模型精准度矩阵</span></span><br><span class="line">&gt; accuracy = matrix(<span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">#为方便模型精度计算，将结果变量数量化为1,2,3</span></span><br><span class="line">&gt; yy = as.integer(y)</span><br><span class="line">&gt; <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:<span class="number">3</span>) &#123;</span><br><span class="line">+     <span class="keyword">for</span> (j <span class="keyword">in</span> <span class="number">1</span>:<span class="number">4</span>) &#123;</span><br><span class="line">+         pred[, i, j] = predict(svm(x, y, type = type[i], kernel = kernel[j]), x)</span><br><span class="line">+         <span class="comment">#因为三种分类方式的模型预测精度计算方式不同，所以分别计算</span></span><br><span class="line">+         <span class="keyword">if</span> (i &gt; <span class="number">2</span>) accuracy[i, j] = sum(pred[, i, j] != <span class="number">1</span>)</span><br><span class="line">+         <span class="keyword">else</span> accuracy[i, j] = sum(pred[, i, j] != yy)</span><br><span class="line">+     &#125;</span><br><span class="line">+ &#125;</span><br><span class="line"><span class="comment">#确定模型精度变量的行名和列名</span></span><br><span class="line">&gt; dimnames(accuracy) = list(type, kernel)</span><br><span class="line">&gt; accuracy</span><br><span class="line">                   linear polynomial radial sigmoid</span><br><span class="line">C-classification        <span class="number">5</span>          <span class="number">7</span>      <span class="number">4</span>      <span class="number">17</span></span><br><span class="line">nu-classification       <span class="number">5</span>         <span class="number">14</span>      <span class="number">5</span>      <span class="number">12</span></span><br><span class="line">one-classification    <span class="number">102</span>         <span class="number">75</span>     <span class="number">76</span>      <span class="number">75</span></span><br></pre></td></tr></table></figure><br>程序中accur代表的是模型预测错误的个数。结果得到12个模型所对应的预测精度，其中可以发现C-classification和高斯核函数结合的模型判别错误最少，仅为4个，因此可以选择该组合方式建立模型，其预测结果如下：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; table(pred[, <span class="number">1</span>, <span class="number">3</span>], y)</span><br><span class="line">   y</span><br><span class="line">    setosa versicolor virginica</span><br><span class="line">  <span class="number">1</span>     <span class="number">50</span>          <span class="number">0</span>         <span class="number">0</span></span><br><span class="line">  <span class="number">2</span>      <span class="number">0</span>         <span class="number">48</span>         <span class="number">2</span></span><br><span class="line">  <span class="number">3</span>      <span class="number">0</span>          <span class="number">2</span>        <span class="number">48</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="4-4-可视化分析"><a href="#4-4-可视化分析" class="headerlink" title="4.4 可视化分析"></a>4.4 可视化分析</h3><p>接下来对降维后模型各类别的分布情况和对模型中任意两个特征向量的分布情况进行绘图：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#降维之后的各类别图像</span></span><br><span class="line">&gt; plot(cmdscale(dist(iris[, -<span class="number">5</span>])), </span><br><span class="line">+      col = c(<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>)[as.integer(iris[, <span class="number">5</span>])],</span><br><span class="line">+      pch = c(<span class="string">'o'</span>, <span class="string">'+'</span>)[<span class="number">1</span>:<span class="number">150</span> %<span class="keyword">in</span>% model$index + <span class="number">1</span>])</span><br><span class="line">&gt; legend(<span class="number">1.8</span>, -<span class="number">0.6</span>, c(<span class="string">'setosa'</span>, <span class="string">'versicolor'</span>, <span class="string">'virginica'</span>), </span><br><span class="line">+        col = c(<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>), lty = <span class="number">1</span>, cex = <span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#模型中任意两个特征向量的分布情况</span></span><br><span class="line">&gt; plot(model, iris, Petal.Width ~ Petal.Length, fill = <span class="literal">FALSE</span>, </span><br><span class="line">+      symbolPalette = c(<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>), svSymbol = <span class="string">'+'</span>)</span><br><span class="line">&gt; legend(<span class="number">1</span>, <span class="number">2.5</span>, c(<span class="string">'setosa'</span>, <span class="string">'versicolor'</span>, <span class="string">'virginica'</span>), </span><br><span class="line">+        col = c(<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>), lty = <span class="number">1</span>, cex = <span class="number">0.5</span>)</span><br></pre></td></tr></table></figure><br><img src="/2020/03/24/R-support-vector-machine/p1.png" alt><img src="/2020/03/24/R-support-vector-machine/p2.png" alt><br>左图为对模型数据类别的一个总观察，图中的“+”表示的是支持向量机，“o”表示的是普通样本点。莺尾属中的第一种setosa类别同其他两种区别较大，而剩下的versicolor类别和virginjca类别却相差很小，甚至存在交叉难以区分，这也解释了模型预测中出现的误判问题。右图为在维度Width与Length下各类别分布情况，同样，setosa类别的花瓣同另外两个类别相差较大，而versicolor类别的花瓣同virginica类别的花瓣相差较小。</p>
+<h3 id="4-5-优化建模"><a href="#4-5-优化建模" class="headerlink" title="4.5 优化建模"></a>4.5 优化建模</h3><p>针对上面得到的存在类别交叉的情况，可以通过<span style="border-bottom:2px dashed red;">改变模型各类别的比重</span>来对模型进行调整。由于类别setosa同其他两个类别的相差较大，所以可以考虑降低类别setosa在模型中的比重，而提高另外两个类别的比重，即适当牺牲类别setosa的精度来提高其他两个类别的精度。这通过svm()函数中的<strong>class.weights参数</strong>进行调整，该参数所需要的数据必须为向量，并且具有列名。</p>
+<p>当各类别比重相等的时候，即模型为最原始的模型，预测效果可见之前的结果；将versicolor类别和virginjca类别的比重扩大100倍和500倍的情况如下：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#各类别比重相等</span></span><br><span class="line">&gt; wts = c(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">&gt; names(wts) = c(<span class="string">'setosa'</span>, <span class="string">'versicolor'</span>, <span class="string">'virginica'</span>)</span><br><span class="line">&gt; model = svm(x, y, class.weights = wts)</span><br><span class="line"></span><br><span class="line"><span class="comment">#versicolor类别和virginjca类别的比重扩大100倍</span></span><br><span class="line">&gt; wts1 = c(<span class="number">1</span>, <span class="number">100</span>, <span class="number">100</span>)</span><br><span class="line">&gt; names(wts1) = c(<span class="string">'setosa'</span>, <span class="string">'versicolor'</span>, <span class="string">'virginica'</span>)</span><br><span class="line">&gt; model1 = svm(x, y, class.weights = wts1)</span><br><span class="line">&gt; pred1 = predict(model1, x)</span><br><span class="line">&gt; table(pred1, y)</span><br><span class="line">            y</span><br><span class="line">pred1        setosa versicolor virginica</span><br><span class="line">  setosa         <span class="number">50</span>          <span class="number">0</span>         <span class="number">0</span></span><br><span class="line">  versicolor      <span class="number">0</span>         <span class="number">49</span>         <span class="number">1</span></span><br><span class="line">  virginica       <span class="number">0</span>          <span class="number">1</span>        <span class="number">49</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#versicolor类别和virginjca类别的比重扩大500倍</span></span><br><span class="line">&gt; wts2 = c(<span class="number">1</span>, <span class="number">500</span>, <span class="number">500</span>)</span><br><span class="line">&gt; names(wts2) = c(<span class="string">'setosa'</span>, <span class="string">'versicolor'</span>, <span class="string">'virginica'</span>)</span><br><span class="line">&gt; model2 = svm(x, y, class.weights = wts2)</span><br><span class="line">&gt; pred2 = predict(model2, x)</span><br><span class="line">&gt; table(pred2, y)</span><br><span class="line">            y</span><br><span class="line">pred2        setosa versicolor virginica</span><br><span class="line">  setosa         <span class="number">50</span>          <span class="number">0</span>         <span class="number">0</span></span><br><span class="line">  versicolor      <span class="number">0</span>         <span class="number">50</span>         <span class="number">0</span></span><br><span class="line">  virginica       <span class="number">0</span>          <span class="number">0</span>        <span class="number">50</span></span><br></pre></td></tr></table></figure><br>可以看到，通过调整权重后，支持向量机能够将所有样本全部预测正确。所以在实际构建模型的过程中，在必要的时候可以通过改变各类别样本之间的权重比例来提高模型的预测精度。</p>
+<ul>
+<li>本笔记基于黄文和王正林编著的《数据挖掘：R语言实战》整理</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/25/naive-bayesian-model/" class="archive-article-date">
-  	<time datetime="2020-02-25T12:16:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/25/naive-bayesian-model/">朴素贝叶斯模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -204,448 +278,133 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">R语言</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/23/knn-model/" class="archive-article-date">
-  	<time datetime="2020-02-22T23:57:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/23/knn-model/">KNN模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/21/decision-tree-and-random-forest/" class="archive-article-date">
-  	<time datetime="2020-02-21T08:54:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/21/decision-tree-and-random-forest/">决策树与随机森林</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/19/logistic/" class="archive-article-date">
-  	<time datetime="2020-02-19T05:49:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/19/logistic/">Logistic回归分类模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/17/ridge-and-lasso/" class="archive-article-date">
-  	<time datetime="2020-02-17T02:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/17/ridge-and-lasso/">岭回归与LASSO回归模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/15/linear-regression/" class="archive-article-date">
-  	<time datetime="2020-02-15T07:21:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/15/linear-regression/">线性回归预测模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/12/sql/" class="archive-article-date">
-  	<time datetime="2020-02-12T02:50:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/12/sql/">sql简单语句整理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据分析</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/08/want-to-see-you/" class="archive-article-date">
-  	<time datetime="2020-02-08T14:56:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/08/want-to-see-you/">想见你</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/31/2019/" class="archive-article-date">
-  	<time datetime="2019-12-31T11:42:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/31/2019/">告别2019</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/24/R-support-vector-machine/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/20/light/" class="archive-article-date">
-  	<time datetime="2019-12-20T11:32:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/23/R-randomforest/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">R语言数据挖掘——随机森林</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/20/light/">光影碎片</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next &amp;raquo;</a>
-    </nav>
+  
+       <div id="gitalk-container"></div>
+       <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+
+<script>
+var gitalk = new Gitalk({
+  clientID: '32f8aebec08d23898444',
+  clientSecret: '9e49adc1f1d65e2e665e39cc84c6bbec32227d67',
+  repo: 'guomin-h-a.github.io',
+  owner: 'guomin-h-a',
+  admin: ['guomin-h-a'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: true
+})
+
+gitalk.render('gitalk-container')
+</script>
+  
+
+  
+
   
 
 
@@ -669,8 +428,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
