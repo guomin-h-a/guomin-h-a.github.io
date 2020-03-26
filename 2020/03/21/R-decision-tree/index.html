@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>R语言数据挖掘——决策树 | 龙猫芭蕉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="决策树分为两个主要类型：分类树和回归树。分类树是针对目标为离散型的情况，即最终目标是预测各样本的所属类别；回归树适用于目标变量为连续型。 决策树的常用算法：CART(Classification and Regression Trees)和C4.5(successor of ID3)。分类回归树CART是既可以建立分类树，也可以构造回归树的算法，是许多集成分类算法的基分类器。C4.5是ID3(It">
+  <meta name="description" content="决策树分为两个主要类型：分类树和回归树。分类树是针对目标为离散型的情况，即最终目标是预测各样本的所属类别；回归树适用于目标变量为连续型。 决策树的常用算法：CART(Classification and Regression Trees)和C4.5(successor of ID3)。分类回归树CART是既可以建立分类树，也可以构造回归树的算法，是许多集成分类算法的基分类器。根节点或中间节点的字段">
 <meta property="og:type" content="article">
 <meta property="og:title" content="R语言数据挖掘——决策树">
 <meta property="og:url" content="http://yoursite.com/2020/03/21/R-decision-tree/index.html">
 <meta property="og:site_name" content="龙猫芭蕉的博客">
-<meta property="og:description" content="决策树分为两个主要类型：分类树和回归树。分类树是针对目标为离散型的情况，即最终目标是预测各样本的所属类别；回归树适用于目标变量为连续型。 决策树的常用算法：CART(Classification and Regression Trees)和C4.5(successor of ID3)。分类回归树CART是既可以建立分类树，也可以构造回归树的算法，是许多集成分类算法的基分类器。C4.5是ID3(It">
+<meta property="og:description" content="决策树分为两个主要类型：分类树和回归树。分类树是针对目标为离散型的情况，即最终目标是预测各样本的所属类别；回归树适用于目标变量为连续型。 决策树的常用算法：CART(Classification and Regression Trees)和C4.5(successor of ID3)。分类回归树CART是既可以建立分类树，也可以构造回归树的算法，是许多集成分类算法的基分类器。根节点或中间节点的字段">
 <meta property="og:image" content="http://yoursite.com/2020/03/21/R-decision-tree/p0.png">
 <meta property="article:published_time" content="2020-03-21T06:51:58.000Z">
-<meta property="article:modified_time" content="2020-03-23T04:49:51.939Z">
+<meta property="article:modified_time" content="2020-03-25T13:08:49.306Z">
 <meta property="article:author" content="龙猫芭蕉">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="数据分析与挖掘">
@@ -188,7 +188,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">312字</span>
+        <span class="post-count">331字</span>
       </span>
     </span>
 
@@ -208,7 +208,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>决策树分为两个主要类型：<strong>分类树</strong>和<strong>回归树</strong>。分类树是针对目标为离散型的情况，即最终目标是预测各样本的所属类别；回归树适用于目标变量为连续型。</p>
-<p>决策树的常用算法：<code>CART</code>(Classification and Regression Trees)和<code>C4.5</code>(successor of ID3)。<br>分类回归树<strong>CART</strong>是既可以建立分类树，也可以构造回归树的算法，是许多集成分类算法的基分类器。<br><strong>C4.5</strong>是ID3(Iterative Dichotomiser 3)的改进算法，两者都以熵（Entropy）理论和信息增益理论为基础。由于ID3只能用于离散变量，且确定判定变量时偏向于选择取值较多的变量，C4.5是为了解决ID3的这两项缺陷而提出的。 </p>
+<p>决策树的常用算法：<code>CART</code>(Classification and Regression Trees)和<code>C4.5</code>(successor of ID3)。<br>分类回归树<strong>CART</strong>是既可以建立分类树，也可以构造回归树的算法，是许多集成分类算法的基分类器。根节点或中间节点的字段选择指标是<strong>基尼指数</strong>。<br><strong>C4.5</strong>是ID3(Iterative Dichotomiser 3)的改进算法，两者都以<strong>熵（Entropy）理论</strong>和<strong>信息增益理论</strong>为基础。其中，ID3的字段选择指标是<strong>信息增益</strong>，C4.5的字段选择指标是<strong>信息增益率</strong>。两者都只能针对离散型因变量进行分类。 </p>
 <a id="more"></a>
 <p>在R中的实现方式如下图所示：<br><img src="/2020/03/21/R-decision-tree/p0.png" alt></p>
 <p><strong>rpart()函数</strong>：<code>rpart(formula, data, weights, subset, na.action = na.rpart, method, model = FALSE, x = FALSE，SE，Y = TRUE, parms, control, cost, ...)</code><br><strong>J48()函数</strong>：<code>J48(formu1a, data, subset, na.action, control = Weka_control(), options = NULL)</code></p>

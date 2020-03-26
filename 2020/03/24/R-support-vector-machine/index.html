@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/03/24/R-support-vector-machine/p1.png">
 <meta property="og:image" content="http://yoursite.com/2020/03/24/R-support-vector-machine/p2.png">
 <meta property="article:published_time" content="2020-03-24T05:38:15.000Z">
-<meta property="article:modified_time" content="2020-03-25T02:04:58.885Z">
+<meta property="article:modified_time" content="2020-03-25T03:57:07.545Z">
 <meta property="article:author" content="龙猫芭蕉">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="数据分析与挖掘">
@@ -213,9 +213,9 @@
 <a id="more"></a>
 <h2 id="1-算法简述"><a href="#1-算法简述" class="headerlink" title="1 算法简述"></a>1 算法简述</h2><p>该算法相对于其他算法具有更好的预测准确率，主要是因为它可以将低维线性不可分的空间转换为高维的线性可分空间。思想是利用某些支持向量所构成的“<strong>超平面</strong>”，将不同类别（如线性可分、近似线性可分和非线性可分）的样本点进行划分。如果样本点是非线性可分，就借助<strong>核函数</strong>技术，实现样本在核空间下完成线性可分的操作。关于“超平面”该如何构造是一个非常复杂的问题，本学渣表示还需要继续深入学习=.=。</p>
 <p>支持向量机是一种努力使得<strong>结构风险最小化</strong>的算法。在机器学习领域中，所谓<strong>风险</strong>指的是近似模型与真实模型之间的误差。最直观的想法是使用分类器在样本数据上的分类结果与真实结果之间的差值来表示，这个差值统计上称之为<strong>经验风险</strong>。另外还有一个<strong>置信风险</strong>，代表了我们再多大程度上可以信任分类器在未知样本上的分类结果。而<strong>结构风险最小化</strong>，就是寻求经验风险和置信风险之和最小化。</p>
-<p>支持向量机的其他概念还有<strong>函数间隔</strong>、<strong>几何间隔</strong>，其中涉及大量的统计知识这里就不写出来了（学渣落泪T_T）。不过这里怎么能跳过最基本的概念——<strong>支持向量</strong>呢！支持向量其实是指<span style="border-bottom:2px dashed red;">真正发挥作用的数据点，也就是到达决策方程距离最小的点（边界点）</span>，就是支持向量机的<strong>优化目标</strong>——找到一个条线使得离该线<strong>最近的点</strong>能够最远——的那个<strong>点</strong>。如下图。</p>
+<p>支持向量机的其他概念还有<strong>函数间隔</strong>、<strong>几何间隔</strong>，其中涉及大量的统计知识这里就不写出来了（学渣落泪T_T）。不过这里怎么能跳过最基本的概念——<strong>支持向量</strong>呢！支持向量其实是指<span style="border-bottom:2px dashed red;">真正发挥作用的数据点，也就是到达决策方程距离最小的点（边界点）</span>，就是支持向量机的<strong>优化目标</strong>——找到一个条线使得离该线<strong>最近的点</strong>能够最远（即边际最大）——的那个<strong>点</strong>。如下图：</p>
 <p><img src="/2020/03/24/R-support-vector-machine/p3.jpg" alt></p>
-<h2 id="2-在R中的实现"><a href="#2-在R中的实现" class="headerlink" title="2 在R中的实现"></a>2 在R中的实现</h2><p>软件包<strong>e1071</strong> 主要用于支持向量机的模型构建，核心函数为<strong>svm()</strong>基本使用格式有两种：<br><code>svm(formula, data = NULL, ..., subset, na.action =na.omit, scale = TRUE)</code> 或<br><code>svm(x, y = NULL, scale = TRUE, type = NULL, kernel =&quot;radial&quot;, degree = 3, gamma = if (is.vector(x)) 1 else 1 / ncol(x) , ..., class.weights = NULL, ...)</code></p>
+<h2 id="2-在R中的实现"><a href="#2-在R中的实现" class="headerlink" title="2 在R中的实现"></a>2 在R中的实现</h2><p>软件包<strong>e1071</strong> 主要用于支持向量机的模型构建，核心函数<strong>svm()</strong>的基本使用格式有两种：<br><code>svm(formula, data = NULL, ..., subset, na.action =na.omit, scale = TRUE)</code> 或<br><code>svm(x, y = NULL, scale = TRUE, type = NULL, kernel =&quot;radial&quot;, degree = 3, gamma = if (is.vector(x)) 1 else 1 / ncol(x) , ..., class.weights = NULL, ...)</code></p>
 <p>根据结果变量的类型，支持向量机模型可以分为分类模型、回归模型或异常检测模型：<br>如果结果变量为<strong>定性变量</strong>，则生成<strong>分类模型</strong>，有<strong>C-classification、nu-classification、one-classification</strong>三种；<br>如果结果变量为<strong>连续变量</strong>，则生成<strong>回归模型</strong>，有<strong>eps-regression、nu-regression</strong>两种。</p>
 <p>kernel参数有4个可选核函数：<strong>线性核函数（linear）</strong>、<strong>多项式核函数（polynomial）</strong>、<strong>径向基核函数/高斯核函数（radial basis）</strong>以及<strong>神经网络核函数（sigmoid）</strong>。其中，识别率最高、性能最好的是高斯核函数，其次是多项式核函数，最差的是神经网络核函数。</p>
 <h2 id="3-数据集"><a href="#3-数据集" class="headerlink" title="3 数据集"></a>3 数据集</h2><p>用的是熟悉的iris数据集：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">library</span>(e1071)</span><br><span class="line">&gt; data(<span class="string">"iris"</span>)</span><br><span class="line">&gt; summary(iris)</span><br><span class="line">  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width          Species  </span><br><span class="line"> Min.   :<span class="number">4.300</span>   Min.   :<span class="number">2.000</span>   Min.   :<span class="number">1.000</span>   Min.   :<span class="number">0.100</span>   setosa    :<span class="number">50</span>  </span><br><span class="line"> 1st Qu.:<span class="number">5.100</span>   1st Qu.:<span class="number">2.800</span>   1st Qu.:<span class="number">1.600</span>   1st Qu.:<span class="number">0.300</span>   versicolor:<span class="number">50</span>  </span><br><span class="line"> Median :<span class="number">5.800</span>   Median :<span class="number">3.000</span>   Median :<span class="number">4.350</span>   Median :<span class="number">1.300</span>   virginica :<span class="number">50</span>  </span><br><span class="line"> Mean   :<span class="number">5.843</span>   Mean   :<span class="number">3.057</span>   Mean   :<span class="number">3.758</span>   Mean   :<span class="number">1.199</span>                  </span><br><span class="line"> 3rd Qu.:<span class="number">6.400</span>   3rd Qu.:<span class="number">3.300</span>   3rd Qu.:<span class="number">5.100</span>   3rd Qu.:<span class="number">1.800</span>                  </span><br><span class="line"> Max.   :<span class="number">7.900</span>   Max.   :<span class="number">4.400</span>   Max.   :<span class="number">6.900</span>   Max.   :<span class="number">2.500</span></span><br></pre></td></tr></table></figure><br>结果标签setosa、versicolor、virgiuica 是莺尾花属的三种花的类别。本数据采集了这三种花的四项基本特征，分别为：花萼的长度、花萼的宽度、花瓣的长度以及花瓣的宽度。</p>
@@ -349,6 +349,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/03/26/R-rattle/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          R语言数据挖掘——图形交互界面Rattle的安装与使用
+        
+      </div>
+    </a>
   
   
     <a href="/2020/03/23/R-randomforest/" id="article-nav-older" class="article-nav-link-wrap">
