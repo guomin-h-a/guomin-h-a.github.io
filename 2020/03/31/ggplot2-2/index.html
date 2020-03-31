@@ -6,14 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 龙猫芭蕉的博客</title>
+  <title>ggplot2学习笔记（2） | 龙猫芭蕉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="龙猫芭蕉的博客">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="4 标度、坐标轴和图例标度(scale) 控制着数据到图形属性的映射。标度将我们的数据转化为视觉上可以感知的东西例如大小、颜色、位置或形状。标度也为我们提供了读图时所使用的工具：坐标轴和图例(总的来说可称为引导元素)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ggplot2学习笔记（2）">
+<meta property="og:url" content="http://yoursite.com/2020/03/31/ggplot2-2/index.html">
 <meta property="og:site_name" content="龙猫芭蕉的博客">
+<meta property="og:description" content="4 标度、坐标轴和图例标度(scale) 控制着数据到图形属性的映射。标度将我们的数据转化为视觉上可以感知的东西例如大小、颜色、位置或形状。标度也为我们提供了读图时所使用的工具：坐标轴和图例(总的来说可称为引导元素)。">
+<meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/p1.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/p2.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/p3.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/p4.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/p5.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/p6.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/p7.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/p8.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/p9.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/p10.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/p11.png">
+<meta property="article:published_time" content="2020-03-31T04:27:25.000Z">
+<meta property="article:modified_time" content="2020-03-31T08:33:26.348Z">
 <meta property="article:author" content="龙猫芭蕉">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="R语言">
+<meta property="article:tag" content="ggplot2">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/03/31/ggplot2-2/p1.png">
   
     <link rel="alternative" href="/atom.xml" title="龙猫芭蕉的博客" type="application/atom+xml">
   
@@ -157,513 +176,232 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ggplot2-2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/14/R-association-analysis/" class="archive-article-date">
-  	<time datetime="2020-03-14T08:28:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/14/R-association-analysis/">R语言数据挖掘——关联分析</a>
+    <h1 class="article-title" itemprop="name">
+      ggplot2学习笔记（2）
     </h1>
   
 
-        <div class="article-info info-on-right">
+        
+        <a href="/2020/03/31/ggplot2-2/" class="archive-article-date">
+  	<time datetime="2020-03-31T04:27:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
+</a>
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">963字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">3分</span>
+      </span>
+    </span>
+</div>
           
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="4-标度、坐标轴和图例"><a href="#4-标度、坐标轴和图例" class="headerlink" title="4 标度、坐标轴和图例"></a>4 标度、坐标轴和图例</h2><p>标度(scale) 控制着数据到图形属性的映射。标度将我们的数据转化为视觉上可以感知的东西例如大小、颜色、位置或形状。标度也为我们提供了读图时所使用的工具：<strong>坐标轴</strong>和<strong>图例</strong>(总的来说可称为<strong>引导元素</strong>)。<br><a id="more"></a></p>
+<h3 id="4-1-用法"><a href="#4-1-用法" class="headerlink" title="4.1 用法"></a>4.1 用法</h3><p>标度构建器的命名：以<strong>scale_</strong>开头，，接下来是图形属性的名称(例如colour_、shape_或x_)，最后以标度的名称结尾(例如gradient、hue或manual) 。离散型数据的颜色图形属性的默认标度名为scale_colour_hue()，填充色的Brewer配色标度名为scale_fill_brever()。<br><img src="/2020/03/31/ggplot2-2/p1.png" alt></p>
+<h3 id="4-2-标度分类"><a href="#4-2-标度分类" class="headerlink" title="4.2 标度分类"></a>4.2 标度分类</h3><p>标度可以粗略地分为四类：<strong>位置标度</strong>、<strong>颜色标度</strong>、<strong>手动标度</strong>、<strong>同一型标度</strong>。<br>对于位置型图形属性，引导元素是坐标轴；对于所有其他图形属性来说，引导元素是图例。</p>
+<h4 id="4-2-1-位置标度"><a href="#4-2-1-位置标度" class="headerlink" title="4.2.1 位置标度"></a>4.2.1 位置标度</h4><p>用于将连续型、离散型和日期-时间型变量映射到绘图区域，以及构造对应的坐标轴。<br>辅助函数<code>xlim()</code>、<code>ylim()</code>。<br>连续型位置标度是<code>scale_x_continuous()</code>、<code>scale_y_continuous()</code>，均可接受<strong>trans参数</strong>，指定若干种线性或非线性的变换，每种变换由“变换器”实现（见左下图）。<br>日期和时间：三个参数控制外观和刻度的位置<strong>major</strong>、<strong>minor</strong>、<strong>format</strong>，常用的时间格式见右下图。<br><img src="/2020/03/31/ggplot2-2/p2.png" alt>  <img src="/2020/03/31/ggplot2-2/p3.png" alt></p>
+<h4 id="4-2-2-颜色标度"><a href="#4-2-2-颜色标度" class="headerlink" title="4.2.2 颜色标度"></a>4.2.2 颜色标度</h4><p>用于将连续型和离散型变量映射到颜色。<br>三类连续型颜色梯度（渐近色）：<br>scale_colour_gradient() 和 scale_fill_gradient()<br>scale_colour_gradient2() 和 scale_fill_gradient2()<br>scale_colour_gradientn() 和 scale_fill_gradientn()</p>
+<p>离散型：<br>默认的配包方案，即scale_colour_hue()，对类别型数据点，感兴趣的调色板是<strong>“Set1”</strong>和<strong>“Dark2”</strong>，对于面积而言是<strong>“Set2”</strong>、<strong>“Pastel1”</strong>、<strong>“Pastel2”</strong>和<strong>“Accent”</strong>。<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; point &lt;- qplot(brainwt, bodywt, data = msleep, log = <span class="string">'xy'</span>, colour = vore)</span><br><span class="line">&gt; area &lt;- qplot(log10(brainwt), data = msleep, fill = vore, binwidth = <span class="number">1</span>)</span><br><span class="line">&gt; point + scale_colour_brewer(palette = <span class="string">'Set1'</span>)</span><br><span class="line">&gt; point + scale_colour_brewer(palette = <span class="string">'Set2'</span>)</span><br><span class="line">&gt; point + scale_colour_brewer(palette = <span class="string">'Pastel1'</span>)</span><br><span class="line">&gt; area + scale_fill_brewer(palette = <span class="string">'Set1'</span>) </span><br><span class="line">&gt; area + scale_fill_brewer(palette = <span class="string">'Set2'</span>)</span><br><span class="line">&gt; area + scale_fill_brewer(palette = <span class="string">'Pastel1'</span>)</span><br></pre></td></tr></table></figure><br><img src="/2020/03/31/ggplot2-2/p4.png" alt><img src="/2020/03/31/ggplot2-2/p5.png" alt><img src="/2020/03/31/ggplot2-2/p6.png" alt><br><img src="/2020/03/31/ggplot2-2/p7.png" alt><img src="/2020/03/31/ggplot2-2/p8.png" alt><img src="/2020/03/31/ggplot2-2/p9.png" alt></p>
+<h4 id="4-2-3-手动标度"><a href="#4-2-3-手动标度" class="headerlink" title="4.2.3 手动标度"></a>4.2.3 手动标度</h4><p>用于将离散型变量映射到我们选择的符号大小、线条类型、形状或颜色，以及创建对应的图例。<br>scale_shape_manual()，scale_linetype_manual()，scale_colour_manual()等，重要参数是<strong>values</strong>。<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; plot &lt;- qplot(brainwt, bodywt, data = msleep, log = <span class="string">'xy'</span>)</span><br><span class="line">&gt; colours &lt;- c(carni = <span class="string">"red"</span>, <span class="string">"NA"</span> = <span class="string">"orange"</span>, insecti = <span class="string">"yellow"</span>, herbi = <span class="string">"green"</span>, omni = <span class="string">"blue"</span>)</span><br><span class="line">&gt; plot + aes(colour = vore) + scale_colour_manual(values = colours)</span><br><span class="line">&gt; plot + aes(shape = vore) + scale_shape_manual(values = c(<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">0</span>, <span class="number">23</span>))</span><br></pre></td></tr></table></figure><br><img src="/2020/03/31/ggplot2-2/p10.png" alt> <img src="/2020/03/31/ggplot2-2/p11.png" alt></p>
+<h4 id="4-2-4-同一型标度"><a href="#4-2-4-同一型标度" class="headerlink" title="4.2.4 同一型标度"></a>4.2.4 同一型标度</h4><p>用于直接将变量值绘制为图形属性，而不去映射它们。举例来说，假设想要将变量映射为符号的颜色，而此变量本身就是一个由颜色值组成的向量，那么就无须再将其映射为其他的颜色，直接渲染这些值本身即可。</p>
+<h3 id="4-3-通用参数"><a href="#4-3-通用参数" class="headerlink" title="4.3 通用参数"></a>4.3 通用参数</h3><p><code>name</code>:设置坐标轴或图例上出现的标签，通常使用三个辅助函数<strong>xlab()，ylab()</strong>和<strong>labs()</strong><br><code>limits</code>：固定标度的定义域。连续型标度接受一个长度为2 的数值型向量，离散型标度接受一个字符型向量。<br><code>breaks</code>和<code>labels</code>：breaks控制着显示在坐标轴或图例上的值，即坐标轴上应该显示哪些刻度线的值，或一个连续型标度在一个图例中将被如何分段。labels 指定了应在断点处显示的标签。若设置了labels，则必须同时指定breaks，只有这样，这两个参数才能被正确匹配。<br><code>formatter</code>：如果未指定任何标签则将在每个断点处自动调用格式刷(formatter) 来格式化生成标签。对于连续型标签，可用的标签刷为comma, percent, dollar 和scientific; 对于离散型标度则为abbreviate。</p>
+<h2 id="5-定位"><a href="#5-定位" class="headerlink" title="5 定位"></a>5 定位</h2><ul>
+<li>本笔记基于Hadley Wickham的《ggplot2：数据分析与图形艺术》整理</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">R语言</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/07/my-winter-holiday/" class="archive-article-date">
-  	<time datetime="2020-03-07T02:52:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/07/my-winter-holiday/">我的寒假</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ggplot2</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/31/ggplot2-2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/29/dbscan/" class="archive-article-date">
-  	<time datetime="2020-02-29T08:25:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-29</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/31/ggplot2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ggplot2学习笔记（1）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/29/dbscan/">DBSCAN与层次聚类</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/27/kmeans/" class="archive-article-date">
-  	<time datetime="2020-02-27T04:21:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/27/kmeans/">Kmeans聚类分析</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/25/naive-bayesian-model/" class="archive-article-date">
-  	<time datetime="2020-02-25T12:16:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/25/naive-bayesian-model/">朴素贝叶斯模型</a>
-    </h1>
+       <div id="gitalk-container"></div>
+       <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+
+<script>
+var gitalk = new Gitalk({
+  clientID: '32f8aebec08d23898444',
+  clientSecret: '9e49adc1f1d65e2e665e39cc84c6bbec32227d67',
+  repo: 'guomin-h-a.github.io',
+  owner: 'guomin-h-a',
+  admin: ['guomin-h-a'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: true
+})
+
+gitalk.render('gitalk-container')
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/23/knn-model/" class="archive-article-date">
-  	<time datetime="2020-02-22T23:57:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/23/knn-model/">KNN模型</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/21/decision-tree-and-random-forest/" class="archive-article-date">
-  	<time datetime="2020-02-21T08:54:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/21/decision-tree-and-random-forest/">决策树与随机森林</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/19/logistic/" class="archive-article-date">
-  	<time datetime="2020-02-19T05:49:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/19/logistic/">Logistic回归分类模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/17/ridge-and-lasso/" class="archive-article-date">
-  	<time datetime="2020-02-17T02:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/17/ridge-and-lasso/">岭回归与LASSO回归模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/15/linear-regression/" class="archive-article-date">
-  	<time datetime="2020-02-15T07:21:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/15/linear-regression/">线性回归预测模型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -687,8 +425,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
