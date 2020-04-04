@@ -42,8 +42,12 @@
 <meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/p26.png">
 <meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/p27.png">
 <meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/p28.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/p29.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/outp1.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/outp2.png">
+<meta property="og:image" content="http://yoursite.com/2020/03/31/ggplot2-2/outp3.png">
 <meta property="article:published_time" content="2020-03-31T04:27:25.000Z">
-<meta property="article:modified_time" content="2020-04-02T13:37:16.257Z">
+<meta property="article:modified_time" content="2020-04-04T13:42:46.007Z">
 <meta property="article:author" content="龙猫芭蕉">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="R语言">
@@ -214,7 +218,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.2k字</span>
+        <span class="post-count">2.8k字</span>
       </span>
     </span>
 
@@ -223,7 +227,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">9分</span>
+        <span class="post-count">11分</span>
       </span>
     </span>
 </div>
@@ -252,6 +256,10 @@
 <h4 id="5-2-1-设置范围"><a href="#5-2-1-设置范围" class="headerlink" title="5.2.1 设置范围"></a>5.2.1 设置范围</h4><p>coord_cartesian()有两个参数xlim和ylim。与标度的范围设置的区别：当设定标度范围时，任何超出此范围的数据都会被删除；但当设定笛卡尔坐标系的范围时，使用的仍然是所有的数据，只不过只展示一小片图形区域。如下图三是坐标系的放缩，而下图二标度的范围设置则是对数据取子集，然后再重新拟合曲线。<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; (d &lt;- ggplot(diamonds, aes(carat, price)) +</span><br><span class="line">+     stat_bin2d(bins = <span class="number">25</span>, colour = <span class="string">'grey70'</span>) +</span><br><span class="line">+     theme(legend.position = <span class="string">'none'</span>))</span><br><span class="line">&gt; d + scale_x_continuous(limits = c(<span class="number">0</span>, <span class="number">2</span>))</span><br><span class="line">&gt; d + coord_cartesian(xlim = c(<span class="number">0</span>, <span class="number">2</span>))</span><br></pre></td></tr></table></figure><br><img src="/2020/03/31/ggplot2-2/p19.png" alt><img src="/2020/03/31/ggplot2-2/p20.png" alt><img src="/2020/03/31/ggplot2-2/p21.png" alt></p>
 <h4 id="5-2-2-翻转和变换"><a href="#5-2-2-翻转和变换" class="headerlink" title="5.2.2 翻转和变换"></a>5.2.2 翻转和变换</h4><p><code>coord_flip</code>调换x和y轴，拟合的是初始数据，再翻转输出结果。<br><code>coord_trans</code>进行数据变换。标度层面的变换发生在统计量计算之前，且不会改变对象的几何形状；坐标系层面的变换发生在统计量计算之后，会影响几何形状。两种变换一起使用时，先在变换的尺度上建模，然后再反演到变换前的图形以便于解释。<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#翻转</span></span><br><span class="line">&gt; qplot(cty, displ, data = mpg) + geom_smooth()</span><br><span class="line">&gt; qplot(cty, displ, data = mpg) + geom_smooth() + coord_flip()</span><br><span class="line"><span class="comment">#变换</span></span><br><span class="line">&gt; qplot(carat, price, data = diamonds, log = <span class="string">'xy'</span>) + geom_smooth(method = <span class="string">'lm'</span>)</span><br><span class="line">&gt; <span class="keyword">library</span>(scales)</span><br><span class="line">&gt; last_plot() + coord_trans(x = exp_trans(<span class="number">10</span>), y = exp_trans(<span class="number">10</span>))</span><br></pre></td></tr></table></figure><br>      <img src="/2020/03/31/ggplot2-2/p22.png" alt> <img src="/2020/03/31/ggplot2-2/p23.png" alt><br><img src="/2020/03/31/ggplot2-2/p24.png" alt><img src="/2020/03/31/ggplot2-2/p25.png" alt></p>
 <h4 id="5-2-3-极坐标"><a href="#5-2-3-极坐标" class="headerlink" title="5.2.3 极坐标"></a>5.2.3 极坐标</h4><p>极坐标常被用于环形数据，特别是时间和方向数据，参数<strong>theta</strong>决定哪个变量被映射为角度（默认为x），哪个被映射为半径。利用极坐标可以生成饼图、玫瑰图（源自条状图）和雷达图（源自直线几何对象）。<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#堆叠条状图</span></span><br><span class="line">&gt; (pie &lt;- ggplot(mtcars, aes(x = factor(<span class="number">1</span>), fill = factor(cyl))) +</span><br><span class="line">+     geom_bar(width = <span class="number">1</span>))</span><br><span class="line"><span class="comment">#饼图</span></span><br><span class="line">&gt; pie + coord_polar(theta = <span class="string">'y'</span>)</span><br><span class="line"><span class="comment">#牛眼图</span></span><br><span class="line">&gt; pie + coord_polar()</span><br></pre></td></tr></table></figure><br><img src="/2020/03/31/ggplot2-2/p26.png" alt><img src="/2020/03/31/ggplot2-2/p27.png" alt><img src="/2020/03/31/ggplot2-2/p28.png" alt></p>
+<h2 id="6-精雕细琢"><a href="#6-精雕细琢" class="headerlink" title="6 精雕细琢"></a>6 精雕细琢</h2><h3 id="6-1-主题"><a href="#6-1-主题" class="headerlink" title="6.1 主题"></a>6.1 主题</h3><p><strong>全局性设置：</strong><code>theme_set(theme_grey())</code>或<code>theme_set(theme_bw())</code>。<code>theme_set()</code>返回先前的主题。<br><strong>局部性设置：</strong><code>qplot(...) + theme_grey()</code>，会覆盖默认的全局性设置。<br>控制元素外观的函数被称为<strong>元素函数</strong>，内置元素函数有四个基础类型：文本、线条、矩形和空白，每个元素函数有一系列控制外观的参数。<br><code>element_text()</code>绘制标签和标题，可控制字体的family, face, colour, size, hjust, vjust, angle, lineheight，如<code>theme(plot.title = element_text(size = 20))</code><br><code>element_line()</code>绘制线条或线段，可控制colour, size, linestyle。<br><code>element_rect()</code>绘制主要供背景使用的矩形，可以控制填充颜色fill和边界的colour, size, linetype。<br><code>element_blank()</code>表示空主题，即对元素不分配相应的绘图空间。<br><img src="/2020/03/31/ggplot2-2/p29.png" alt></p>
+<h3 id="6-2-存储输出"><a href="#6-2-存储输出" class="headerlink" title="6.2 存储输出"></a>6.2 存储输出</h3><p><code>png()</code>或<code>pdf()</code>，打印图形<code>print()</code>，然后关闭图形设备<code>dev.off()</code><br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; a &lt;- qplot(date, unemploy, data = economics, geom = <span class="string">'line'</span>)</span><br><span class="line">&gt; png(file = <span class="string">'D:/hexo/hexo/source/_posts/ggplot2-2/outp.png'</span>, width = <span class="number">400</span>, height = <span class="number">300</span>)</span><br><span class="line">&gt; print(a)</span><br><span class="line">&gt; dev.off()</span><br></pre></td></tr></table></figure></p>
+<h3 id="6-3-一页多图"><a href="#6-3-一页多图" class="headerlink" title="6.3 一页多图"></a>6.3 一页多图</h3><h4 id="6-3-1-子图"><a href="#6-3-1-子图" class="headerlink" title="6.3.1 子图"></a>6.3.1 子图</h4><p><code>viewport()</code>创建视图窗口，参数x, y, width, height 控制视图窗口的大小和位置。为了能在新视图窗口画图，需要使用print()的<strong>vp参数</strong>。<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; b &lt;- qplot(uempmed, unemploy, data = economics) + geom_smooth(se = <span class="literal">F</span>)</span><br><span class="line">&gt; c &lt;- qplot(uempmed, unemploy, data = economics, geom = <span class="string">'path'</span>)</span><br><span class="line">&gt; <span class="keyword">library</span>(grid)</span><br><span class="line">&gt; png(file = <span class="string">'D:/hexo/source/_posts/ggplot2-2/outp1.png'</span>, width = <span class="number">400</span>, height = <span class="number">300</span>)</span><br><span class="line">&gt; subvp &lt;- viewport(width = <span class="number">0.4</span>, height = <span class="number">0.4</span>, x = <span class="number">0.75</span>, y = <span class="number">0.35</span>)</span><br><span class="line">&gt; b</span><br><span class="line">&gt; print(c, vp = subvp)</span><br><span class="line">&gt; dev.off()</span><br><span class="line"><span class="comment">#对图形外观进行微调:文本更小，移除标签，缩减图形边界</span></span><br><span class="line">&gt; csmall &lt;- c + theme_gray(<span class="number">9</span>) + labs(x = <span class="literal">NULL</span>, y = <span class="literal">NULL</span>) + theme(plot.margin = unit(rep(<span class="number">0</span>, <span class="number">4</span>), <span class="string">'line'</span>))</span><br><span class="line">&gt; png(file = <span class="string">'D:/hexo/source/_posts/ggplot2-2/outp2.png'</span>, width = <span class="number">400</span>, height = <span class="number">300</span>)</span><br><span class="line">&gt; b</span><br><span class="line">&gt; print(csmall, vp = subvp)</span><br><span class="line">&gt; dev.off()</span><br></pre></td></tr></table></figure><br><img src="/2020/03/31/ggplot2-2/outp1.png" alt><img src="/2020/03/31/ggplot2-2/outp2.png" alt></p>
+<h4 id="6-3-2-矩形网格"><a href="#6-3-2-矩形网格" class="headerlink" title="6.3.2 矩形网格"></a>6.3.2 矩形网格</h4><p><code>grid.layout()</code>设置一个任意高和宽的视图窗口网格。<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; png(file = <span class="string">'D:/hexo/source/_posts/ggplot2-2/outp3.png'</span>, width = <span class="number">400</span>, height = <span class="number">300</span>)</span><br><span class="line">&gt; grid.newpage()</span><br><span class="line">&gt; pushViewport(viewport(layout = grid.layout(<span class="number">2</span>,<span class="number">2</span>)))</span><br><span class="line">&gt; vplayout &lt;- <span class="keyword">function</span>(x, y)</span><br><span class="line">+     viewport(layout.pos.row = x, layout.pos.col = y)</span><br><span class="line">&gt; print(a, vp = vplayout(<span class="number">1</span>, <span class="number">1</span>:<span class="number">2</span>))</span><br><span class="line">&gt; print(b, vp = vplayout(<span class="number">2</span>, <span class="number">1</span>))</span><br><span class="line">&gt; print(c, vp = vplayout(<span class="number">2</span>, <span class="number">2</span>))</span><br><span class="line">&gt; dev.off()</span><br></pre></td></tr></table></figure><br><img src="/2020/03/31/ggplot2-2/outp3.png" alt></p>
 <ul>
 <li>本笔记基于Hadley Wickham的《ggplot2：数据分析与图形艺术》整理</li>
 </ul>
@@ -539,6 +547,10 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -555,15 +567,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">ggplot2</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ggplot2</a>
               </li>
              
               <li class="article-tag-list-item">
