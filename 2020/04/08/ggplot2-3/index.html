@@ -6,13 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>龙猫芭蕉的博客</title>
+  <title>ggplot2学习笔记（3） | 龙猫芭蕉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="龙猫芭蕉的博客">
-<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+  <meta name="description" content="7 数据操作7.1 plyr包plyr包提供了一整套工具集来处理列表、数组和数据框，把复杂的数据分割成几个部分，用某个函数分别对各个部分进行处理，最后把这些结果综合到一起。主要函数是ddply()函数：ddply(data, .(var1, var2), fun, ...)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ggplot2学习笔记（3）">
+<meta property="og:url" content="http://yoursite.com/2020/04/08/ggplot2-3/index.html">
 <meta property="og:site_name" content="龙猫芭蕉的博客">
+<meta property="og:description" content="7 数据操作7.1 plyr包plyr包提供了一整套工具集来处理列表、数组和数据框，把复杂的数据分割成几个部分，用某个函数分别对各个部分进行处理，最后把这些结果综合到一起。主要函数是ddply()函数：ddply(data, .(var1, var2), fun, ...)">
+<meta property="article:published_time" content="2020-04-08T05:51:39.000Z">
+<meta property="article:modified_time" content="2020-04-10T02:45:36.634Z">
 <meta property="article:author" content="龙猫芭蕉">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="R语言">
+<meta property="article:tag" content="ggplot2">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="龙猫芭蕉的博客" type="application/atom+xml">
@@ -157,22 +164,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-linear-regression" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-ggplot2-3" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/15/linear-regression/">线性回归预测模型</a>
+    <h1 class="article-title" itemprop="name">
+      ggplot2学习笔记（3）
     </h1>
   
 
         
-        <a href="/2020/02/15/linear-regression/" class="archive-article-date">
-  	<time datetime="2020-02-15T07:21:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-15</time>
+        <a href="/2020/04/08/ggplot2-3/" class="archive-article-date">
+  	<time datetime="2020-04-08T05:51:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-08</time>
 </a>
         
           <div style="margin-top:10px;">
@@ -180,7 +185,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.4k字</span>
+        <span class="post-count">1.3k字</span>
       </span>
     </span>
 
@@ -189,7 +194,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">10分</span>
+        <span class="post-count">6分</span>
       </span>
     </span>
 </div>
@@ -199,12 +204,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>线性回归模型属于一种有监督的学习算法，建模过程中必须同时具备自变量x和因变量y。<br></p>
-        
-          <a class="article-more-a" href="/2020/02/15/linear-regression/#more">more >></a>
-        
+        <h2 id="7-数据操作"><a href="#7-数据操作" class="headerlink" title="7 数据操作"></a>7 数据操作</h2><h3 id="7-1-plyr包"><a href="#7-1-plyr包" class="headerlink" title="7.1 plyr包"></a>7.1 plyr包</h3><p><strong>plyr包</strong>提供了一整套工具集来处理列表、数组和数据框，把复杂的数据分割成几个部分，用某个函数分别对各个部分进行处理，最后把这些结果综合到一起。主要函数是<strong>ddply()函数：</strong><code>ddply(data, .(var1, var2), fun, ...)</code></p>
+<a id="more"></a>
+<p>需要用到的统计汇总函数：<br><code>subset()</code>对数据取子集<br><code>transform()</code>进行数据变换，计算分组统计量（如各组的标准差），并且加到原数据上去。<br><code>colwise()</code>用来向量化一个普通函数，即能把原本只接受向量输入的函数变成可以接受数据框输入的函数，它返回的是一个新的函数。相应的，<code>numcolwise()</code>只对数值类型的列操作，<code>catcolwise()</code>只对分类类型的列操作。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">library</span>(plyr)</span><br><span class="line"><span class="comment">#subset()：选取各个颜色里最小的钻石</span></span><br><span class="line">&gt; ddply(diamonds, .(color), subset, carat == min(carat))</span><br><span class="line"><span class="comment">#transform()：把每个颜色组里钻石的价格标准化，使其均值为0，方差为1</span></span><br><span class="line">&gt; ddply(diamonds, .(color), transform, price = scale(price))</span><br><span class="line"><span class="comment">#colwise()向量化函数</span></span><br><span class="line">&gt; nmissing &lt;- <span class="keyword">function</span>(x) sum(is.na(x))</span><br><span class="line">&gt; nmissing(msleep$brainwt)</span><br><span class="line">[<span class="number">1</span>] <span class="number">27</span></span><br><span class="line">&gt; colwise(nmissing)(msleep)</span><br><span class="line">  name genus vore order conservation sleep_total sleep_rem sleep_cycle awake</span><br><span class="line"><span class="number">1</span>    <span class="number">0</span>     <span class="number">0</span>    <span class="number">7</span>     <span class="number">0</span>           <span class="number">29</span>           <span class="number">0</span>        <span class="number">22</span>          <span class="number">51</span>     <span class="number">0</span></span><br><span class="line">  brainwt bodywt</span><br><span class="line"><span class="number">1</span>      <span class="number">27</span>      <span class="number">0</span></span><br><span class="line"><span class="comment">#numcolwise()函数与ddply()一起对数据进行分组统计</span></span><br><span class="line">&gt; ddply(msleep, .(vore), numcolwise(median), na.rm = <span class="literal">T</span>)</span><br><span class="line">     vore sleep_total sleep_rem sleep_cycle awake  brainwt bodywt</span><br><span class="line"><span class="number">1</span>   carni        <span class="number">10.4</span>      <span class="number">1.95</span>   <span class="number">0.3833333</span>  <span class="number">13.6</span> <span class="number">0.044500</span> <span class="number">20.490</span></span><br><span class="line"><span class="number">2</span>   herbi        <span class="number">10.3</span>      <span class="number">0.95</span>   <span class="number">0.2166667</span>  <span class="number">13.7</span> <span class="number">0.012285</span>  <span class="number">1.225</span></span><br><span class="line"><span class="number">3</span> insecti        <span class="number">18.1</span>      <span class="number">3.00</span>   <span class="number">0.1666667</span>   <span class="number">5.9</span> <span class="number">0.001200</span>  <span class="number">0.075</span></span><br><span class="line"><span class="number">4</span>    omni         <span class="number">9.9</span>      <span class="number">1.85</span>   <span class="number">0.5000000</span>  <span class="number">14.1</span> <span class="number">0.006600</span>  <span class="number">0.950</span></span><br><span class="line"><span class="number">5</span>    &lt;<span class="literal">NA</span>&gt;        <span class="number">10.6</span>      <span class="number">2.00</span>   <span class="number">0.1833333</span>  <span class="number">13.4</span> <span class="number">0.003000</span>  <span class="number">0.122</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-2-dplyr包"><a href="#7-2-dplyr包" class="headerlink" title="7.2 dplyr包"></a>7.2 dplyr包</h3><p><code>filter()</code>筛选行，逻辑运算有一个简写<code>x %in% y</code>，用于选取出x 是y 中的一个值时的所有行。<br><code>arrange()</code>排列行，使用<code>desc()</code>可以按列进行降序排列。<br><code>select()</code>选择列，可以使用<code>starts_with()</code>、<code>contains()</code>、<code>everything()</code>等辅助函数。<br><code>mutate()</code>添加新变量，如果只想保留新变量，可以使用<code>transmute()</code>函数。<br><code>summarize()</code>进行分组摘要，经常和<code>group_by()</code>函数联合起来使用，其可以改变函数的作用范围，使得从在整个数据集上操作变为在每个分组上分别操作。<br><strong>管道操作：</strong><code>%&gt;%</code>，可以读作“然后”。<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">library</span>(dplyr)</span><br><span class="line">&gt; <span class="keyword">library</span>(nycflights13)</span><br><span class="line">&gt; filter(flights, month == <span class="number">11</span> | month == <span class="number">12</span>)</span><br><span class="line"><span class="comment"># A tibble: 55,403 x 19</span></span><br><span class="line">    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time</span><br><span class="line">   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;</span><br><span class="line"> <span class="number">1</span>  <span class="number">2013</span>    <span class="number">11</span>     <span class="number">1</span>        <span class="number">5</span>           <span class="number">2359</span>         <span class="number">6</span>      <span class="number">352</span>            <span class="number">345</span></span><br><span class="line"> <span class="number">2</span>  <span class="number">2013</span>    <span class="number">11</span>     <span class="number">1</span>       <span class="number">35</span>           <span class="number">2250</span>       <span class="number">105</span>      <span class="number">123</span>           <span class="number">2356</span></span><br><span class="line"> <span class="number">3</span>  <span class="number">2013</span>    <span class="number">11</span>     <span class="number">1</span>      <span class="number">455</span>            <span class="number">500</span>        -<span class="number">5</span>      <span class="number">641</span>            <span class="number">651</span></span><br><span class="line"> <span class="number">4</span>  <span class="number">2013</span>    <span class="number">11</span>     <span class="number">1</span>      <span class="number">539</span>            <span class="number">545</span>        -<span class="number">6</span>      <span class="number">856</span>            <span class="number">827</span></span><br><span class="line"> <span class="number">5</span>  <span class="number">2013</span>    <span class="number">11</span>     <span class="number">1</span>      <span class="number">542</span>            <span class="number">545</span>        -<span class="number">3</span>      <span class="number">831</span>            <span class="number">855</span></span><br><span class="line"> <span class="number">6</span>  <span class="number">2013</span>    <span class="number">11</span>     <span class="number">1</span>      <span class="number">549</span>            <span class="number">600</span>       -<span class="number">11</span>      <span class="number">912</span>            <span class="number">923</span></span><br><span class="line"> <span class="number">7</span>  <span class="number">2013</span>    <span class="number">11</span>     <span class="number">1</span>      <span class="number">550</span>            <span class="number">600</span>       -<span class="number">10</span>      <span class="number">705</span>            <span class="number">659</span></span><br><span class="line"> <span class="number">8</span>  <span class="number">2013</span>    <span class="number">11</span>     <span class="number">1</span>      <span class="number">554</span>            <span class="number">600</span>        -<span class="number">6</span>      <span class="number">659</span>            <span class="number">701</span></span><br><span class="line"> <span class="number">9</span>  <span class="number">2013</span>    <span class="number">11</span>     <span class="number">1</span>      <span class="number">554</span>            <span class="number">600</span>        -<span class="number">6</span>      <span class="number">826</span>            <span class="number">827</span></span><br><span class="line"><span class="number">10</span>  <span class="number">2013</span>    <span class="number">11</span>     <span class="number">1</span>      <span class="number">554</span>            <span class="number">600</span>        -<span class="number">6</span>      <span class="number">749</span>            <span class="number">751</span></span><br><span class="line"><span class="comment"># ... with 55,393 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,</span></span><br><span class="line"><span class="comment">#   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,</span></span><br><span class="line"><span class="comment">#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</span></span><br><span class="line"><span class="comment">#上面语句还可以表示为：</span></span><br><span class="line">&gt; nov_dec &lt;- filter(flights, month %<span class="keyword">in</span>% c(<span class="number">11</span>, <span class="number">12</span>))</span><br><span class="line"><span class="comment">#根据arr_delay列队数据集进行降序排列</span></span><br><span class="line">&gt; arrange(flights, desc(arr_delay))</span><br><span class="line"><span class="comment">#选择flights数据集中的year, month和day列</span></span><br><span class="line">&gt; select(flights, year, month, day)</span><br><span class="line"><span class="comment">#和everything()使用，将几个变量移到数据框开头</span></span><br><span class="line">&gt; select(flights, time_hour, air_time, everything())</span><br><span class="line"><span class="comment">#添加新变量</span></span><br><span class="line">&gt; mutate(flights,</span><br><span class="line">+        gain = arr_delay - dep_delay,</span><br><span class="line">+        speed = distance / air_time * <span class="number">60</span></span><br><span class="line">+ )</span><br><span class="line"><span class="comment">#summarize()进行分组摘要</span></span><br><span class="line">&gt; by_day &lt;- group_by(flights, year, month, day)</span><br><span class="line">&gt; summarize(by_day, delay = mean(dep_delay, na.rm = <span class="literal">TRUE</span>))</span><br><span class="line"><span class="comment"># A tibble: 365 x 4</span></span><br><span class="line"><span class="comment"># Groups:   year, month [12]</span></span><br><span class="line">    year month   day delay</span><br><span class="line">   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;</span><br><span class="line"> <span class="number">1</span>  <span class="number">2013</span>     <span class="number">1</span>     <span class="number">1</span> <span class="number">11.5</span> </span><br><span class="line"> <span class="number">2</span>  <span class="number">2013</span>     <span class="number">1</span>     <span class="number">2</span> <span class="number">13.9</span> </span><br><span class="line"> <span class="number">3</span>  <span class="number">2013</span>     <span class="number">1</span>     <span class="number">3</span> <span class="number">11.0</span> </span><br><span class="line"> <span class="number">4</span>  <span class="number">2013</span>     <span class="number">1</span>     <span class="number">4</span>  <span class="number">8.95</span></span><br><span class="line"> <span class="number">5</span>  <span class="number">2013</span>     <span class="number">1</span>     <span class="number">5</span>  <span class="number">5.73</span></span><br><span class="line"> <span class="number">6</span>  <span class="number">2013</span>     <span class="number">1</span>     <span class="number">6</span>  <span class="number">7.15</span></span><br><span class="line"> <span class="number">7</span>  <span class="number">2013</span>     <span class="number">1</span>     <span class="number">7</span>  <span class="number">5.42</span></span><br><span class="line"> <span class="number">8</span>  <span class="number">2013</span>     <span class="number">1</span>     <span class="number">8</span>  <span class="number">2.55</span></span><br><span class="line"> <span class="number">9</span>  <span class="number">2013</span>     <span class="number">1</span>     <span class="number">9</span>  <span class="number">2.28</span></span><br><span class="line"><span class="number">10</span>  <span class="number">2013</span>     <span class="number">1</span>    <span class="number">10</span>  <span class="number">2.84</span></span><br><span class="line"><span class="comment"># ... with 355 more rows</span></span><br><span class="line"><span class="comment">#管道操作</span></span><br><span class="line">&gt; (delays &lt;- flights %&gt;%</span><br><span class="line">+     group_by(dest) %&gt;%</span><br><span class="line">+     summarize(count = n(),</span><br><span class="line">+               dist = mean(distance, na.rm = <span class="literal">TRUE</span>),</span><br><span class="line">+               delay = mean(arr_delay, na.rm = <span class="literal">TRUE</span>)) %&gt;%</span><br><span class="line">+     filter(count &gt; <span class="number">20</span>, dest != <span class="string">'HNL'</span>))</span><br><span class="line"><span class="comment"># A tibble: 96 x 4</span></span><br><span class="line">   dest  count  dist delay</span><br><span class="line">   &lt;chr&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;</span><br><span class="line"> <span class="number">1</span> ABQ     <span class="number">254</span> <span class="number">1826</span>   <span class="number">4.38</span></span><br><span class="line"> <span class="number">2</span> ACK     <span class="number">265</span>  <span class="number">199</span>   <span class="number">4.85</span></span><br><span class="line"> <span class="number">3</span> ALB     <span class="number">439</span>  <span class="number">143</span>  <span class="number">14.4</span> </span><br><span class="line"> <span class="number">4</span> ATL   <span class="number">17215</span>  <span class="number">757.</span> <span class="number">11.3</span> </span><br><span class="line"> <span class="number">5</span> AUS    <span class="number">2439</span> <span class="number">1514.</span>  <span class="number">6.02</span></span><br><span class="line"> <span class="number">6</span> AVL     <span class="number">275</span>  <span class="number">584.</span>  <span class="number">8.00</span></span><br><span class="line"> <span class="number">7</span> BDL     <span class="number">443</span>  <span class="number">116</span>   <span class="number">7.05</span></span><br><span class="line"> <span class="number">8</span> BGR     <span class="number">375</span>  <span class="number">378</span>   <span class="number">8.03</span></span><br><span class="line"> <span class="number">9</span> BHM     <span class="number">297</span>  <span class="number">866.</span> <span class="number">16.9</span> </span><br><span class="line"><span class="number">10</span> BNA    <span class="number">6333</span>  <span class="number">758.</span> <span class="number">11.8</span> </span><br><span class="line"><span class="comment"># ... with 86 more rows</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="常用的摘要函数"><a href="#常用的摘要函数" class="headerlink" title="常用的摘要函数"></a>常用的摘要函数</h4><p><strong>分散程度度量：</strong><code>sd(x)</code>、<code>IQR(x)</code>、<code>mad(x)</code><br><strong>秩的度量：</strong><code>min(x)</code>、<code>quantile(x, 0.25)</code>、<code>max(x)</code><br><strong>排秩：</strong><code>min_rank(x)</code>将最小值排在最前面，使用<code>min_rank(desc(x))</code>可以让最大值排在最前面<br><strong>定位度量：</strong><code>first(x)</code>、<code>nth(x, 2)</code>、<code>last(x)</code><br><strong>计数：</strong><code>n()</code>不需要任何参数，返回当前分组的大小；<code>sum(!is.na(x))</code>计算非缺失值的数量；<code>n_distinct(x)</code>计算出唯一值的数量；<code>count(x, wt = y)</code>可以选择加权变量y对x进行计数。<br><strong>逻辑值的计数和比例：</strong><code>sum(x &gt; 10)</code>和<code>mean(y == 0)</code></p>
+<ul>
+<li>本笔记基于Hadley Wickham的《ggplot2：数据分析与图形艺术》以及Hadley Wickham &amp;<br>Garrett Grolemund的《R数据科学》整理</li>
+</ul>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -219,15 +256,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">R语言</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ggplot2</a>
         		</li>
       		
 		</ul>
@@ -236,216 +269,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/15/linear-regression/">展开全文 >></a>
-        </p>
-      
 
       
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-sql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/12/sql/">sql简单语句整理</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/12/sql/" class="archive-article-date">
-  	<time datetime="2020-02-12T02:50:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.9k字</span>
-      </span>
+      </div>
     </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">8分</span>
-      </span>
-    </span>
+  </div>
 </div>
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>登录mysql：<br>net start mysql<br>mysql -u root -p<br>Enter password: <strong><em>**</em></strong><br></p>
-        
-          <a class="article-more-a" href="/2020/02/12/sql/#more">more >></a>
-        
-      
 
-      
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/08/ggplot2-3/" alt="微信分享二维码">
     </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据分析</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/12/sql/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-want-to-see-you" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/08/want-to-see-you/">想见你</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/08/want-to-see-you/" class="archive-article-date">
-  	<time datetime="2020-02-08T14:56:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">10字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
 </div>
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        Welcome to my blog！ Please enter password to read.
-        
-          <a class="article-more-a" href="/2020/02/08/want-to-see-you/#more">more >></a>
-        
-      
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/08/want-to-see-you/">展开全文 >></a>
-        </p>
-      
-
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/31/ggplot2-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ggplot2学习笔记（2）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -465,308 +357,36 @@
 
 
 
-
-  
-    <article id="post-2019" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/31/2019/">告别2019</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/31/2019/" class="archive-article-date">
-  	<time datetime="2019-12-31T11:42:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-31</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">552字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>时间好像一个疯狗追赶着你，你需要不停地回头，给它扔肉包子。<br>——刘瑜《余欢》</p>
-</blockquote>
-<p>这一年好短好短，记忆却好长好长……<br></p>
-        
-          <a class="article-more-a" href="/2019/12/31/2019/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/31/2019/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-light" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/20/light/">光影碎片</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/20/light/" class="archive-article-date">
-  	<time datetime="2019-12-20T11:32:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-20</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">335字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/2019/12/20/light/p1.png" alt></p>
-<p>宿舍楼下拍的一只单眼异瞳的猫。<br></p>
-        
-          <a class="article-more-a" href="/2019/12/20/light/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/20/light/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-gitalk" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/11/gitalk/">艰辛的hexo之路：gitalk评论插件踩过的坑</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/11/gitalk/" class="archive-article-date">
-  	<time datetime="2019-12-11T08:04:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-11</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">621字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
-      </span>
-    </span>
-</div>
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>喜大普奔普天同庆热泪盈眶！<br>在成功的那一瞬间我简直就要哭出来了，对于一个小白来说，这一切都太不容易了，真的真的太不容易了。之前还试过捣鼓来必力，也是一步步按照网上的流程来的，但是就是不行。真的感慨hexo就是一门玄学，没有知识的加持，运气什么的是不存在的……<br></p>
-        
-          <a class="article-more-a" href="/2019/12/11/gitalk/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/11/gitalk/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
+  
+
+  
+
+  
+       <div id="gitalk-container"></div>
+       <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+
+<script>
+var gitalk = new Gitalk({
+  clientID: '32f8aebec08d23898444',
+  clientSecret: '9e49adc1f1d65e2e665e39cc84c6bbec32227d67',
+  repo: 'guomin-h-a.github.io',
+  owner: 'guomin-h-a',
+  admin: ['guomin-h-a'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: true
+})
+
+gitalk.render('gitalk-container')
+</script>
+  
+
+  
+
   
 
 
@@ -789,8 +409,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
