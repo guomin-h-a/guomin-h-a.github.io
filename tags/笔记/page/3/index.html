@@ -6,24 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>R语言数据挖掘——集成学习 | 龙猫芭蕉的博客</title>
+  <title>Tag: 笔记 | 龙猫芭蕉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="以民主选举过程来比拟分类器的运作过程，选举中的每位选民的一次投票就相当于一个基分类器的分类结果，而一大批选民的一次投票则可以认为是一个集成分类算法的分类结果。如果有n个基分类器，每个基分类器的预测正确率都为0.5，当用n个基分类器进行共同预测时，预测结果正确的概率则等于“1 — n个基分类器全部预测错误的概率”，即P&#x3D;1—(1-0.5)^n，即预测正确率渐趋于1。所以将基分类器进行集成的目的是使分">
-<meta property="og:type" content="article">
-<meta property="og:title" content="R语言数据挖掘——集成学习">
-<meta property="og:url" content="http://yoursite.com/2020/03/22/R-ensemble-learning/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="龙猫芭蕉的博客">
+<meta property="og:url" content="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/page/3/index.html">
 <meta property="og:site_name" content="龙猫芭蕉的博客">
-<meta property="og:description" content="以民主选举过程来比拟分类器的运作过程，选举中的每位选民的一次投票就相当于一个基分类器的分类结果，而一大批选民的一次投票则可以认为是一个集成分类算法的分类结果。如果有n个基分类器，每个基分类器的预测正确率都为0.5，当用n个基分类器进行共同预测时，预测结果正确的概率则等于“1 — n个基分类器全部预测错误的概率”，即P&#x3D;1—(1-0.5)^n，即预测正确率渐趋于1。所以将基分类器进行集成的目的是使分">
-<meta property="og:image" content="http://yoursite.com/2020/03/22/R-ensemble-learning/p1.png">
-<meta property="article:published_time" content="2020-03-22T06:03:51.000Z">
-<meta property="article:modified_time" content="2020-03-23T04:13:03.339Z">
 <meta property="article:author" content="龙猫芭蕉">
-<meta property="article:tag" content="笔记">
-<meta property="article:tag" content="数据分析与挖掘">
-<meta property="article:tag" content="机器学习">
-<meta property="article:tag" content="R语言">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/03/22/R-ensemble-learning/p1.png">
   
     <link rel="alternative" href="/atom.xml" title="龙猫芭蕉的博客" type="application/atom+xml">
   
@@ -167,98 +157,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-R-ensemble-learning" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      R语言数据挖掘——集成学习
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/02/12/sql/" class="archive-article-date">
+  	<time datetime="2020-02-12T02:50:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/02/12/sql/">sql简单语句整理</a>
     </h1>
   
 
-        
-        <a href="/2020/03/22/R-ensemble-learning/" class="archive-article-date">
-  	<time datetime="2020-03-22T06:03:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-22</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">9分</span>
-      </span>
-    </span>
-</div>
+        <div class="article-info info-on-right">
           
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>以民主选举过程来比拟分类器的运作过程，选举中的每位选民的一次投票就相当于一个<strong>基分类器</strong>的分类结果，而一大批选民的一次投票则可以认为是一个<strong>集成分类算法</strong>的分类结果。如果有n个基分类器，每个基分类器的预测正确率都为0.5，当用n个基分类器进行共同预测时，预测结果正确的概率则等于“1 — n个基分类器全部预测错误的概率”，即<code>P=1—(1-0.5)^n</code>，即预测正确率渐趋于1。所以将基分类器进行集成的目的是使分类结果稳定，且正确率高。</p>
-<a id="more"></a>
-<h2 id="1-算法概述"><a href="#1-算法概述" class="headerlink" title="1 算法概述"></a>1 算法概述</h2><p>集成学习的两个经典算法是：<code>Bagging</code>和<code>AdaBoost</code>。</p>
-<p><strong>Bagging</strong>是Bootstrap Aggregating的缩写，通过使用bootstrap抽样得到若干个不同的训练集，以这些训练集分别建立模型，即得到一系列基分类器，这些分类器由于来自不同的训练样本，它们对同一测试集的预测效果不一。因此，Bagging算法随后对基分类器的一系列预测结果进行投票（分类问题）或平均（回归问题），从而得到每一个测试集样本的最终预测结果。</p>
-<p><strong>AdaBoost</strong>相对于Bagging算法更为巧妙，且一般来说是效果更优的集成分类算法，尤其在<span style="border-bottom:2px dashed red;">数据分布不平衡</span>的情况下，其优势更为显著。该算法会根据上一个基分类器对各训练集样本的预测结果，自行调整在本次基分类器构造时，各样本被抽中的概率。具体来说，如果在上一基分类器的预测中，样本 i 被错误分类了，那么在此次基分类器的训练样本抽取过程中，样本 i 就会被赋予较高的权重，以使其能够以较大的可能被抽中，从而提高被正确分类的概率。这种<span style="border-bottom:2px dashed red;">实时调节权重</span>的过程显著提高了集成分类器的稳定性和准确性。</p>
-<h2 id="2-在R中的实现"><a href="#2-在R中的实现" class="headerlink" title="2 在R中的实现"></a>2 在R中的实现</h2><p><strong>adabag</strong>软件包专注于<strong>Bagging</strong>和<strong>Boosting</strong>两种算法：<br><strong>bagging函数</strong>：<code>bagging (formula, data, mfinal = 100 , contro1)</code><br><strong>boosting函数</strong>：<code>boosting(formula, data, boos = TRUE, mfinal = 100, coeflearn = &#39; Breiman&#39;, control)</code></p>
-<p>boosting()中的Adaboost算法以分类树为基分类器，参数mfinal表示算法的迭代次数，即基分类器的个数，可设置为任意整数，缺失值为100，boos参数用于选择在当下的迭代过程中，是否用各观测样本的相应权重来抽取boostrap样本。</p>
-<h2 id="3-数据集"><a href="#3-数据集" class="headerlink" title="3 数据集"></a>3 数据集</h2><p>该数据集来自于某葡萄牙银行机构的一个基于电话跟踪的商业营销项目，其中收录了包括银行客户个人信息及与电话跟踪咨询结果有关的16个自变量，以及l个因变量一一该客户是否订阅了银行的定期存款。<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&gt; data = read.csv(<span class="string">'bank.csv'</span>, header = <span class="literal">TRUE</span>, sep = <span class="string">';'</span>)</span><br><span class="line">&gt; dim(data)</span><br><span class="line">[<span class="number">1</span>] <span class="number">4521</span>   <span class="number">17</span></span><br><span class="line">&gt; summary(data)</span><br><span class="line">      age                 job          marital         education   </span><br><span class="line"> Min.   :<span class="number">19.00</span>   management :<span class="number">969</span>   divorced: <span class="number">528</span>   primary  : <span class="number">678</span>  </span><br><span class="line"> 1st Qu.:<span class="number">33.00</span>   blue-collar:<span class="number">946</span>   married :<span class="number">2797</span>   secondary:<span class="number">2306</span>  </span><br><span class="line"> Median :<span class="number">39.00</span>   technician :<span class="number">768</span>   single  :<span class="number">1196</span>   tertiary :<span class="number">1350</span>  </span><br><span class="line"> Mean   :<span class="number">41.17</span>   admin.     :<span class="number">478</span>                   unknown  : <span class="number">187</span>  </span><br><span class="line"> 3rd Qu.:<span class="number">49.00</span>   services   :<span class="number">417</span>                                   </span><br><span class="line"> Max.   :<span class="number">87.00</span>   retired    :<span class="number">230</span>                                   </span><br><span class="line">                 (Other)    :<span class="number">713</span>                                   </span><br><span class="line"> default       balance      housing     loan           contact    </span><br><span class="line"> no :<span class="number">4445</span>   Min.   :-<span class="number">3313</span>   no :<span class="number">1962</span>   no :<span class="number">3830</span>   cellular :<span class="number">2896</span>  </span><br><span class="line"> yes:  <span class="number">76</span>   1st Qu.:   <span class="number">69</span>   yes:<span class="number">2559</span>   yes: <span class="number">691</span>   telephone: <span class="number">301</span>  </span><br><span class="line">            Median :  <span class="number">444</span>                         unknown  :<span class="number">1324</span>  </span><br><span class="line">            Mean   : <span class="number">1423</span>                                         </span><br><span class="line">            3rd Qu.: <span class="number">1480</span>                                         </span><br><span class="line">            Max.   :<span class="number">71188</span>                                         </span><br><span class="line">                                                                  </span><br><span class="line">      day            month         duration       campaign     </span><br><span class="line"> Min.   : <span class="number">1.00</span>   may    :<span class="number">1398</span>   Min.   :   <span class="number">4</span>   Min.   : <span class="number">1.000</span>  </span><br><span class="line"> 1st Qu.: <span class="number">9.00</span>   jul    : <span class="number">706</span>   1st Qu.: <span class="number">104</span>   1st Qu.: <span class="number">1.000</span>  </span><br><span class="line"> Median :<span class="number">16.00</span>   aug    : <span class="number">633</span>   Median : <span class="number">185</span>   Median : <span class="number">2.000</span>  </span><br><span class="line"> Mean   :<span class="number">15.92</span>   jun    : <span class="number">531</span>   Mean   : <span class="number">264</span>   Mean   : <span class="number">2.794</span>  </span><br><span class="line"> 3rd Qu.:<span class="number">21.00</span>   nov    : <span class="number">389</span>   3rd Qu.: <span class="number">329</span>   3rd Qu.: <span class="number">3.000</span>  </span><br><span class="line"> Max.   :<span class="number">31.00</span>   apr    : <span class="number">293</span>   Max.   :<span class="number">3025</span>   Max.   :<span class="number">50.000</span>  </span><br><span class="line">                 (Other): <span class="number">571</span>                                  </span><br><span class="line">     pdays           previous          poutcome      y       </span><br><span class="line"> Min.   : -<span class="number">1.00</span>   Min.   : <span class="number">0.0000</span>   failure: <span class="number">490</span>   no :<span class="number">4000</span>  </span><br><span class="line"> 1st Qu.: -<span class="number">1.00</span>   1st Qu.: <span class="number">0.0000</span>   other  : <span class="number">197</span>   yes: <span class="number">521</span>  </span><br><span class="line"> Median : -<span class="number">1.00</span>   Median : <span class="number">0.0000</span>   success: <span class="number">129</span>             </span><br><span class="line"> Mean   : <span class="number">39.77</span>   Mean   : <span class="number">0.5426</span>   unknown:<span class="number">3705</span>             </span><br><span class="line"> 3rd Qu.: -<span class="number">1.00</span>   3rd Qu.: <span class="number">0.0000</span>                            </span><br><span class="line"> Max.   :<span class="number">871.00</span>   Max.   :<span class="number">25.0000</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">#构造训练集和测试集</span></span><br><span class="line">&gt; sub = sample(<span class="number">1</span>:nrow(data), round(nrow(data) / <span class="number">4</span>))</span><br><span class="line">&gt; length(sub)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1130</span></span><br><span class="line">&gt; data_train = data[-sub, ]</span><br><span class="line">&gt; data_test = data[sub, ]</span><br><span class="line">&gt; dim(data_train); dim(data_test)</span><br><span class="line">[<span class="number">1</span>] <span class="number">3391</span>   <span class="number">17</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">1130</span>   <span class="number">17</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="4-应用案例"><a href="#4-应用案例" class="headerlink" title="4 应用案例"></a>4 应用案例</h2><h3 id="4-1-Bagging算法"><a href="#4-1-Bagging算法" class="headerlink" title="4.1 Bagging算法"></a>4.1 Bagging算法</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; 1ibrary(adabag)</span><br><span class="line">&gt; 1ibrary(rpart)</span><br><span class="line">&gt; bag = bagging(y~., data_train, mfinal = <span class="number">5</span>)</span><br><span class="line"><span class="comment">#通过control参数控制基分类树的复杂度</span></span><br><span class="line">&gt; bag1 = bagging(y~., data_train, mfinal = <span class="number">5</span>, control = rpart.control(maxdepth = <span class="number">3</span>))</span><br><span class="line">&gt; names(bag1)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"formula"</span>    <span class="string">"trees"</span>      <span class="string">"votes"</span>      <span class="string">"prob"</span>       <span class="string">"class"</span>     </span><br><span class="line">[<span class="number">6</span>] <span class="string">"samples"</span>    <span class="string">"importance"</span> <span class="string">"terms"</span>      <span class="string">"call"</span></span><br></pre></td></tr></table></figure>
-<h4 id="4-1-1-训练集的基本情况"><a href="#4-1-1-训练集的基本情况" class="headerlink" title="4.1.1 训练集的基本情况"></a>4.1.1 训练集的基本情况</h4><p>简单查看上面输出结果的具体内容：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#模型bag1中第二棵决策树的构成</span></span><br><span class="line">&gt; bag1$trees[<span class="number">2</span>]</span><br><span class="line">[[<span class="number">1</span>]]</span><br><span class="line">n= <span class="number">3391</span> </span><br><span class="line"></span><br><span class="line">node), split, n, loss, yval, (yprob)</span><br><span class="line">      * denotes terminal node</span><br><span class="line"></span><br><span class="line"> <span class="number">1</span>) root <span class="number">3391</span> <span class="number">366</span> no (<span class="number">0.89206724</span> <span class="number">0.10793276</span>)  </span><br><span class="line">   <span class="number">2</span>) duration&lt; <span class="number">628.5</span> <span class="number">3125</span> <span class="number">231</span> no (<span class="number">0.92608000</span> <span class="number">0.07392000</span>)  </span><br><span class="line">     <span class="number">4</span>) poutcome=failure,other,unknown <span class="number">3042</span> <span class="number">175</span> no (<span class="number">0.94247206</span> <span class="number">0.05752794</span>)  </span><br><span class="line">       <span class="number">8</span>) month=apr,aug,dec,feb,jan,jul,jun,may,nov,sep <span class="number">2983</span> <span class="number">141</span> no (<span class="number">0.95273215</span> <span class="number">0.04726785</span>) *</span><br><span class="line">       <span class="number">9</span>) month=mar,oct <span class="number">59</span>  <span class="number">25</span> yes (<span class="number">0.42372881</span> <span class="number">0.57627119</span>) *</span><br><span class="line">     <span class="number">5</span>) poutcome=success <span class="number">83</span>  <span class="number">27</span> yes (<span class="number">0.32530120</span> <span class="number">0.67469880</span>)  </span><br><span class="line">      <span class="number">10</span>) duration&lt; <span class="number">146</span> <span class="number">16</span>   <span class="number">4</span> no (<span class="number">0.75000000</span> <span class="number">0.25000000</span>) *</span><br><span class="line">      <span class="number">11</span>) duration&gt;=<span class="number">146</span> <span class="number">67</span>  <span class="number">15</span> yes (<span class="number">0.22388060</span> <span class="number">0.77611940</span>) *</span><br><span class="line">   <span class="number">3</span>) duration&gt;=<span class="number">628.5</span> <span class="number">266</span> <span class="number">131</span> yes (<span class="number">0.49248120</span> <span class="number">0.50751880</span>)  </span><br><span class="line">     <span class="number">6</span>) month=jan,nov,oct <span class="number">37</span>   <span class="number">5</span> no (<span class="number">0.86486486</span> <span class="number">0.13513514</span>) *</span><br><span class="line">     <span class="number">7</span>) month=apr,aug,dec,feb,jul,jun,may <span class="number">229</span>  <span class="number">99</span> yes (<span class="number">0.43231441</span> <span class="number">0.56768559</span>)  </span><br><span class="line">      <span class="number">14</span>) duration&lt; <span class="number">790.5</span> <span class="number">97</span>  <span class="number">42</span> no (<span class="number">0.56701031</span> <span class="number">0.43298969</span>) *</span><br><span class="line">      <span class="number">15</span>) duration&gt;=<span class="number">790.5</span> <span class="number">132</span>  <span class="number">44</span> yes (<span class="number">0.33333333</span> <span class="number">0.66666667</span>) *</span><br><span class="line"><span class="comment">#模型bag1中第105至第110个样本的投票情况，因为共有5棵决策树，每棵树对每一样本的类别有各自的类别，则总票数为5.</span></span><br><span class="line">&gt; bag1$votes[<span class="number">105</span>:<span class="number">110</span>, ]</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">5</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">5</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">5</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">4</span>,]    <span class="number">5</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">5</span>,]    <span class="number">5</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">6</span>,]    <span class="number">5</span>    <span class="number">0</span></span><br><span class="line"><span class="comment">#模型bag1中第105至第110个样本预测为各类别的概率</span></span><br><span class="line">&gt; bag1$prob[<span class="number">105</span>:<span class="number">110</span>, ]</span><br><span class="line">      [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">1</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">1</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">4</span>,]    <span class="number">1</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">5</span>,]    <span class="number">1</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">6</span>,]    <span class="number">1</span>    <span class="number">0</span></span><br><span class="line"><span class="comment">#模型bag1对于第105至第110个样本的预测类别</span></span><br><span class="line">&gt; bag1$class[<span class="number">105</span>:<span class="number">110</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="string">"no"</span> <span class="string">"no"</span> <span class="string">"no"</span> <span class="string">"no"</span> <span class="string">"no"</span> <span class="string">"no"</span></span><br><span class="line"><span class="comment">#模型bag中各输入变量的相对重要性</span></span><br><span class="line">&gt; bag1$importance</span><br><span class="line">        age    balance   campaign    contact        day    default </span><br><span class="line"> <span class="number">0.9077055</span>  <span class="number">0.0000000</span>  <span class="number">0.0000000</span>  <span class="number">1.8540732</span>  <span class="number">0.0000000</span>  <span class="number">0.0000000</span> </span><br><span class="line">  duration  education    housing        job       loan    marital </span><br><span class="line"><span class="number">57.9747707</span>  <span class="number">0.0000000</span>  <span class="number">0.0000000</span>  <span class="number">0.0000000</span>  <span class="number">0.0000000</span>  <span class="number">0.0000000</span> </span><br><span class="line">     month      pdays   poutcome   previous </span><br><span class="line"> <span class="number">8.6889082</span>  <span class="number">0.5551839</span> <span class="number">30.0193586</span>  <span class="number">0.0000000</span></span><br></pre></td></tr></table></figure><br>这里用一下决策树章节没机会用到的函数，把上面这棵树画一下：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; tree = bag1$trees[[<span class="number">2</span>]]</span><br><span class="line">&gt; rpart.plot(tree, type = <span class="number">4</span>)</span><br></pre></td></tr></table></figure><br><img src="/2020/03/22/R-ensemble-learning/p1.png" alt></p>
-<p>可以看到，效果并不是很好=.=，字太小看不清楚，不过其他函数画出来的也一言难尽……</p>
-<h4 id="4-1-2-对测试集的目标变量进行预测"><a href="#4-1-2-对测试集的目标变量进行预测" class="headerlink" title="4.1.2 对测试集的目标变量进行预测"></a>4.1.2 对测试集的目标变量进行预测</h4><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; pre_bag = predict(bag, data_test)</span><br><span class="line">&gt; names(pre_bag)</span><br><span class="line">[<span class="number">1</span>] <span class="string">"formula"</span>   <span class="string">"votes"</span>     <span class="string">"prob"</span>      <span class="string">"class"</span>     <span class="string">"confusion"</span> <span class="string">"error"</span>    </span><br><span class="line"><span class="comment">#测试集预测结果的混淆矩阵</span></span><br><span class="line">&gt; pre_bag$confusion</span><br><span class="line">               Observed Class</span><br><span class="line">Predicted Class  no yes</span><br><span class="line">            no  <span class="number">977</span>  <span class="number">78</span></span><br><span class="line">            yes  <span class="number">28</span>  <span class="number">47</span></span><br><span class="line"><span class="comment">#测试集预测错误率</span></span><br><span class="line">&gt; pre_bag$error</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.09380531</span></span><br></pre></td></tr></table></figure>
-<p>下面计算测试集总体的预测错误率，以及“yes”类和“no”类各自的错误率：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt; sub_minor = which(data_test$y == <span class="string">'yes'</span>)</span><br><span class="line">&gt; sub_major= which(data_test$y == <span class="string">'no'</span>)</span><br><span class="line">&gt; length(sub_minor); length(sub_major)</span><br><span class="line">[<span class="number">1</span>] <span class="number">125</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">1005</span></span><br><span class="line"><span class="comment">#计算总体错误率</span></span><br><span class="line">&gt; err_bag = sum(pre_bag$class != data_test$y) / nrow(data_test)</span><br><span class="line"><span class="comment">#计算少数类"yes"的错误率</span></span><br><span class="line">&gt; err_minor_bag = sum(pre_bag$class[sub_minor] != data_test$y[sub_minor]) / length(sub_minor)</span><br><span class="line"><span class="comment">#计算多数类"no"的错误率</span></span><br><span class="line">&gt; err_major_bag = sum(pre_bag$class[sub_major] != data_test$y[sub_major]) / length(sub_major)</span><br><span class="line">&gt; err_bag; err_major_bag; err_minor_bag</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.09380531</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.0278607</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.624</span></span><br></pre></td></tr></table></figure><br>可以看到总体错误率约为0.0938，多数类“no”的错误率比少数类“yes”的错误率要低，仅为0.0278，这正是由于数据的不平衡性造成的。而AdaBoost算法在处理不平衡数据集具有一定优势。</p>
-<h3 id="4-2-AdaBoost算法"><a href="#4-2-AdaBoost算法" class="headerlink" title="4.2 AdaBoost算法"></a>4.2 AdaBoost算法</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; boo = boosting(y~., data_train, mfinal = <span class="number">5</span>)</span><br><span class="line">&gt; pre_boo = predict(boo, data_test)</span><br><span class="line"><span class="comment">#计算三类错误率</span></span><br><span class="line">&gt; err_boo = sum(pre_boo$class != data_test$y) / nrow(data_test)</span><br><span class="line">&gt; err_minor_boo = sum(pre_boo$class[sub_minor] != data_test$y[sub_minor]) / length(sub_minor)</span><br><span class="line">&gt; err_major_boo = sum(pre_boo$class[sub_major] != data_test$y[sub_major]) / length(sub_major)</span><br><span class="line">&gt; err_boo; err_major_boo; err_minor_boo</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.1106195</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.04776119</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.616</span></span><br></pre></td></tr></table></figure>
-<p>AdaBoost算法对比Bagging算法在修正数据集的不平衡问题上有一点点成效，但效果差别不大。仅一次结果可能很难看出两者的差异，且具有偶然性，可以在今后的学习中多积累经验。</p>
-<ul>
-<li>本笔记基于黄文和王正林编著的《数据挖掘：R语言实战》整理</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/weixin.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -268,150 +196,32 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">R语言</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据分析</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/22/R-ensemble-learning/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/03/23/R-randomforest/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          R语言数据挖掘——随机森林
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/03/21/R-decision-tree/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">R语言数据挖掘——决策树</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-       <div id="gitalk-container"></div>
-       <div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
-
-<script>
-var gitalk = new Gitalk({
-  clientID: '32f8aebec08d23898444',
-  clientSecret: '9e49adc1f1d65e2e665e39cc84c6bbec32227d67',
-  repo: 'guomin-h-a.github.io',
-  owner: 'guomin-h-a',
-  admin: ['guomin-h-a'],
-  id: md5(window.location.pathname),
-  distractionFreeMode: true
-})
-
-gitalk.render('gitalk-container')
-</script>
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/tags/%E7%AC%94%E8%AE%B0/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/tags/%E7%AC%94%E8%AE%B0/">1</a><a class="page-number" href="/tags/%E7%AC%94%E8%AE%B0/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
   
 
 
@@ -435,9 +245,9 @@ gitalk.render('gitalk-container')
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
