@@ -199,7 +199,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-字符串"><a href="#1-字符串" class="headerlink" title="1 字符串"></a>1 字符串</h3><p>字符串的打印形式与其本身的内容是不相同的，因为打印形式中会显示出转义字符。如果要查看<strong>字符串的初始内容</strong>，可以使用<code>writeLines()</code>函数。<br><strong>字符串长度：</strong><code>str_length()</code><br><strong>字符串组合：</strong><code>str_()</code>，可以用<strong>sep参数</strong>控制字符串的分隔方式；如果想将<strong>字符向量</strong>合并为字符串，可以用<strong>collapse参数</strong>；该函数是向量化的，可以自动循环短向量，使得其与最长的向量具有相同的长度；如果希望输出缺失值为“NA”，可使用<code>str_replace_na()</code><br></p>
+        <h3 id="1-字符串"><a href="#1-字符串" class="headerlink" title="1 字符串"></a>1 字符串</h3><p>字符串的打印形式与其本身的内容是不相同的，因为打印形式中会显示出转义字符。如果要查看<strong>字符串的初始内容</strong>，可以使用<code>writeLines()</code>函数。<br><strong>字符串长度：</strong><code>str_length()</code><br><strong>字符串组合：</strong><code>str_c()</code>，可以用<strong>sep参数</strong>控制字符串的分隔方式；如果想将<strong>字符向量</strong>合并为字符串，可以用<strong>collapse参数</strong>；该函数是向量化的，可以自动循环短向量，使得其与最长的向量具有相同的长度；如果希望输出缺失值为“NA”，可使用<code>str_replace_na()</code><br></p>
         
           <a class="article-more-a" href="/2020/04/20/stringr/#more">more >></a>
         
@@ -1484,5 +1484,20 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
 </html>
