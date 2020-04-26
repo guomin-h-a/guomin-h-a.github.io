@@ -159,6 +159,110 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-numpy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/26/numpy/">Numpy整理</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/26/numpy/" class="archive-article-date">
+  	<time datetime="2020-04-26T09:23:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-26</time>
+</a>
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">764字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">3分</span>
+      </span>
+    </span>
+</div>
+          
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Numpy数组基础"><a href="#1-Numpy数组基础" class="headerlink" title="1 Numpy数组基础"></a>1 Numpy数组基础</h2><h3 id="1-1-数组的创建"><a href="#1-1-数组的创建" class="headerlink" title="1.1 数组的创建"></a>1.1 数组的创建</h3><p>最直接的：<code>np.array([1, 2, 3])</code><br>创建一个长度为10、值都是0的数组：<code>np.zeros(10, dtype = int)</code><br>创建一个3×5、值都是1的浮点型数组：<code>np.ones((3, 5), dtype = float)</code><br>创建一个3×5、值都是3.14的浮点型数组：<code>np.full((3, 5), 3.14)</code><br>创建一个从0开始、到20结束、步长为2的数组：<code>np.arange(0, 20, 2)</code><br>创建一个5个数<strong>均匀地</strong>分配到0~1的数组：<code>np.linspace(0, 1, 5)</code><br>创建一个3×3、在0~1<strong>均匀分布</strong>的随机数组成的数组：<code>np.random.random((3, 3))</code><br>创建一个3×3、均值为0方差为1的<strong>正态分布</strong>的随机数数组：<code>np.random.normal(0,1,(3,3))</code><br>创建一个3×3、[0, 10)区间的<strong>随机整型</strong>数组：<code>np.random.randint(0, 10, (3, 3))</code><br>创建一个3×3的单位矩阵：<code>np.eye(3)</code><br></p>
+        
+          <a class="article-more-a" href="/2020/04/26/numpy/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据分析</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/26/numpy/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-stringr" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1068,114 +1172,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/23/R-randomforest/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-R-ensemble-learning" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/22/R-ensemble-learning/">R语言数据挖掘——集成学习</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/22/R-ensemble-learning/" class="archive-article-date">
-  	<time datetime="2020-03-22T06:03:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-22</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">9分</span>
-      </span>
-    </span>
-</div>
-          
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>以民主选举过程来比拟分类器的运作过程，选举中的每位选民的一次投票就相当于一个<strong>基分类器</strong>的分类结果，而一大批选民的一次投票则可以认为是一个<strong>集成分类算法</strong>的分类结果。如果有n个基分类器，每个基分类器的预测正确率都为0.5，当用n个基分类器进行共同预测时，预测结果正确的概率则等于“1 — n个基分类器全部预测错误的概率”，即<code>P=1—(1-0.5)^n</code>，即预测正确率渐趋于1。所以将基分类器进行集成的目的是使分类结果稳定，且正确率高。</p>
-        
-          <a class="article-more-a" href="/2020/03/22/R-ensemble-learning/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">R语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/22/R-ensemble-learning/">展开全文 >></a>
         </p>
       
 
