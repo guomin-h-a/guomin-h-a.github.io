@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/04/26/numpy/p7.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/26/numpy/p8.png">
 <meta property="article:published_time" content="2020-04-26T09:23:04.000Z">
-<meta property="article:modified_time" content="2020-05-01T03:14:37.515Z">
+<meta property="article:modified_time" content="2020-05-01T03:28:21.470Z">
 <meta property="article:author" content="龙猫芭蕉">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Python">
@@ -238,6 +238,9 @@
 <h2 id="5-数组的排序"><a href="#5-数组的排序" class="headerlink" title="5 数组的排序"></a>5 数组的排序</h2><p><strong>1.快速排序</strong><br>在不修改原始输入数组的基础上返回一个排好序的数组：<code>np.sort(x)</code><br>用排好序的数组替代原始数组：<code>x.sort()</code><br>返回原始数组排好序的<strong>索引值：</strong><code>np.argsort(x)</code>，索引值可以通过花哨的索引创建有序的数组<br>沿着行或列排序：<strong>axis参数</strong>，将行或列当做独立的数组，任何行列的值之间的关系将会丢失</p>
 <p><strong>2.部分排序：分隔</strong><br>找到数组中第K小的值：<code>np.partition(x, k)</code>，输出新数组的最左边是第K小的值，往右是任意顺序的其他值</p>
 <h2 id="6-结构化数组"><a href="#6-结构化数组" class="headerlink" title="6 结构化数组"></a>6 结构化数组</h2><p>结构化数组的生成：字典的方法，或者元组列表<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">In[<span class="number">14</span>]: np.dtype(&#123;<span class="string">'names'</span>: (<span class="string">'name'</span>, <span class="string">'age'</span>, <span class="string">'weight'</span>),</span><br><span class="line">                  <span class="string">'formats'</span>: (<span class="string">'U10'</span>, <span class="string">'i4'</span>, <span class="string">'f8'</span>)&#125;)</span><br><span class="line">Out[<span class="number">14</span>]: dtype([(<span class="string">'name'</span>, <span class="string">'&lt;U10'</span>), (<span class="string">'age'</span>, <span class="string">'&lt;i4'</span>), (<span class="string">'weight'</span>, <span class="string">'&lt;f8'</span>)])</span><br><span class="line"><span class="comment">#为了简明起见，数值数据类型可以用Python 类型或NumPy 的dtype 类型指定：</span></span><br><span class="line">In[<span class="number">15</span>]: np.dtype(&#123;<span class="string">'names'</span>: (<span class="string">'name'</span>, <span class="string">'age'</span>, <span class="string">'weight'</span>),</span><br><span class="line">                  <span class="string">'formats'</span>: ((np.str_, <span class="number">10</span>), int, np.float32)&#125;)</span><br><span class="line">Out[<span class="number">15</span>]: dtype([(<span class="string">'name'</span>, <span class="string">'&lt;U10'</span>), (<span class="string">'age'</span>, <span class="string">'&lt;i8'</span>), (<span class="string">'weight'</span>, <span class="string">'&lt;f4'</span>)])</span><br><span class="line"><span class="comment">#元组列表</span></span><br><span class="line">In[<span class="number">16</span>]: np.dtype([(<span class="string">'name'</span>, <span class="string">'S10'</span>), (<span class="string">'age'</span>, <span class="string">'i4'</span>), (<span class="string">'weight'</span>, <span class="string">'f8'</span>)])</span><br><span class="line">Out[<span class="number">16</span>]: dtype([(<span class="string">'name'</span>, <span class="string">'S10'</span>), (<span class="string">'age'</span>, <span class="string">'&lt;i4'</span>), (<span class="string">'weight'</span>, <span class="string">'&lt;f8'</span>)])</span><br></pre></td></tr></table></figure><br><img src="/2020/04/26/numpy/p8.png" alt></p>
+<ul>
+<li>本笔记参考书目：Jake VanderPlas的《Python数据科学手册》</li>
+</ul>
 
       
 
@@ -531,10 +534,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -551,11 +550,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ggplot2</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,7 +562,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">读后感</a>
+                <a href="javascript:void(0)" class="js-tag color3">ggplot2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,7 +574,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据分析</a>
+                <a href="javascript:void(0)" class="js-tag color4">读后感</a>
               </li>
             
             <div class="clearfix"></div>
