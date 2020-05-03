@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>NumPy整理 | 龙猫芭蕉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1 NumPy数组基础1.1 数组的创建最直接的：np.array([1, 2, 3])创建一个长度为10、值都是0的数组：np.zeros(10, dtype &#x3D; int)创建一个3×5、值都是1的浮点型数组：np.ones((3, 5), dtype &#x3D; float)创建一个3×5、值都是3.14的浮点型数组：np.full((3, 5), 3.14)创建一个从0开始、到20结束、步长为2的数">
+  <meta name="description" content="简易目录：1 NumPy数组基础：数组的创建、属性、索引、切分、变形、拼接与分裂2 NumPy数组的计算：通用函数、广播功能3 比较、掩码和布尔逻辑：和通用函数类似的比较操作、操作布尔数组4 花哨的索引：有关索引、组合索引5 数组的排序6 结构化数组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NumPy整理">
 <meta property="og:url" content="http://yoursite.com/2020/04/28/numpy/index.html">
 <meta property="og:site_name" content="龙猫芭蕉的博客">
-<meta property="og:description" content="1 NumPy数组基础1.1 数组的创建最直接的：np.array([1, 2, 3])创建一个长度为10、值都是0的数组：np.zeros(10, dtype &#x3D; int)创建一个3×5、值都是1的浮点型数组：np.ones((3, 5), dtype &#x3D; float)创建一个3×5、值都是3.14的浮点型数组：np.full((3, 5), 3.14)创建一个从0开始、到20结束、步长为2的数">
+<meta property="og:description" content="简易目录：1 NumPy数组基础：数组的创建、属性、索引、切分、变形、拼接与分裂2 NumPy数组的计算：通用函数、广播功能3 比较、掩码和布尔逻辑：和通用函数类似的比较操作、操作布尔数组4 花哨的索引：有关索引、组合索引5 数组的排序6 结构化数组">
 <meta property="og:image" content="http://yoursite.com/2020/04/28/numpy/p1.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/28/numpy/p2.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/28/numpy/p3.png">
@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/04/28/numpy/p7.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/28/numpy/p8.png">
 <meta property="article:published_time" content="2020-04-28T09:23:04.000Z">
-<meta property="article:modified_time" content="2020-05-01T11:37:44.052Z">
+<meta property="article:modified_time" content="2020-05-03T09:43:34.599Z">
 <meta property="article:author" content="龙猫芭蕉">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Python">
@@ -194,7 +194,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.7k字</span>
+        <span class="post-count">2.8k字</span>
       </span>
     </span>
 
@@ -203,7 +203,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">10分</span>
+        <span class="post-count">11分</span>
       </span>
     </span>
 </div>
@@ -213,7 +213,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-NumPy数组基础"><a href="#1-NumPy数组基础" class="headerlink" title="1 NumPy数组基础"></a>1 NumPy数组基础</h2><h3 id="1-1-数组的创建"><a href="#1-1-数组的创建" class="headerlink" title="1.1 数组的创建"></a>1.1 数组的创建</h3><p>最直接的：<code>np.array([1, 2, 3])</code><br>创建一个长度为10、值都是0的数组：<code>np.zeros(10, dtype = int)</code><br>创建一个3×5、值都是1的浮点型数组：<code>np.ones((3, 5), dtype = float)</code><br>创建一个3×5、值都是3.14的浮点型数组：<code>np.full((3, 5), 3.14)</code><br>创建一个从0开始、到20结束、步长为2的数组：<code>np.arange(0, 20, 2)</code><br>创建一个5个数<strong>均匀地</strong>分配到0~1的数组：<code>np.linspace(0, 1, 5)</code><br>创建一个3×3、在0~1<strong>均匀分布</strong>的随机数组成的数组：<code>np.random.random((3, 3))</code><br>创建一个3×3、均值为0方差为1的<strong>正态分布</strong>的随机数数组：<code>np.random.normal(0,1,(3,3))</code><br>创建一个3×3、[0, 10)区间的<strong>随机整型</strong>数组：<code>np.random.randint(0, 10, (3, 3))</code><br>创建一个3×3的单位矩阵：<code>np.eye(3)</code><br>利用现有的数据来创建：<code>np.asarray(x, dtype = None, order = None)</code><br><a id="more"></a></p>
+        <blockquote>
+<p><strong>简易目录：</strong><br>1 NumPy数组基础：数组的创建、属性、索引、切分、变形、拼接与分裂<br>2 NumPy数组的计算：通用函数、广播功能<br>3 比较、掩码和布尔逻辑：和通用函数类似的比较操作、操作布尔数组<br>4 花哨的索引：有关索引、组合索引<br>5 数组的排序<br>6 结构化数组<br><a id="more"></a></p>
+</blockquote>
+<h2 id="1-NumPy数组基础"><a href="#1-NumPy数组基础" class="headerlink" title="1 NumPy数组基础"></a>1 NumPy数组基础</h2><h3 id="1-1-数组的创建"><a href="#1-1-数组的创建" class="headerlink" title="1.1 数组的创建"></a>1.1 数组的创建</h3><p>最直接的：<code>np.array([1, 2, 3])</code><br>创建一个长度为10、值都是0的数组：<code>np.zeros(10, dtype = int)</code><br>创建一个3×5、值都是1的浮点型数组：<code>np.ones((3, 5), dtype = float)</code><br>创建一个3×5、值都是3.14的浮点型数组：<code>np.full((3, 5), 3.14)</code><br>创建一个从0开始、到20结束、步长为2的数组：<code>np.arange(0, 20, 2)</code><br>创建一个5个数<strong>均匀地</strong>分配到0~1的数组：<code>np.linspace(0, 1, 5)</code><br>创建一个3×3、在0~1<strong>均匀分布</strong>的随机数组成的数组：<code>np.random.random((3, 3))</code><br>创建一个3×3、均值为0方差为1的<strong>正态分布</strong>的随机数数组：<code>np.random.normal(0,1,(3,3))</code><br>创建一个3×3、[0, 10)区间的<strong>随机整型</strong>数组：<code>np.random.randint(0, 10, (3, 3))</code><br>创建一个3×3的单位矩阵：<code>np.eye(3)</code><br>利用现有的数据来创建：<code>np.asarray(x, dtype = None, order = None)</code></p>
 <h3 id="1-2-数组的属性"><a href="#1-2-数组的属性" class="headerlink" title="1.2 数组的属性"></a>1.2 数组的属性</h3><p>每个数组有<strong>ndim（数组的维度）</strong>、<strong>shape（数组每个维度的大小）、size（数组的总大小）</strong>属性，其他属性包括每个数组元素字节大小的<strong>itemsize</strong>，以及表示数组总字节大小的<strong>nbytes</strong>，一般来说，可以认为nbytes 跟itemsize 和size 的乘积大小相等。</p>
 <h3 id="1-3-数组的索引"><a href="#1-3-数组的索引" class="headerlink" title="1.3 数组的索引"></a>1.3 数组的索引</h3><p><strong>一位数组：</strong><br>通过中括号指定索引获取第i 个值（从0 开始计数），如<code>x1[0]</code><br>为了获取数组的末尾索引，可以用负值索引:<code>x1[-1]</code><br><strong>多维数组：</strong><br>用逗号分隔的索引元组获取元素，如<code>x2[2, 0]</code></p>
 <h3 id="1-4-数组的切分"><a href="#1-4-数组的切分" class="headerlink" title="1.4 数组的切分"></a>1.4 数组的切分</h3><p>用切片（slice）符号获取子数组，切片符号用冒号（:）表示：<code>x[start:stop:step]</code><br>获取数组的行和列：将索引与切片组合起来实现，如<code>x2[:, 0]</code>表示x2的第一列<br>数组切片返回的是数组数据的视图，而不是数组数据的副本，如果修改这个子数组，原始数组也会被修改。在处理非常大的数据集时，可以获取或处理这些数据集的片段，而不用复制底层的数据缓存。<br>如果想明确复制数组里的数据或子数组，可以通过<code>copy()</code>方法实现，如<code>x2[:2, :2].copy()</code></p>
@@ -535,6 +538,10 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -551,15 +558,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -567,15 +566,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据分析</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color4">读后感</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">读后感</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
             
             <div class="clearfix"></div>
