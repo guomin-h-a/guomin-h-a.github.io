@@ -6,13 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/3 | 龙猫芭蕉的博客</title>
+  <title>MySQL基础 | 龙猫芭蕉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="龙猫芭蕉的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/03/page/2/index.html">
+  <meta name="description" content="简易目录：1 数据库相关概念2 MySQL的常见命令及语法规范3 SQL的语言分类4 DQL语言的学习：基础、条件、排序、常见函数、分组、连接、子查询、分页、union联合5 DML语言的学习：插入、修改、删除6 DDL语言的学习：库的管理、表的管理、数据类型、常见的约束7 TCL语言的学习：事务和事务处理8 其他">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL基础">
+<meta property="og:url" content="http://yoursite.com/2020/05/17/MySQL-1/index.html">
 <meta property="og:site_name" content="龙猫芭蕉的博客">
+<meta property="og:description" content="简易目录：1 数据库相关概念2 MySQL的常见命令及语法规范3 SQL的语言分类4 DQL语言的学习：基础、条件、排序、常见函数、分组、连接、子查询、分页、union联合5 DML语言的学习：插入、修改、删除6 DDL语言的学习：库的管理、表的管理、数据类型、常见的约束7 TCL语言的学习：事务和事务处理8 其他">
+<meta property="article:published_time" content="2020-05-17T02:31:41.000Z">
+<meta property="article:modified_time" content="2020-05-17T03:54:16.955Z">
 <meta property="article:author" content="龙猫芭蕉">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="数据分析">
+<meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="龙猫芭蕉的博客" type="application/atom+xml">
@@ -157,36 +164,90 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MySQL-1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/14/R-association-analysis/" class="archive-article-date">
-  	<time datetime="2020-03-14T08:28:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/14/R-association-analysis/">R语言数据挖掘——关联分析</a>
+    <h1 class="article-title" itemprop="name">
+      MySQL基础
     </h1>
   
 
-        <div class="article-info info-on-right">
+        
+        <a href="/2020/05/17/MySQL-1/" class="archive-article-date">
+  	<time datetime="2020-05-17T02:31:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-17</time>
+</a>
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.9k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">7分</span>
+      </span>
+    </span>
+</div>
           
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><strong>简易目录：</strong><br>1 数据库相关概念<br>2 MySQL的常见命令及语法规范<br>3 SQL的语言分类<br>4 DQL语言的学习：基础、条件、排序、常见函数、分组、连接、子查询、分页、union联合<br>5 DML语言的学习：插入、修改、删除<br>6 DDL语言的学习：库的管理、表的管理、数据类型、常见的约束<br>7 TCL语言的学习：事务和事务处理<br>8 其他<br><a id="more"></a></p>
+</blockquote>
+<h2 id="1-数据库的相关概念"><a href="#1-数据库的相关概念" class="headerlink" title="1 数据库的相关概念"></a>1 数据库的相关概念</h2><h3 id="1-1-相关概念"><a href="#1-1-相关概念" class="headerlink" title="1.1 相关概念"></a>1.1 相关概念</h3><p><strong>1.DB：</strong>数据库，保存一组有组织的数据的容器<br><strong>2.DBMS：</strong>数据库管理系统，又称为数据库软件（产品），用于管理DB中的数据<br><strong>3.SQL:</strong>结构化查询语言，用于和DBMS通信的语言</p>
+<h3 id="1-2-数据库存储数据的特点"><a href="#1-2-数据库存储数据的特点" class="headerlink" title="1.2 数据库存储数据的特点"></a>1.2 数据库存储数据的特点</h3><p>1.将数据放到表中，表再放到库中。<br>2.一个数据库中可以有多个表，每个表都有一个的名字，用来标识自己。表名具有唯一性。<br>3.表具有一些特性，这些特性定义了数据在表中如何存储。<br>4.表由列组成，列也称为<strong>字段</strong>，所有表都是由一个或多个列组成的。<br>5.表中的数据是按行存储。</p>
+<h2 id="2-MySQL的常见命令及语法规范"><a href="#2-MySQL的常见命令及语法规范" class="headerlink" title="2 MySQL的常见命令及语法规范"></a>2 MySQL的常见命令及语法规范</h2><h3 id="2-1-MySQL的常见命令"><a href="#2-1-MySQL的常见命令" class="headerlink" title="2.1 MySQL的常见命令"></a>2.1 MySQL的常见命令</h3><p>1.查看当前所有的数据库：<code>show databases;</code><br>2.打开指定的库：<code>use 库名;</code><br>3.查看当前库的所有表：<code>show tables;</code><br>4.查看其它库的所有表：<code>show tables from 库名;</code><br>5.创建表：<code>create table 表名(列名 列类型, 列名 列类型，...);</code><br>6.查看表结构：<code>desc 表名;</code><br>7.查看服务器的版本：<br>方式一：登录到mysql服务端 <code>select version();</code><br>方式二：没有登录到mysql服务端<code>mysql --version</code>或<code>mysql --V</code></p>
+<h3 id="2-2-MySQL的语法规范"><a href="#2-2-MySQL的语法规范" class="headerlink" title="2.2 MySQL的语法规范"></a>2.2 MySQL的语法规范</h3><p>1.不区分大小写,但建议关键字大写，表名、列名小写<br>2.每条命令最好用分号结尾<br>3.每条命令根据需要，可以进行缩进 或换行<br>4.注释<br>单行注释：#注释文字<br>单行注释：— 注释文字<br>多行注释：/<em> 注释文字  </em>/</p>
+<h2 id="3-SQL的语言分类"><a href="#3-SQL的语言分类" class="headerlink" title="3 SQL的语言分类"></a>3 SQL的语言分类</h2><p><strong>DQL</strong>（Data Query Language）：数据查询语言 <code>select</code><br><strong>DML</strong>(Data Manipulate Language):数据操作语言 <code>insert</code> 、<code>update</code>、<code>delete</code><br><strong>DDL</strong>（Data Define Languge）：数据定义语言<code>create</code>、<code>drop</code>、<code>alter</code><br><strong>TCL</strong>（Transaction Control Language）：事务控制语言<code>commit</code>、<code>rollback</code></p>
+<h2 id="4-DQL语言的学习"><a href="#4-DQL语言的学习" class="headerlink" title="4 DQL语言的学习"></a>4 DQL语言的学习</h2><h3 id="4-1-基础查询"><a href="#4-1-基础查询" class="headerlink" title="4.1 基础查询"></a>4.1 基础查询</h3><p>1.语法：<code>SELECT 要查询的东西 FROM 表名;</code><br>2.特点：<br>①通过select查询完的结果 ，是一个虚拟的表格，不是真实存在<br>②要查询的东西 可以是常量值、可以是表达式、可以是字段、可以是函数<br>3.示例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">1.查询表中的单个字段：<span class="keyword">SELECT</span> last_name <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line">2.查询表中的多个字段，可根据自己的需求排列字段</span><br><span class="line"><span class="keyword">SELECT</span> last_name,salary,email,<span class="string">`phone_number`</span> <span class="keyword">FROM</span> employees ;</span><br><span class="line"></span><br><span class="line">3.查询表中所有字段：<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line">4.查询常量值：<span class="keyword">SELECT</span> <span class="number">100</span>;  <span class="keyword">SELECT</span> <span class="string">'john'</span>;</span><br><span class="line"></span><br><span class="line">5.查询表达式：<span class="keyword">SELECT</span> <span class="number">100</span>%<span class="number">98</span>;</span><br><span class="line"></span><br><span class="line">6.查询函数：<span class="keyword">SELECT</span> <span class="keyword">VERSION</span>();</span><br><span class="line"></span><br><span class="line">7.为字段起别名</span><br><span class="line">①便于理解</span><br><span class="line">②如果要查询的字段有重名的情况，使用别名可以区分开来</span><br><span class="line"></span><br><span class="line">方式一：使用as</span><br><span class="line"><span class="keyword">SELECT</span> <span class="number">100</span>%<span class="number">98</span> <span class="keyword">AS</span> 结果;</span><br><span class="line"><span class="keyword">SELECT</span> last_name <span class="keyword">AS</span> 姓,first_name <span class="keyword">AS</span> 名 <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line">方式二：使用空格</span><br><span class="line"><span class="keyword">SELECT</span> last_name 姓,first_name 名 <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line">案例：查询salary，显示结果为out put（特殊字符用双引号括起来）</span><br><span class="line"><span class="keyword">SELECT</span> salary <span class="keyword">AS</span> <span class="string">"out put"</span> <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line">8.去重：DISTINCT关键字</span><br><span class="line">案例：查询员工表中涉及到的所有的部门编号</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> department_id <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line">9.+号的作用：运算符</span><br><span class="line">两个操作数都为数值型，则做加法运算</span><br><span class="line"><span class="keyword">select</span> <span class="number">100</span>+<span class="number">90</span>;</span><br><span class="line">其中一方为字符型，试图将字符型数值转换为数值型，如果转换成功，则继续做加法运算;</span><br><span class="line"><span class="keyword">select</span> <span class="string">'123'</span>+<span class="number">90</span>;</span><br><span class="line">如果转换失败，则将字符型数值转换成0</span><br><span class="line"><span class="keyword">select</span> <span class="string">'john'</span>+<span class="number">90</span>;</span><br><span class="line">只要其中一方为null，则结果肯定为null</span><br><span class="line"><span class="keyword">select</span> <span class="literal">null</span>+<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">10.【补充】concat函数  功能：拼接字符</span><br><span class="line">案例：查询员工名和姓连接成一个字段，并显示为 姓名</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CONCAT</span>(last_name,first_name) <span class="keyword">AS</span> 姓名 <span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line">11.【补充】ifnull函数</span><br><span class="line">功能：判断某字段或表达式是否为null，如果为null 返回指定的值，否则返回原本的值</span><br><span class="line">案例：显示出表employees的全部列，各个列之间用逗号连接，列头显示成OUT_PUT</span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">  <span class="keyword">CONCAT</span>(<span class="string">`first_name`</span>,<span class="string">','</span>,<span class="string">`last_name`</span>,<span class="string">','</span>,<span class="string">`job_id`</span>,<span class="string">','</span>,<span class="keyword">IFNULL</span>(commission_pct,<span class="number">0</span>)) </span><br><span class="line">  <span class="keyword">AS</span> out_put </span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br><span class="line"></span><br><span class="line">12.【补充】isnull函数</span><br><span class="line">功能：判断某字段或表达式是否为null，如果是，则返回1，否则返回0</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-2-条件查询"><a href="#4-2-条件查询" class="headerlink" title="4.2 条件查询"></a>4.2 条件查询</h3><p>1.语法：<code>select 查询列表 from 表名 where 筛选条件;</code><br>2.分类：<br><strong>1）条件表达式：</strong>简单条件运算符：<code>&gt;</code>、<code>&lt;</code>、<code>&gt;=</code>、<code>&lt;=</code>、<code>=</code>、<code>!=</code>、<code>&lt;&gt;</code><br><strong>2）逻辑表达式：</strong>逻辑运算符：<br><code>and（&amp;&amp;）</code>:两个条件如果同时成立，结果为true，否则为false<br><code>or(||)</code>：两个条件只要有一个成立，结果为true，否则为false<br><code>not(!)</code>：如果条件成立，则not后为false，否则为true<br><strong>3）模糊查询</strong><br><code>like</code>：一般和<strong>通配符</strong>搭配使用：<code>%</code>任意多个字符，包含0个字符；<code>_</code>任意单个字符<br><code>between and</code>：①可以提高语句的简洁度；②包含临界值；③两个临界值不要调换顺序，值类型一致<br><code>in</code>：判断某字段的值是否属于in列表中的某一项；In列表的值类型必须一致或兼容；不支持通配符<br><code>is null</code>：=或&lt;&gt;不能用于判断null值；is null或is not null 可以判断null值<br>3.示例：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">一、按条件表达式筛选</span><br><span class="line">案例1：查询工资&gt;12000的员工信息</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> salary &gt; <span class="number">12000</span> ;</span><br><span class="line"></span><br><span class="line">案例2：查询部门编号不等于90号的员工名和部门编号</span><br><span class="line"><span class="keyword">SELECT</span> last_name,department_id <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> department_id != <span class="number">90</span>;</span><br><span class="line"></span><br><span class="line">二、按逻辑表达式筛选</span><br><span class="line">案例1：工资在10000到20000之间的员工名、工资及奖金</span><br><span class="line"><span class="keyword">SELECT</span> last_name,salary,commission_pct <span class="keyword">FROM</span> employees </span><br><span class="line"><span class="keyword">WHERE</span> salary &gt;= <span class="number">10000</span> <span class="keyword">AND</span> salary &lt;= <span class="number">20000</span> ;</span><br><span class="line"></span><br><span class="line">案例2：查询部门编号不是在90到110之间，或者工资高于15000的员工信息</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> employees </span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">NOT</span> (department_id &gt;= <span class="number">90</span> <span class="keyword">AND</span> department_id &lt;= <span class="number">110</span>) <span class="keyword">OR</span> salary &gt; <span class="number">15000</span> ;</span><br><span class="line"></span><br><span class="line">三、模糊查询</span><br><span class="line">1.like</span><br><span class="line">案例1：查询员工名包含字符a的员工信息 %代表通配符，任意的意思</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> last_name <span class="keyword">LIKE</span> <span class="string">'%a%'</span>;</span><br><span class="line"></span><br><span class="line">案例2：查询员工名中第三个字符为n，第五个字符为l的员工名和工资</span><br><span class="line"><span class="keyword">SELECT</span> last_name,salary <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> last_name <span class="keyword">LIKE</span> <span class="string">'__n_l%'</span>;</span><br><span class="line"></span><br><span class="line">案例3：查询员工名中第二个字符为_的员工名</span><br><span class="line"><span class="keyword">SELECT</span> last_name <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> last_name <span class="keyword">LIKE</span> <span class="string">'_\_%'</span>;</span><br><span class="line"><span class="keyword">SELECT</span> last_name <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> last_name <span class="keyword">LIKE</span> <span class="string">'_$_%'</span> ESCAPE <span class="string">'$'</span>;</span><br><span class="line"></span><br><span class="line">2.between and </span><br><span class="line">案例：查询员工编号在100到120之间的员工信息</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> employee_id &gt;= <span class="number">100</span> <span class="keyword">AND</span> employee_id &lt;= <span class="number">120</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> employee_id <span class="keyword">BETWEEN</span> <span class="number">100</span> <span class="keyword">AND</span> <span class="number">120</span>;</span><br><span class="line"></span><br><span class="line">3.in</span><br><span class="line">案例：查询员工的工种编号是IT_PROG、AD_VP、Ad_PRES中的一个员工名和工种编号</span><br><span class="line"><span class="keyword">SELECT</span> last_name,job_id <span class="keyword">FROM</span> employees </span><br><span class="line"><span class="keyword">WHERE</span> job_id <span class="keyword">IN</span> (<span class="string">'IT_PROG'</span>, <span class="string">'AD_VP'</span>, <span class="string">'Ad_PRES'</span>) ;</span><br><span class="line"></span><br><span class="line">4.is null</span><br><span class="line">案例1：查询没有奖金的员工名和奖金率</span><br><span class="line"><span class="keyword">SELECT</span> last_name,commission_pct <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> commission_pct <span class="keyword">IS</span> <span class="literal">NULL</span> ;</span><br><span class="line"></span><br><span class="line">案例2：查询有奖金的员工名和奖金率</span><br><span class="line"><span class="keyword">SELECT</span> last_name,commission_pct <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> commission_pct <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> ;</span><br><span class="line"></span><br><span class="line">5.安全等于：&lt;=&gt;</span><br><span class="line">案例1：查询没有奖金的员工名和奖金率</span><br><span class="line"><span class="keyword">SELECT</span> last_name,commission_pct <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> commission_pct &lt;=&gt; <span class="literal">NULL</span> ;</span><br><span class="line"></span><br><span class="line">案例2：查询工资为12000的员工信息</span><br><span class="line"><span class="keyword">SELECT</span> last_name,salary <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> salary &lt;=&gt; <span class="number">12000</span>;</span><br><span class="line"></span><br><span class="line">6.is null  v.s.  &lt;=&gt;</span><br><span class="line">IS NULL: 仅仅可以判断NULL值，可读性较高，建议使用</span><br><span class="line">&lt;=&gt;:既可以判断NULL值，又可以判断普通的数值，可读性较低</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -196,74 +257,137 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据分析</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">R语言</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/17/MySQL-1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/07/my-winter-holiday/" class="archive-article-date">
-  	<time datetime="2020-03-07T02:52:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/01/pandas/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Pandas整理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/07/my-winter-holiday/">我的寒假</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/03/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/03/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+       <div id="gitalk-container"></div>
+       <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+
+<script>
+var gitalk = new Gitalk({
+  clientID: '32f8aebec08d23898444',
+  clientSecret: '9e49adc1f1d65e2e665e39cc84c6bbec32227d67',
+  repo: 'guomin-h-a.github.io',
+  owner: 'guomin-h-a',
+  admin: ['guomin-h-a'],
+  id: md5(window.location.pathname),
+  distractionFreeMode: true
+})
+
+gitalk.render('gitalk-container')
+</script>
+  
+
+  
+
   
 
 
@@ -287,8 +411,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
