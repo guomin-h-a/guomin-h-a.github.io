@@ -6,27 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>R语言数据挖掘——随机森林 | 龙猫芭蕉的博客</title>
+  <title>Tag: 生活记录 | 龙猫芭蕉的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="随机森林算法的实质是基于决策树的分类器集成算法，其中每棵树都依赖于一个随机向量，森林中所有向量都是独立同分布的。随机森林在运算量没有显著提高的前提下提高了预测精度，其对多元共线性不敏感，结果对缺失数据和非平衡的数据比较稳健，可以很好地预测达到多达几千个解释变量。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="R语言数据挖掘——随机森林">
-<meta property="og:url" content="http://yoursite.com/2020/03/23/R-randomforest/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="龙猫芭蕉的博客">
+<meta property="og:url" content="http://yoursite.com/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="龙猫芭蕉的博客">
-<meta property="og:description" content="随机森林算法的实质是基于决策树的分类器集成算法，其中每棵树都依赖于一个随机向量，森林中所有向量都是独立同分布的。随机森林在运算量没有显著提高的前提下提高了预测精度，其对多元共线性不敏感，结果对缺失数据和非平衡的数据比较稳健，可以很好地预测达到多达几千个解释变量。">
-<meta property="og:image" content="http://yoursite.com/2020/03/23/R-randomforest/p1.png">
-<meta property="og:image" content="http://yoursite.com/2020/03/23/R-randomforest/p2.png">
-<meta property="og:image" content="http://yoursite.com/2020/03/23/R-randomforest/p3.png">
-<meta property="og:image" content="http://yoursite.com/2020/03/23/R-randomforest/p4.png">
-<meta property="article:published_time" content="2020-03-23T04:12:23.000Z">
-<meta property="article:modified_time" content="2020-03-23T13:52:10.500Z">
 <meta property="article:author" content="龙猫芭蕉">
-<meta property="article:tag" content="笔记">
-<meta property="article:tag" content="数据分析与挖掘">
-<meta property="article:tag" content="机器学习">
-<meta property="article:tag" content="R语言">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/03/23/R-randomforest/p1.png">
   
     <link rel="alternative" href="/atom.xml" title="龙猫芭蕉的博客" type="application/atom+xml">
   
@@ -170,252 +157,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-R-randomforest" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      R语言数据挖掘——随机森林
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/11/07/winter-Of-the-south/" class="archive-article-date">
+  	<time datetime="2020-11-07T00:47:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-07</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/11/07/winter-Of-the-south/">立冬 | 南国之冬</a>
     </h1>
   
 
-        
-        <a href="/2020/03/23/R-randomforest/" class="archive-article-date">
-  	<time datetime="2020-03-23T04:12:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-23</time>
-</a>
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.7k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">11分</span>
-      </span>
-    </span>
-</div>
+        <div class="article-info info-on-right">
           
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>随机森林算法的实质是基于<span style="border-bottom:2px dashed red;">决策树的分类器集成算法</span>，其中每棵树都依赖于一个随机向量，森林中所有向量都是独立同分布的。随机森林在运算量没有显著提高的前提下提高了预测精度，其对多元共线性不敏感，结果对缺失数据和非平衡的数据比较稳健，可以很好地预测达到多达几千个解释变量。</p>
-<a id="more"></a>
-<h2 id="1-算法概述"><a href="#1-算法概述" class="headerlink" title="1 算法概述"></a>1 算法概述</h2><p>随机森林是通过<strong>自助法（boot-strap）重采样技术</strong>，从原始训练样本集N中有放回地重复随机抽取k个样本生成新的训练集样本集合，然后根据<strong>自助样本集</strong>生成k个决策树组成的随机森林，新数据的分类结果按决策树多少形成的分数而定。每次抽样生成的<strong>袋外数据</strong>（out-of-bag，简称OOB）被用来预测分类的正确率，对每次预测结果进行汇总得到错误率的<strong>OOB估计</strong>，然后评估组合分类的正确率。此外，每一棵决策树所应用的变量也是从所有变量M中随机选取，随机森林通过在每个节点处随机选择特征进行分支，<span style="border-bottom:2px dashed red;">最小化了各决策树之间的相关性</span>，从而提高了分类精确度。</p>
-<h3 id="重要参数"><a href="#重要参数" class="headerlink" title="重要参数"></a>重要参数</h3><p><strong>1) 随机森林分类性能得主要因素</strong><br>-单棵树的分类强度：强度越大，整体随机森林的分类性能越好<br>-树之间的相关度：相关度越大，随机森林的分类性能越差</p>
-<p><strong>2) 随机森林的两个重要参数</strong><br>-树节点预选的变量个数<br>-随机森林中树的个数</p>
-<h2 id="2-在R中的实现"><a href="#2-在R中的实现" class="headerlink" title="2 在R中的实现"></a>2 在R中的实现</h2><p><strong>randomForest</strong>软件包主要有5个函数：<br>1) <strong>randomForest()：</strong>建立随机森林模型，既可以建立判别模型，也可以建立回归模型，还可以建立无监督模型；<code>randomForest(formu1a, data=NULL, ..., subset, na.action=na.fail)</code>或<br><code>randomForest(x, y=NULL, xtest=NULL, ytest=NULL, ntree=500 ,mtry...)</code><br>如果响应变量为<strong>连续变量</strong>，则生成<strong>回归模型</strong>，预测结果为每棵决策树结果进行平均得到；<br>如果响应变量为<strong>定性变量</strong>，则生成<strong>判别模型</strong>，预测结果为每棵决策树的决策出现概率最大的结果；<br>如果不设定响应变量的取值，则生成<strong>无监督模型</strong>，该模型主要用于文本分析以及文本分类。</p>
-<p>2) <strong>importance()：</strong>提取在利用函数randomForest()建立模型过程中各个变量的重要性度量结果；<br><code>importance(x, type=NULL, class=NULL, sca1e=TRUE, ...)</code><br>其中，参数type在这里指代的是对于变量重要值的度量标准，l 代表采用<strong>精度平均减少值</strong>作为度量标准；而2代表采用<strong>节点不纯度平均减少值</strong>作为度量标准。</p>
-<p>3) <strong>MDSplot()：</strong>绘制在建立模型过程中所产生的临近矩阵经过标准化后的坐标图，即不同维度下各个样本点的分布情况。<code>MDSplot(rf, fac, k=2, palette=NULL, pch=20, ...)</code></p>
-<p>4) <strong>rflmpute()：</strong>对数据中的缺失值进行插值；<br><code>rflmpute (x, y, iter=5, ntree=300, ...)</code> 或 <code>rflmpute(x, data, ..., subset)</code><br>参数y在这里为响应变量向量，y不能存在缺失值。</p>
-<p>5) <strong>treesize()：</strong>查看随机森林模型中每一棵树所具有的节点个数；<code>treesize(x, terminal=TRUE)</code><br>参数terminal主要用于决定节点的计数方式，如果值为默认值TRUE，则将只计算最终根节点数目，如果值FALSE，则将所有的节点全部计数。该函数通常与<strong>函数hist()</strong>结合使用，绘制相关的柱状图。</p>
-<h2 id="3-数据集"><a href="#3-数据集" class="headerlink" title="3 数据集"></a>3 数据集</h2><p>本数据采集了白酒品质的11 项基本特征，分别为:非挥发性酸、挥发性酸、拧攘酸、剩余糖分、氧化物、游离二氧化硫、总二氧化硫、密度、酸性、硫酸盐、酒精度。<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&gt; wine = read.csv(<span class="string">'wine.csv'</span>, header = <span class="literal">TRUE</span>, sep = <span class="string">';'</span>)</span><br><span class="line">&gt; dim(wine)</span><br><span class="line">[<span class="number">1</span>] <span class="number">4898</span>   <span class="number">12</span></span><br><span class="line">&gt; summary(wine)</span><br><span class="line"> fixed.acidity    volatile.acidity  citric.acid     residual.sugar  </span><br><span class="line"> Min.   : <span class="number">3.800</span>   Min.   :<span class="number">0.0800</span>   Min.   :<span class="number">0.0000</span>   Min.   : <span class="number">0.600</span>  </span><br><span class="line"> 1st Qu.: <span class="number">6.300</span>   1st Qu.:<span class="number">0.2100</span>   1st Qu.:<span class="number">0.2700</span>   1st Qu.: <span class="number">1.700</span>  </span><br><span class="line"> Median : <span class="number">6.800</span>   Median :<span class="number">0.2600</span>   Median :<span class="number">0.3200</span>   Median : <span class="number">5.200</span>  </span><br><span class="line"> Mean   : <span class="number">6.855</span>   Mean   :<span class="number">0.2782</span>   Mean   :<span class="number">0.3342</span>   Mean   : <span class="number">6.391</span>  </span><br><span class="line"> 3rd Qu.: <span class="number">7.300</span>   3rd Qu.:<span class="number">0.3200</span>   3rd Qu.:<span class="number">0.3900</span>   3rd Qu.: <span class="number">9.900</span>  </span><br><span class="line"> Max.   :<span class="number">14.200</span>   Max.   :<span class="number">1.1000</span>   Max.   :<span class="number">1.6600</span>   Max.   :<span class="number">65.800</span>  </span><br><span class="line">   chlorides       free.sulfur.dioxide total.sulfur.dioxide    density      </span><br><span class="line"> Min.   :<span class="number">0.00900</span>   Min.   :  <span class="number">2.00</span>      Min.   :  <span class="number">9.0</span>        Min.   :<span class="number">0.9871</span>  </span><br><span class="line"> 1st Qu.:<span class="number">0.03600</span>   1st Qu.: <span class="number">23.00</span>      1st Qu.:<span class="number">108.0</span>        1st Qu.:<span class="number">0.9917</span>  </span><br><span class="line"> Median :<span class="number">0.04300</span>   Median : <span class="number">34.00</span>      Median :<span class="number">134.0</span>        Median :<span class="number">0.9937</span>  </span><br><span class="line"> Mean   :<span class="number">0.04577</span>   Mean   : <span class="number">35.31</span>      Mean   :<span class="number">138.4</span>        Mean   :<span class="number">0.9940</span>  </span><br><span class="line"> 3rd Qu.:<span class="number">0.05000</span>   3rd Qu.: <span class="number">46.00</span>      3rd Qu.:<span class="number">167.0</span>        3rd Qu.:<span class="number">0.9961</span>  </span><br><span class="line"> Max.   :<span class="number">0.34600</span>   Max.   :<span class="number">289.00</span>      Max.   :<span class="number">440.0</span>        Max.   :<span class="number">1.0390</span>  </span><br><span class="line">       pH          sulphates         alcohol         quality     </span><br><span class="line"> Min.   :<span class="number">2.720</span>   Min.   :<span class="number">0.2200</span>   Min.   : <span class="number">8.00</span>   Min.   :<span class="number">3.000</span>  </span><br><span class="line"> 1st Qu.:<span class="number">3.090</span>   1st Qu.:<span class="number">0.4100</span>   1st Qu.: <span class="number">9.50</span>   1st Qu.:<span class="number">5.000</span>  </span><br><span class="line"> Median :<span class="number">3.180</span>   Median :<span class="number">0.4700</span>   Median :<span class="number">10.40</span>   Median :<span class="number">6.000</span>  </span><br><span class="line"> Mean   :<span class="number">3.188</span>   Mean   :<span class="number">0.4898</span>   Mean   :<span class="number">10.51</span>   Mean   :<span class="number">5.878</span>  </span><br><span class="line"> 3rd Qu.:<span class="number">3.280</span>   3rd Qu.:<span class="number">0.5500</span>   3rd Qu.:<span class="number">11.40</span>   3rd Qu.:<span class="number">6.000</span>  </span><br><span class="line"> Max.   :<span class="number">3.820</span>   Max.   :<span class="number">1.0800</span>   Max.   :<span class="number">14.20</span>   Max.   :<span class="number">9.000</span>  </span><br><span class="line">&gt; hist(wine$quality)</span><br></pre></td></tr></table></figure><br><img src="/2020/03/23/R-randomforest/p1.png" alt></p>
-<p>根据结果变量中各等级对应样本量，将白酒品质分为三个等级，其中品质3、4、5对应品质为”bad”，品质6对应品质为”mid”，品质7、8、9对应品质为”good”。<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; cha = <span class="number">0</span></span><br><span class="line">&gt; <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:<span class="number">4898</span>) &#123;</span><br><span class="line">+     <span class="keyword">if</span> (wine[i, <span class="number">12</span>] &gt; <span class="number">6</span>) cha[i] = <span class="string">'good'</span></span><br><span class="line">+     <span class="keyword">else</span> <span class="keyword">if</span> (wine[i, <span class="number">12</span>] == <span class="number">6</span>) cha[i] = <span class="string">'mid'</span></span><br><span class="line">+     <span class="keyword">else</span> cha[i] = <span class="string">'bad'</span></span><br><span class="line">+ &#125;</span><br><span class="line">&gt; wine[, <span class="number">12</span>] = factor(cha)</span><br><span class="line">&gt; summary(wine$quality)</span><br><span class="line"> bad good  mid </span><br><span class="line"><span class="number">1640</span> <span class="number">1060</span> <span class="number">2198</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="4-案例应用"><a href="#4-案例应用" class="headerlink" title="4 案例应用"></a>4 案例应用</h2><h3 id="4-1-建立模型"><a href="#4-1-建立模型" class="headerlink" title="4.1 建立模型"></a>4.1 建立模型</h3><p>下面分别使用两种方法构建随机森林模型：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#根据既定公式建立模型</span></span><br><span class="line">&gt; set.seed(<span class="number">71</span>)</span><br><span class="line">&gt; samp = sample(<span class="number">1</span>:<span class="number">4898</span>, <span class="number">3000</span>)</span><br><span class="line">&gt; set.seed(<span class="number">111</span>)</span><br><span class="line">&gt; wine_rf = randomForest(quality~., data = wine, importance = <span class="literal">TRUE</span>, proximity = <span class="literal">TRUE</span>, ntree = <span class="number">500</span>, subset = samp)</span><br><span class="line"></span><br><span class="line"><span class="comment">#根据所给的数据集建立模型</span></span><br><span class="line"><span class="comment">#提取wine数据集中除quality列以外的数据作为自交量</span></span><br><span class="line">&gt; x = subset(wine, select = -quality) </span><br><span class="line">&gt; y = wine$quality</span><br><span class="line">&gt; set.seed(<span class="number">71</span>)</span><br><span class="line">&gt; samp = sample(<span class="number">1</span>:<span class="number">4898</span>, <span class="number">3000</span>)</span><br><span class="line">&gt; xr = x[samp, ]; yr = y[samp]</span><br><span class="line">&gt; set.seed(<span class="number">111</span>)</span><br><span class="line">&gt; wine.rf = randomForest(xr, yr, importance = <span class="literal">TRUE</span>, proximity = <span class="literal">TRUE</span>, ntree = <span class="number">500</span>)</span><br></pre></td></tr></table></figure><br>在前文的随机森林模型构建过程中，都会出现<strong>set.seed()</strong>函数。该函数的主要作用是<span style="border-bottom:2px dashed red;">确定随机数生成器的初始值</span>。由于构建随机森林模型需要不断地从样本中进行抽样来建立森林中的每一棵决策树，所以每次随机抽样的结果会不相同。因此在每次进行模型构建之前设置相应的随机数生成器初始值，就保证在每次构建随机森林模型所使用的随机抽样样本是相同的，即保证了每次建立的随机森林模型是一样的。<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; print(wine_rf)</span><br><span class="line"></span><br><span class="line">Call:</span><br><span class="line"> randomForest(formula = quality ~ ., data = wine, importance = <span class="literal">TRUE</span>, proximity = <span class="literal">TRUE</span>, ntree = <span class="number">500</span>, subset = samp) </span><br><span class="line">               Type of random forest: classification</span><br><span class="line">                     Number of trees: <span class="number">500</span></span><br><span class="line">No. of variables tried at each split: <span class="number">3</span></span><br><span class="line"></span><br><span class="line">        OOB estimate of  error rate: <span class="number">30.57</span>%</span><br><span class="line">Confusion matrix:</span><br><span class="line">     bad good mid class.error</span><br><span class="line">bad  <span class="number">697</span>   <span class="number">21</span> <span class="number">283</span>   <span class="number">0.3036963</span></span><br><span class="line">good  <span class="number">12</span>  <span class="number">392</span> <span class="number">238</span>   <span class="number">0.3894081</span></span><br><span class="line">mid  <span class="number">227</span>  <span class="number">136</span> <span class="number">994</span>   <span class="number">0.2675018</span></span><br></pre></td></tr></table></figure><br>从输出结果可以知道该模型为判别模型，每颗决策树节点处所选择的变量个数为3，且模型总的预测误差为30.57%，具体预测情况可以看混淆矩阵的结果。<br>接下来看自变量的重要程度：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; importance(wine_rf)</span><br><span class="line">               bad     good      mid MeanDecreaseAccuracy MeanDecreaseGini</span><br><span class="line">fixed     <span class="number">38.39220</span> <span class="number">38.04701</span> <span class="number">28.23129</span>             <span class="number">54.35687</span>         <span class="number">138.8276</span></span><br><span class="line">volatile  <span class="number">60.62095</span> <span class="number">57.14363</span> <span class="number">47.73287</span>             <span class="number">81.72092</span>         <span class="number">195.5095</span></span><br><span class="line">citric    <span class="number">33.95011</span> <span class="number">37.38719</span> <span class="number">27.88769</span>             <span class="number">46.44210</span>         <span class="number">149.4469</span></span><br><span class="line">residual  <span class="number">31.46575</span> <span class="number">36.43637</span> <span class="number">35.79771</span>             <span class="number">55.19329</span>         <span class="number">163.2376</span></span><br><span class="line">chlorides <span class="number">44.52846</span> <span class="number">46.47096</span> <span class="number">27.53577</span>             <span class="number">56.75493</span>         <span class="number">169.0678</span></span><br><span class="line">free      <span class="number">45.25569</span> <span class="number">41.41413</span> <span class="number">34.22959</span>             <span class="number">64.04598</span>         <span class="number">178.9195</span></span><br><span class="line">total     <span class="number">34.41994</span> <span class="number">41.26107</span> <span class="number">27.18189</span>             <span class="number">50.61239</span>         <span class="number">170.5083</span></span><br><span class="line">density   <span class="number">31.79573</span> <span class="number">42.52763</span> <span class="number">32.02053</span>             <span class="number">53.63531</span>         <span class="number">204.5551</span></span><br><span class="line">PH        <span class="number">33.29907</span> <span class="number">44.35856</span> <span class="number">26.93746</span>             <span class="number">51.25421</span>         <span class="number">158.8621</span></span><br><span class="line">sulphates <span class="number">31.49062</span> <span class="number">36.61428</span> <span class="number">28.59253</span>             <span class="number">50.10378</span>         <span class="number">145.9429</span></span><br><span class="line">alcohol   <span class="number">66.08129</span> <span class="number">66.88405</span> <span class="number">32.11592</span>             <span class="number">82.88410</span>         <span class="number">240.0514</span></span><br></pre></td></tr></table></figure><br>结果列出了所有自变量以及在不同测算标准下计算出的相应自变量的重要值，较高的指标值说明该自变量对模型的判别情况影响较大。</p>
-<h3 id="4-2-优化模型"><a href="#4-2-优化模型" class="headerlink" title="4.2 优化模型"></a>4.2 优化模型</h3><p>影响随机森林模型的两个主要因素，一是决策树节点分支所选择的变量个数，二是随机森林模型中决策树的数量。所以在构建模型时需要进一步确定最优的参数值。<br>对决策树节点分支所选择的变量个数的确定，采用逐一增加变量的方法进行建模：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; n = ncol(wine) - <span class="number">1</span></span><br><span class="line"><span class="comment">#设置模型误判率向量初始值</span></span><br><span class="line">&gt; rate = <span class="number">1</span>       </span><br><span class="line">&gt; <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:n) &#123;</span><br><span class="line">+     set.seed(<span class="number">222</span>)</span><br><span class="line">+     model = randomForest(quality~., data = wine, mtry = i, importance = <span class="literal">TRUE</span>, ntree = <span class="number">1000</span>)</span><br><span class="line">+     rate[i] = mean(model$err.rate)   <span class="comment">#计算基于OOB数据的模型误判率均值</span></span><br><span class="line">+ &#125;</span><br><span class="line">&gt; rate</span><br><span class="line"> [<span class="number">1</span>] <span class="number">0.2658980</span> <span class="number">0.2632589</span> <span class="number">0.2612880</span> <span class="number">0.2637401</span> <span class="number">0.2653124</span> <span class="number">0.2640605</span> <span class="number">0.2667583</span></span><br><span class="line"> [<span class="number">8</span>] <span class="number">0.2649265</span> <span class="number">0.2663877</span> <span class="number">0.2691432</span> <span class="number">0.2702067</span></span><br></pre></td></tr></table></figure><br>结果显示，当决策树节点分支所选择的变量个数为3时，模型的误判率均值是最低的。<br>接下来进一步确定模型中的决策树数量，采用模型的可视化进行分析：<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; set.seed(<span class="number">222</span>)</span><br><span class="line">&gt; model = randomForest(quality~., data = wine, mtry = <span class="number">3</span>, importance = <span class="literal">TRUE</span>, ntree = <span class="number">1000</span>)</span><br><span class="line">&gt; plot(model, col = <span class="number">1</span>:<span class="number">1</span>)</span><br><span class="line">&gt; legend(<span class="number">800</span>, <span class="number">0.23</span>, <span class="string">'mid'</span>, cex = <span class="number">0.9</span>, bty = <span class="string">'n'</span>)</span><br><span class="line">&gt; legend(<span class="number">800</span>, <span class="number">0.29</span>, <span class="string">'bad'</span>, cex = <span class="number">0.9</span>, bty = <span class="string">'n'</span>)</span><br><span class="line">&gt; legend(<span class="number">800</span>, <span class="number">0.37</span>, <span class="string">'good'</span>, cex = <span class="number">0.9</span>, bty = <span class="string">'n'</span>)</span><br><span class="line">&gt; legend(<span class="number">800</span>, <span class="number">0.26</span>, <span class="string">'total'</span>, cex = <span class="number">0.9</span>, bty = <span class="string">'n'</span>)</span><br></pre></td></tr></table></figure><br><img src="/2020/03/23/R-randomforest/p2.png" alt></p>
-<p>由图中可以看到，当决策树数量大概大于400之后，模型误差趋于稳定，所以最终确定将模型中的决策树数量大致为400左右，以此来达到最优模型。<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&gt; model = randomForest(quality~., data = wine, mtry = <span class="number">3</span>, proximity = <span class="literal">TRUE</span>, importance = <span class="literal">TRUE</span>, ntree = <span class="number">400</span>)</span><br><span class="line">&gt; print(model)</span><br><span class="line"></span><br><span class="line">Call:</span><br><span class="line"> randomForest(formula = quality ~ ., data = wine, mtry = <span class="number">3</span>, proximity = <span class="literal">TRUE</span>,      importance = <span class="literal">TRUE</span>, ntree = <span class="number">400</span>) </span><br><span class="line">               Type of random forest: classification</span><br><span class="line">                     Number of trees: <span class="number">400</span></span><br><span class="line">No. of variables tried at each split: <span class="number">3</span></span><br><span class="line"></span><br><span class="line">        OOB estimate of  error rate: <span class="number">24.79</span>%</span><br><span class="line">Confusion matrix:</span><br><span class="line">      bad good  mid class.error</span><br><span class="line">bad  <span class="number">1229</span>   <span class="number">19</span>  <span class="number">392</span>   <span class="number">0.2506098</span></span><br><span class="line">good   <span class="number">20</span>  <span class="number">717</span>  <span class="number">323</span>   <span class="number">0.3235849</span></span><br><span class="line">mid   <span class="number">291</span>  <span class="number">169</span> <span class="number">1738</span>   <span class="number">0.2092812</span></span><br><span class="line"><span class="comment">#展示随机森林模型中每棵决策树的节点数</span></span><br><span class="line">&gt; hist(treesize(model))</span><br><span class="line">&gt; min(treesize(model))</span><br><span class="line">[<span class="number">1</span>] <span class="number">916</span></span><br><span class="line">&gt; max(treesize(model))</span><br><span class="line">[<span class="number">1</span>] <span class="number">1023</span></span><br><span class="line"><span class="comment">#展示数据集在二维情况下各类别的具体分布情况</span></span><br><span class="line">&gt; MDSplot(model, wine$quality, palette = rep(<span class="number">1</span>, <span class="number">3</span>), pch = as.numeric(wine$quality))</span><br></pre></td></tr></table></figure><br><img src="/2020/03/23/R-randomforest/p3.png" alt><img src="/2020/03/23/R-randomforest/p4.png" alt><br>由结果我们可以得到以下信息：<br>-模型基于OOB数据的总体误判率为24.79%；<br>-模型中决策树的节点数最少为916，最多的有1023个；<br>-右上图显示了数据集中的三个类别，三个类别均出现交叉，并且在部分区域，交叉情况较为严重，这同时也解释了模型预测精度较低的原因。</p>
-<ul>
-<li>本笔记基于黄文和王正林编著的《数据挖掘：R语言实战》整理</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/weixin.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">vlog</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数据分析与挖掘</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">R语言</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">生活记录</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/23/R-randomforest/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/03/24/R-support-vector-machine/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          R语言数据挖掘——支持向量机
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/03/22/R-ensemble-learning/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">R语言数据挖掘——集成学习</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-       <div id="gitalk-container"></div>
-       <div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
-
-<script>
-var gitalk = new Gitalk({
-  clientID: '32f8aebec08d23898444',
-  clientSecret: '9e49adc1f1d65e2e665e39cc84c6bbec32227d67',
-  repo: 'guomin-h-a.github.io',
-  owner: 'guomin-h-a',
-  admin: ['guomin-h-a'],
-  id: md5(window.location.pathname),
-  distractionFreeMode: true
-})
-
-gitalk.render('gitalk-container')
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -438,9 +237,9 @@ gitalk.render('gitalk-container')
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
